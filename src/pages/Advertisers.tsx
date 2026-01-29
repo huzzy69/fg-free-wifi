@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Target, Users, Layout, TrendingUp, Eye, MapPin, CheckCircle, Mail, Phone, Building, Zap, Shield, ArrowRight, BarChart3, Wifi } from 'lucide-react';
+import { Target, Users, Layout, TrendingUp, Eye, MapPin, CheckCircle, Mail, Phone, Building, Zap, Shield, ArrowRight, BarChart3 } from 'lucide-react';
 import shoppingImg from '../assets/shopping_venues.png';
 import foodImg from '../assets/food_beverages.png';
 import educationImg from '../assets/education_sector.png';
