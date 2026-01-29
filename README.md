@@ -1,73 +1,37 @@
-# React + TypeScript + Vite
+# Ads on WiFi by Fakhir Groups
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Ads on WiFi is a premium hyper-local advertising platform that connects businesses with their audience through high-speed public WiFi networks. We provide 100% guaranteed, non-skippable impressions by integrating advertising directly into the WiFi connection process.
 
-Currently, two official plugins are available:
+## Key Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **100% Guaranteed Views**: Users must watch your ad to access the WiFi.
+- **Hyper-Local Targeting**: Reach users in specific venues, neighborhoods, or cities.
+- **Zero Cost for Owners**: Professional installation and maintenance at no cost to venue owners.
+- **Enterprise Hardware**: Powered by high-speed, secure infrastructure managed by Fakhir Groups.
+- **Real-time Analytics**: Comprehensive dashboard for advertisers to track brand recall and ROI.
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Frontend**: React + TypeScript + Vite
+- **Styling**: Vanilla CSS with modern premium design principles
+- **Icons**: Lucide React
+- **Integration**: EmailJS for contact and advertiser inquiries
+- **Deployment**: Vercel
 
-## Expanding the ESLint configuration
+## Project Structure
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- `src/pages`: Individual page components (Home, Advertisers, Locations, etc.)
+- `src/components`: Reusable UI components (Navbar, Footer, Interactive Map)
+- `src/context`: React Context for site-wide configuration
+- `src/api.ts`: Mock and production API interfaces for location and inquiry management
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## How it Works
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+1. **Connection**: User selects "FG-Free-Wifi" at a partner venue.
+2. **Engagement**: A non-skippable 5-second advertisement (video or image) is presented.
+3. **Access**: Upon completion, the user is granted high-speed internet access.
+4. **Insight**: Advertisers receive real-time data on impressions and engagement.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
+© 2026 Ads on WiFi | A Project of Fakhir Groups.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
