@@ -1,0 +1,115 @@
+.venue-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2.5rem;
+    background: white;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.2s;
+    color: var(--color-primary);
+}
+
+.venue-item:hover {
+    transform: scale(1.05);
+    box-shadow: var(--shadow-md);
+}
+
+.venue-item h3 {
+    color: var(--color-secondary);
+    font-size: 1.15rem;
+    margin-top: 1rem;
+}
+
+.benefit-item {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.benefit-item svg {
+    flex-shrink: 0;
+    margin-top: 0.25rem;
+}
+
+.benefit-item h4 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+}
+
+.benefit-item p {
+    color: var(--color-text-light);
+}
+
+.location-info-img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    border-radius: var(--radius-lg);
+    padding: 3rem;
+    color: white;
+}
+
+.info-card {
+    text-align: center;
+}
+
+.info-card h3 {
+    font-size: 1.75rem;
+    margin-bottom: 1.5rem;
+}
+
+.info-card p {
+    font-size: 1.25rem;
+    font-style: italic;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    opacity: 0.9;
+}
+
+.info-card cite {
+    font-weight: 600;
+    font-style: normal;
+    display: block;
+}
+
+@media (max-width: 900px) {
+    .location-info-img {
+        margin-top: 3rem;
+    }
+}
+
+.btn-group {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    /* Ensure buttons are centered if they don't fill width */
+}
+
+.btn-group .btn {
+    flex: 1;
+    text-align: center;
+    white-space: nowrap;
+    min-width: 200px;
+    /* Prevent becoming too small */
+}
+
+@media (max-width: 480px) {
+    .btn-group .btn {
+        white-space: normal;
+        min-width: 100%;
+    }
+}
+
+.cta-section {
+    margin-top: 3rem;
+}
+
+.cta-section p {
+    font-size: 1.125rem;
+    color: var(--color-text-light);
+    margin-bottom: 1.5rem;
+}

@@ -1,0 +1,46 @@
+.about-text p {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: var(--color-text-light);
+}
+
+.stat-card {
+    background: white;
+    padding: 2rem;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    text-align: center;
+}
+
+.stat-card h3 {
+    font-size: 2.5rem;
+    color: var(--color-primary);
+    margin-bottom: 0.5rem;
+}
+
+.stat-card p {
+    font-weight: 600;
+    color: var(--color-secondary);
+}
+
+.trust-card {
+    background: white;
+    padding: 2.5rem;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+}
+
+.trust-card h3 {
+    margin-bottom: 1rem;
+}
+
+.trust-card p {
+    color: var(--color-text-light);
+    line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+    .about-stats {
+        margin-top: 3rem;
+    }
+}
