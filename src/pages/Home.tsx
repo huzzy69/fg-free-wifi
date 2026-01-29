@@ -19,49 +19,38 @@ const Home: React.FC = () => {
                 <div className="container hero-container">
                     <div className="hero-content">
                         <h1 className="hero-title">
-                            {config.heroTitlePart1}<br />
-                            <span className="text-primary">{config.heroTitleHighlight1}</span> {config.heroTitlePart2}<br />
-                            <span className="text-primary">{config.heroTitleHighlight2}</span> {config.heroTitlePart3}
+                            FREE Wi-Fi for<br />Users.<br />
+                            <span className="text-primary">Revenue</span> for<br />Businesses.<br />
+                            <span className="text-primary">Visibility</span> for<br />Advertisers.
                         </h1>
-                        <p className="hero-subtitle">
-                            {config.heroSubtitle}
-                        </p>
+
                         <div className="hero-buttons">
-                            <Link to="/locations" className="btn btn-primary btn-lg">
-                                <Wifi size={20} /> Get Wi-Fi
+                            <Link to="/locations" className="btn btn-primary btn-hero">
+                                <Wifi size={22} strokeWidth={2.5} /> Get Wi-Fi
                             </Link>
-                            <Link to="/advertisers" className="btn btn-outline btn-lg">
-                                <BarChart3 size={20} /> Advertise With Us
+                            <Link to="/advertisers" className="btn btn-outline btn-hero">
+                                <BarChart3 size={22} strokeWidth={2.5} /> Advertise With Us
                             </Link>
                         </div>
 
                         {/* Quick Stats */}
                         <div className="hero-quick-stats">
                             <div className="quick-stat">
-                                <Users size={24} className="text-primary" />
-                                <div>
-                                    <h4>{config.heroStat1Value}</h4>
-                                    <p>{config.heroStat1Label}</p>
-                                </div>
+                                <Wifi size={20} className="text-primary" strokeWidth={3} />
+                                <span>{config.heroStat1Value}</span>
                             </div>
                             <div className="quick-stat">
-                                <MapPin size={24} className="text-primary" />
-                                <div>
-                                    <h4>{config.heroStat2Value}</h4>
-                                    <p>{config.heroStat2Label}</p>
-                                </div>
+                                <MapPin size={20} className="text-primary" strokeWidth={3} />
+                                <span>{config.heroStat2Value}</span>
                             </div>
                             <div className="quick-stat">
-                                <TrendingUp size={24} className="text-primary" />
-                                <div>
-                                    <h4>{config.heroStat3Value}</h4>
-                                    <p>{config.heroStat3Label}</p>
-                                </div>
+                                <TrendingUp size={20} className="text-primary" strokeWidth={3} />
+                                <span>{config.heroStat3Value}</span>
                             </div>
                         </div>
                     </div>
                     <div className="hero-image-placeholder">
-                        <img src={HeroIllustration} alt="Smart Wi-Fi Network" className="hero-illustration" />
+                        <img src={HeroIllustration} alt="Free WiFi Network" className="hero-illustration" />
                     </div>
                 </div>
             </section>
