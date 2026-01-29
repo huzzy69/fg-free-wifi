@@ -35,9 +35,9 @@ interface SiteConfigContextType {
 
 const defaultConfig: SiteConfig = {
     companyName: 'Fakhir Group',
-    logoUrl: '/src/assets/logo.png',
+    logoUrl: '/logo.png',
     contactEmail: 'fakhirgroupss.smtp@gmail.com',
-    contactPhone: '+1 234 567 8900',
+    contactPhone: '+92 311 1133221',
     heroTitlePart1: 'FREE Wi-Fi for Users.',
     heroTitleHighlight1: 'Revenue',
     heroTitlePart2: 'for Businesses.',
@@ -50,7 +50,7 @@ const defaultConfig: SiteConfig = {
     heroStat2Label: 'Active Locations',
     heroStat3Value: '100%',
     heroStat3Label: 'View Rate',
-    contactAddress: '123 Business Park, City, Country',
+    contactAddress: 'Suite 204, Business Center, Shahra-e-Faisal, Karachi',
     services: [
         { id: '1', icon: 'MapPin', title: 'Pin-Point Advertising', description: 'Your ads on exact location' },
         { id: '2', icon: 'Wifi', title: 'Free Wifi', description: 'Free Internet services for all' },

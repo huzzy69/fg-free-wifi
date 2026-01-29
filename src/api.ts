@@ -90,16 +90,30 @@ const initialLocations: WifiLocation[] = [
 
 // Site Configuration
 const initialConfig = {
-    companyName: 'Ads on Wifi',
+    companyName: 'Fakhir Group',
     logoUrl: '/logo.png',
     contactEmail: 'fakhirgroupss.smtp@gmail.com',
     contactPhone: '+92 311 1133221',
     contactAddress: 'Suite 204, Business Center, Shahra-e-Faisal, Karachi',
-    heroTitlePart1: 'Boost Your Brand with',
-    heroTitleHighlight1: 'Wifi Advertising',
-    heroTitlePart2: 'Reach Thousands of',
-    heroTitleHighlight2: 'Active Users',
-    heroSubtitle: 'Transform local wifi networks into powerful advertising channels. Engage customers exactly where they are with high-impact, location-based digital ads.'
+    heroTitlePart1: 'FREE Wi-Fi for Users.',
+    heroTitleHighlight1: 'Revenue',
+    heroTitlePart2: 'for Businesses.',
+    heroTitleHighlight2: 'Visibility',
+    heroTitlePart3: 'for Advertisers.',
+    heroSubtitle: '',
+    heroStat1Value: '50K+',
+    heroStat1Label: 'Daily Impressions',
+    heroStat2Value: '200+',
+    heroStat2Label: 'Active Locations',
+    heroStat3Value: '100%',
+    heroStat3Label: 'View Rate',
+    services: [
+        { id: '1', icon: 'MapPin', title: 'Pin-Point Advertising', description: 'Your ads on exact location' },
+        { id: '2', icon: 'Wifi', title: 'Free Wifi', description: 'Free Internet services for all' },
+        { id: '3', icon: 'BarChart3', title: 'Real-Time Survey', description: '100% Organic survey results' },
+        { id: '4', icon: 'Users', title: 'Guest Wifi Management', description: 'Internet for your guests' },
+        { id: '5', icon: 'TrendingUp', title: 'On-Demand Internet', description: 'Internet for your events' }
+    ]
 };
 
 export const api = {
@@ -112,7 +126,15 @@ export const api = {
                 localStorage.setItem('siteConfig', JSON.stringify(initialConfig));
                 return initialConfig;
             }
-            return JSON.parse(data);
+
+            const parsed = JSON.parse(data);
+            // Validation: if critical fields are missing (due to code updates), reset to initial
+            if (!parsed.services || !parsed.heroStat1Value) {
+                localStorage.setItem('siteConfig', JSON.stringify(initialConfig));
+                return initialConfig;
+            }
+
+            return parsed;
         },
         async update(config: any) {
             await sleep(SLEEP_TIME);
