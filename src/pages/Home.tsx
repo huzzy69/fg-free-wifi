@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Wifi, ArrowRight, Eye, CheckCircle, BarChart3, Users, MapPin, TrendingUp, Star } from 'lucide-react';
 import { useSiteConfig } from '../context/SiteConfigContext';
 import HeroIllustration from '../assets/hero-illustration.png';
+import StatCounter from '../components/StatCounter';
 import './Home.css';
 
 const iconMap: any = {
@@ -19,17 +20,26 @@ const Home: React.FC = () => {
                 <div className="container hero-container">
                     <div className="hero-content">
                         <h1 className="hero-title">
-                            FREE Wi-Fi for<br />Users.<br />
-                            <span className="text-primary">Revenue</span> for<br />Businesses.<br />
-                            <span className="text-primary">Visibility</span> for<br />Advertisers.
+                            <div className="hero-spacer">
+                                <span className="text-primary">Free Wifi for</span> Customers
+                            </div>
+                            <div className="hero-spacer">
+                                <span className="text-primary">Growth for</span> Business
+                            </div>
+                            <div className="hero-spacer">
+                                <span className="text-primary">Revenue for</span> Advertisers
+                            </div>
+                            <div>
+                                <span className="text-primary">Shared Success for</span> All
+                            </div>
                         </h1>
 
                         <div className="hero-buttons">
-                            <Link to="/locations" className="btn btn-primary btn-hero">
-                                <Wifi size={22} strokeWidth={2.5} /> Get Wi-Fi
-                            </Link>
-                            <Link to="/advertisers" className="btn btn-outline btn-hero">
+                            <Link to="/advertisers" className="btn btn-primary btn-hero">
                                 <BarChart3 size={22} strokeWidth={2.5} /> Advertise With Us
+                            </Link>
+                            <Link to="/locations" className="btn btn-outline btn-hero">
+                                <Wifi size={22} strokeWidth={2.5} /> Get Wi-Fi
                             </Link>
                         </div>
 
@@ -37,15 +47,15 @@ const Home: React.FC = () => {
                         <div className="hero-quick-stats">
                             <div className="quick-stat">
                                 <Wifi size={20} className="text-primary" strokeWidth={3} />
-                                <span>{config.heroStat1Value}</span>
+                                <span><StatCounter end={config.heroStat1Value} /></span>
                             </div>
                             <div className="quick-stat">
                                 <MapPin size={20} className="text-primary" strokeWidth={3} />
-                                <span>{config.heroStat2Value}</span>
+                                <span><StatCounter end={config.heroStat2Value} /></span>
                             </div>
                             <div className="quick-stat">
                                 <TrendingUp size={20} className="text-primary" strokeWidth={3} />
-                                <span>{config.heroStat3Value}</span>
+                                <span><StatCounter end={config.heroStat3Value} /></span>
                             </div>
                         </div>
                     </div>
@@ -137,19 +147,19 @@ const Home: React.FC = () => {
 
                     <div className="stats-grid grid-cols-4">
                         <div className="stat-box">
-                            <h3>1M+</h3>
+                            <h3><StatCounter end="1M+" /></h3>
                             <p>Monthly Ad Views</p>
                         </div>
                         <div className="stat-box">
-                            <h3>200+</h3>
+                            <h3><StatCounter end="200+" /></h3>
                             <p>Active Locations</p>
                         </div>
                         <div className="stat-box">
-                            <h3>50K+</h3>
+                            <h3><StatCounter end="50K+" /></h3>
                             <p>Daily Users</p>
                         </div>
                         <div className="stat-box">
-                            <h3>100%</h3>
+                            <h3><StatCounter end="100%" /></h3>
                             <p>Completion Rate</p>
                         </div>
                     </div>

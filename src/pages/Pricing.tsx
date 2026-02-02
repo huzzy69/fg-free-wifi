@@ -1,19 +1,9 @@
 import React from 'react';
 import './Pricing.css';
 import { CheckCircle } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
-
 const Pricing: React.FC = () => {
-    const navigate = useNavigate();
-
     const handleGetStarted = () => {
-        navigate('/advertisers#contact-form');
-        setTimeout(() => {
-            const element = document.getElementById('contact-form');
-            if (element) {
-                element.scrollIntoView({ behavior: 'smooth' });
-            }
-        }, 100);
+        window.open('https://wa.me/923345588889', '_blank');
     };
 
     return (
@@ -40,7 +30,7 @@ const Pricing: React.FC = () => {
                                 <li><CheckCircle size={18} /> Enhanced Analytics</li>
                                 <li><CheckCircle size={18} /> No Contract</li>
                             </ul>
-                            <button className="btn btn-outline w-full" onClick={handleGetStarted}>Get Started</button>
+                            <button className="btn btn-outline w-full" onClick={handleGetStarted}>Get this Plan</button>
                         </div>
 
                         {/* Video Ads */}
@@ -58,7 +48,7 @@ const Pricing: React.FC = () => {
                                 <li><CheckCircle size={18} /> Enhanced Analytics</li>
                                 <li><CheckCircle size={18} /> No Contract</li>
                             </ul>
-                            <button className="btn btn-primary w-full" onClick={handleGetStarted}>Get Started</button>
+                            <button className="btn btn-primary w-full" onClick={handleGetStarted}>Get this Plan</button>
                         </div>
 
                         {/* Surveys */}
@@ -74,7 +64,7 @@ const Pricing: React.FC = () => {
                                 <li><CheckCircle size={18} /> Periodic Campaigns</li>
                                 <li><CheckCircle size={18} /> No Contract</li>
                             </ul>
-                            <button className="btn btn-outline w-full" onClick={handleGetStarted}>Get Started</button>
+                            <button className="btn btn-outline w-full" onClick={handleGetStarted}>Get this Plan</button>
                         </div>
 
                         {/* Site Sponsorship */}
@@ -90,7 +80,7 @@ const Pricing: React.FC = () => {
                                 <li><CheckCircle size={18} /> Guaranteed View</li>
                                 <li><CheckCircle size={18} /> Exclusive Branding</li>
                             </ul>
-                            <button className="btn btn-outline w-full" onClick={handleGetStarted}>Contact Sales</button>
+                            <button className="btn btn-outline w-full" onClick={handleGetStarted}>Get this Plan</button>
                         </div>
                     </div>
                 </div>

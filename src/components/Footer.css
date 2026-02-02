@@ -171,3 +171,17 @@
         text-align: center;
     }
 }
+
+@media (max-width: 600px) {
+    .footer {
+        padding-top: 2rem;
+    }
+
+    .partner-img {
+        height: 30px;
+    }
+
+    .secured-by-text {
+        font-size: 0.7rem;
+    }
+}

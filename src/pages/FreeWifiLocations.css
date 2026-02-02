@@ -88,15 +88,44 @@
 
     .view-map-btn {
         width: 100%;
+        min-width: 0;
+        padding: 0 1rem;
     }
 
     .wifi-table {
-        font-size: 0.85rem;
+        font-size: 0.8rem;
     }
 
     .wifi-table th,
     .wifi-table td {
         padding: 0.75rem 0.5rem;
+    }
+
+    .wifi-table th:nth-child(2),
+    .wifi-table td:nth-child(2) {
+        display: none;
+        /* Hide address on tablet */
+    }
+}
+
+@media (max-width: 600px) {
+    .free-wifi-page {
+        padding: 2rem 0;
+    }
+
+    .page-title {
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .wifi-table {
+        min-width: 400px;
+    }
+
+    .wifi-table th:nth-child(4),
+    .wifi-table td:nth-child(4) {
+        display: none;
+        /* Hide contact icon on small phones */
     }
 }
 

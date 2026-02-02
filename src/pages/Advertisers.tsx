@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Target, Users, Layout, TrendingUp, Eye, MapPin, CheckCircle, Mail, Phone, Building, Zap, Shield, ArrowRight, BarChart3 } from 'lucide-react';
 import shoppingImg from '../assets/shopping_venues.png';
 import foodImg from '../assets/food_beverages.png';
@@ -9,8 +9,10 @@ import cinemasImg from '../assets/cinemas.png';
 import './Advertisers.css';
 import { api } from '../api';
 import emailjs from '@emailjs/browser';
+import StatCounter from '../components/StatCounter';
 
 const Advertisers: React.FC = () => {
+    const navigate = useNavigate();
     const [formData, setFormData] = useState({
         companyName: '',
         contactName: '',
@@ -85,30 +87,38 @@ const Advertisers: React.FC = () => {
                         <div className="hero-text-content">
                             <h1>Advertise with Ads on WiFi</h1>
                             <p className="hero-subtitle">Reach your local audience with 100% guaranteed, non-skippable impressions. Transform every WiFi connection into a powerful marketing opportunity.</p>
-                            <button className="btn btn-primary btn-lg" onClick={() => document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth' })}>
-                                Get Started Today <ArrowRight size={20} />
-                            </button>
+                            <div className="hero-cta-buttons">
+                                <button className="btn btn-primary btn-lg" onClick={() => document.getElementById('why-choose-us')?.scrollIntoView({ behavior: 'smooth' })}>
+                                    Why Choose Us <Users size={20} />
+                                </button>
+                                <button className="btn btn-primary btn-lg" onClick={() => document.getElementById('roi-calculator')?.scrollIntoView({ behavior: 'smooth' })}>
+                                    Calculate Your Reach <ArrowRight size={20} />
+                                </button>
+                                <button className="btn btn-primary btn-lg" onClick={() => navigate('/pricing')}>
+                                    Pricing <TrendingUp size={20} />
+                                </button>
+                            </div>
                         </div>
                     </div>
                     <div className="hero-stats">
                         <div className="stat-item">
                             <Eye size={32} className="stat-icon" />
-                            <h3>50K+</h3>
+                            <h3><StatCounter end="50K+" /></h3>
                             <p>Daily Impressions</p>
                         </div>
                         <div className="stat-item">
                             <TrendingUp size={32} className="stat-icon" />
-                            <h3>100%</h3>
+                            <h3><StatCounter end="100%" /></h3>
                             <p>View Rate</p>
                         </div>
                         <div className="stat-item">
                             <MapPin size={32} className="stat-icon" />
-                            <h3>200+</h3>
+                            <h3><StatCounter end="200+" /></h3>
                             <p>Active Locations</p>
                         </div>
                         <div className="stat-item">
                             <Shield size={32} className="stat-icon" />
-                            <h3>100%</h3>
+                            <h3><StatCounter end="100%" /></h3>
                             <p>Client Trust</p>
                         </div>
                     </div>
@@ -116,7 +126,7 @@ const Advertisers: React.FC = () => {
             </section>
 
             {/* ROI Calculator Section */}
-            <section className="section">
+            <section className="section" id="roi-calculator">
                 <div className="container">
                     <div className="section-header text-center">
                         <h2>Calculate Your Reach</h2>
@@ -235,7 +245,7 @@ const Advertisers: React.FC = () => {
                 </div>
             </section>
 
-            <section className="section">
+            <section className="section" id="why-choose-us">
                 <div className="container">
                     <div className="section-header text-center">
                         <h2>Why Advertise on Our Network?</h2>
@@ -513,22 +523,22 @@ const Advertisers: React.FC = () => {
                     <div className="grid-cols-4">
                         <div className="stat-card">
                             <TrendingUp size={32} className="mb-3" />
-                            <h3>85%</h3>
+                            <h3><StatCounter end="85%" /></h3>
                             <p>Average Recall Rate</p>
                         </div>
                         <div className="stat-card">
                             <Eye size={32} className="mb-3" />
-                            <h3>100%</h3>
+                            <h3><StatCounter end="100%" /></h3>
                             <p>Completion Rate</p>
                         </div>
                         <div className="stat-card">
                             <MapPin size={32} className="mb-3" />
-                            <h3>200+</h3>
+                            <h3><StatCounter end="200+" /></h3>
                             <p>Active Locations</p>
                         </div>
                         <div className="stat-card">
                             <Users size={32} className="mb-3" />
-                            <h3>50K+</h3>
+                            <h3><StatCounter end="50K+" /></h3>
                             <p>Daily Reach</p>
                         </div>
                     </div>

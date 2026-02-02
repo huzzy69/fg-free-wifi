@@ -108,3 +108,13 @@
         height: 350px;
     }
 }
+
+@media (max-width: 600px) {
+    .location-detail-page {
+        padding: 2rem 0;
+    }
+
+    .detail-map {
+        height: 300px;
+    }
+}

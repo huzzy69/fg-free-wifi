@@ -1,5 +1,5 @@
 .hero-section {
-    padding: 6rem 0 4rem;
+    padding: 1rem 0 4rem;
     background: radial-gradient(circle at top right, #f0f7ff 0%, #ffffff 70%);
     position: relative;
     overflow: hidden;
@@ -21,12 +21,17 @@
 }
 
 .hero-title {
-    font-size: 4.8rem;
-    line-height: 0.95;
+    font-size: 50px;
+    line-height: 1.1;
     font-weight: 800;
     color: var(--color-secondary);
     margin-bottom: 2.5rem;
     letter-spacing: -2px;
+}
+
+.hero-spacer {
+    margin-bottom: 25px;
+    /* This is roughly 50% of your 50px font size */
 }
 
 .text-primary {
@@ -474,6 +479,10 @@
 }
 
 @media (max-width: 900px) {
+    .container {
+        padding: 0 1.5rem;
+    }
+
     .hero-container {
         flex-direction: column;
         text-align: center;
@@ -481,56 +490,129 @@
     }
 
     .hero-section {
-        padding: 6rem 0 4rem;
+        padding: 2rem 0 4rem;
+        min-height: auto;
+    }
+
+    .hero-content {
+        width: 100%;
     }
 
     .hero-buttons {
         justify-content: center;
+        flex-wrap: wrap;
     }
 
     .hero-quick-stats {
         justify-content: center;
         flex-wrap: wrap;
-        gap: 2rem;
+        gap: 1.5rem;
     }
 
     .hero-title {
         font-size: 2.5rem;
+        letter-spacing: -1px;
     }
 
     .grid-cols-4 {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: repeat(2, 1fr);
     }
 
     .grid-cols-3 {
         grid-template-columns: 1fr;
     }
+
+    .services-grid {
+        gap: 1.5rem;
+    }
+
+    .service-card {
+        max-width: 100%;
+        flex: 1 1 100%;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
 }
 
 @media (max-width: 600px) {
-    .grid-cols-4 {
+
+    .grid-cols-4,
+    .grid-cols-2 {
         grid-template-columns: 1fr;
     }
 
     .hero-section {
-        padding: 5rem 0 3rem;
+        padding: 1rem 0 3rem;
     }
 
     .hero-title {
-        font-size: 2rem;
+        font-size: 1.85rem;
+        line-height: 1.2;
+        margin-bottom: 2rem;
+    }
+
+    .hero-spacer {
+        margin-bottom: 15px;
     }
 
     .hero-subtitle {
-        font-size: 1.1rem;
+        font-size: 1.05rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        gap: 1rem;
+        width: 100%;
+    }
+
+    .btn-hero {
+        width: 100%;
+        padding: 1rem;
     }
 
     .hero-quick-stats {
-        flex-direction: column;
-        align-items: center;
-        gap: 1.5rem;
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: nowrap;
+        gap: 1.25rem;
+    }
+
+    .quick-stat span {
+        font-size: 1.1rem;
+    }
+
+    .quick-stat {
+        gap: 0.4rem;
     }
 
     .stats-grid {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+
+    .stat-box h3 {
+        font-size: 2rem;
+    }
+
+    .stat-box p {
+        font-size: 0.9rem;
+    }
+
+    .section {
+        padding: 3rem 0;
+    }
+
+    .testimonial-card {
+        padding: 1.5rem;
+    }
+
+    .cta-box {
+        padding: 1.5rem;
+    }
+
+    .cta-box h3 {
+        font-size: 1.5rem;
     }
 }

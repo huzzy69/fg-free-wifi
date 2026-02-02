@@ -116,7 +116,7 @@ const Contact: React.FC = () => {
                                     className={`tab-btn ${activeTab === 'location' ? 'active' : ''}`}
                                     onClick={() => setActiveTab('location')}
                                 >
-                                    For Location Owners
+                                    Request Free Internet
                                 </button>
                             </div>
 
@@ -149,7 +149,7 @@ const Contact: React.FC = () => {
                                         <textarea name="message" value={formData.message} onChange={handleChange} rows={4} placeholder="Tell us more about your needs..."></textarea>
                                     </div>
                                     <button type="submit" className="btn btn-primary btn-full" disabled={isSubmitting}>
-                                        {isSubmitting ? 'Submitting...' : (activeTab === 'advertiser' ? 'Become an Advertiser' : 'Get Wi-Fi')}
+                                        {isSubmitting ? 'Submitting...' : (activeTab === 'advertiser' ? 'Become an Advertiser' : 'Request Free Internet')}
                                         {!isSubmitting && <Send size={18} />}
                                     </button>
                                 </form>

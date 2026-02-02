@@ -43,4 +43,22 @@
     .about-stats {
         margin-top: 3rem;
     }
+
+    .about-text p {
+        font-size: 1.05rem;
+    }
+
+    .stat-card h3 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .trust-card {
+        padding: 1.5rem;
+    }
+
+    .about-header h1 {
+        font-size: 2rem;
+    }
 }

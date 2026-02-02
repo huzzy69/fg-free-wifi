@@ -46,14 +46,42 @@
     margin-right: auto;
 }
 
-.hero-text-content .btn {
-    margin-top: 1rem;
-    box-shadow: 0 4px 14px rgba(98, 202, 244, 0.4);
+.hero-cta-buttons {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 2rem;
 }
 
-.hero-text-content .btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(98, 202, 244, 0.5);
+.hero-cta-buttons .btn-primary {
+    background-color: var(--color-primary);
+    color: white;
+    border-radius: 12px;
+    padding: 1rem 2.5rem;
+    font-size: 1.15rem;
+    font-weight: 700;
+    box-shadow: 0 8px 25px rgba(98, 202, 244, 0.4);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: none;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.hero-cta-buttons .btn-primary:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 12px 30px rgba(98, 202, 244, 0.6);
+    background-color: #74d2f7;
+    /* Slightly lighter on hover */
+}
+
+.hero-cta-buttons .btn-primary svg {
+    transition: transform 0.3s ease;
+}
+
+.hero-cta-buttons .btn-primary:hover svg {
+    transform: translateX(4px);
 }
 
 .hero-stats {
@@ -397,6 +425,10 @@
 }
 
 /* ROI Calculator */
+#roi-calculator {
+    scroll-margin-top: 100px;
+}
+
 .roi-calculator {
     background: white;
     border-radius: var(--radius-lg);
@@ -1053,11 +1085,43 @@
 
 
 @media (max-width: 600px) {
+    .container {
+        padding: 0 1.25rem;
+    }
+
+    .hero-subpage {
+        padding: 3rem 0;
+    }
+
+    .hero-text-content h1 {
+        font-size: 1.85rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .hero-cta-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .hero-cta-buttons .btn-primary {
+        width: 100%;
+        justify-content: center;
+        padding: 0.875rem 1.5rem;
+    }
+
+    .stat-item h3 {
+        font-size: 2.25rem;
+    }
 
     .grid-cols-4,
     .grid-cols-3,
     .hero-stats {
         grid-template-columns: 1fr;
+        gap: 1rem;
     }
 
     .pricing-grid {
@@ -1066,9 +1130,40 @@
 
     .demographics-grid {
         grid-template-columns: 1fr;
+        gap: 1.5rem;
     }
 
     .browser-content {
-        padding: 24px 12px;
+        padding: 1.5rem 1rem;
+    }
+
+    .dash-stats {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .contact-form-container {
+        padding: 1.5rem;
+    }
+
+    .calculator-results {
+        padding: 1.5rem;
+    }
+
+    .venue-item {
+        padding: 1.5rem 1rem;
+    }
+
+    .btn-group {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .btn-group .btn {
+        width: 100%;
+    }
+
+    .info-card {
+        padding: 1.5rem;
     }
 }

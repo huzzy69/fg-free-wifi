@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { BarChart3, Users, MapPin, Settings, LogOut, Menu, X, Bell, Save, Trash2, Check, RefreshCw, Filter } from 'lucide-react';
+import { BarChart3, Users, MapPin, Settings, LogOut, Menu, X, Bell, Save, Trash2, Check, RefreshCw, Filter, ExternalLink } from 'lucide-react';
 import { useSiteConfig } from '../../context/SiteConfigContext';
 import { api, type Inquiry } from '../../api';
 import './AdminDashboard.css';
@@ -384,11 +384,12 @@ const AdminDashboard: React.FC = () => {
 
     const handleLogout = () => {
         localStorage.removeItem('isAdminAuthenticated');
-        navigate('/admin');
+        navigate('/');
     };
 
     return (
         <div className="admin-layout">
+            {sidebarOpen && <div className="sidebar-overlay" onClick={() => setSidebarOpen(false)}></div>}
             <aside className={`admin-sidebar ${sidebarOpen ? 'open' : ''} `}>
                 <div className="sidebar-header">
                     <h3>Admin Panel</h3>
@@ -424,14 +425,22 @@ const AdminDashboard: React.FC = () => {
 
             <main className="admin-main">
                 <header className="admin-header">
-                    <button className="menu-btn mobile-only" onClick={() => setSidebarOpen(true)}>
-                        <Menu size={24} />
-                    </button>
-                    <h2>Dashboard / {activeSection.charAt(0).toUpperCase() + activeSection.slice(1)}</h2>
-                    <button className="notif-btn" onClick={() => setActiveSection('inquiries')}>
-                        <Bell size={20} />
-                        {stats.newInquiries > 0 && <span className="badge">{stats.newInquiries}</span>}
-                    </button>
+                    <div className="header-left">
+                        <button className="menu-btn mobile-only" onClick={() => setSidebarOpen(true)}>
+                            <Menu size={24} />
+                        </button>
+                        <h2>Dashboard / {activeSection.charAt(0).toUpperCase() + activeSection.slice(1)}</h2>
+                    </div>
+
+                    <div className="header-actions">
+                        <button className="view-site-btn" onClick={() => navigate('/')}>
+                            <ExternalLink size={18} /> <span className="desktop-only">View Site</span>
+                        </button>
+                        <button className="notif-btn" onClick={() => setActiveSection('inquiries')}>
+                            <Bell size={20} />
+                            {stats.newInquiries > 0 && <span className="badge">{stats.newInquiries}</span>}
+                        </button>
+                    </div>
                 </header>
 
                 <div className="admin-content">

@@ -97,6 +97,39 @@
     font-weight: 600;
 }
 
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.view-site-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1.2rem;
+    border: 1px solid #e5e7eb;
+    background: white;
+    color: var(--color-text);
+    border-radius: var(--radius-md);
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.view-site-btn:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+    background-color: #f0f7ff;
+}
+
 .notif-btn {
     position: relative;
     background: none;
@@ -223,6 +256,85 @@
 
     .mobile-only {
         display: block;
+    }
+}
+
+@media (max-width: 600px) {
+    .admin-content {
+        padding: 1rem;
+    }
+
+    .admin-header h2 {
+        font-size: 1rem;
+    }
+
+    .header-actions {
+        gap: 0.5rem;
+    }
+
+    .view-site-btn {
+        padding: 0.5rem;
+    }
+
+    .desktop-only {
+        display: none;
+    }
+
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .dash-card {
+        padding: 1.25rem;
+    }
+
+    .large-stat {
+        font-size: 1.75rem;
+    }
+
+    .inquiry-table-wrapper {
+        margin: 0 -1rem;
+        padding: 0 1rem;
+        -webkit-overflow-scrolling: touch;
+        overflow-x: auto;
+    }
+
+    .inquiries-container {
+        padding: 1.25rem;
+    }
+
+    .filter-bar {
+        overflow-x: auto;
+        max-width: 100%;
+        padding-bottom: 0.75rem;
+        gap: 0.25rem;
+        display: flex;
+    }
+
+    .filter-btn {
+        white-space: nowrap;
+        padding: 0.4rem 0.75rem;
+    }
+
+    .settings-section {
+        padding: 1.5rem;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    /* Table optimization for small screens */
+    .inquiry-table th:nth-child(4),
+    .inquiry-table td:nth-child(4) {
+        display: none;
+        /* Hide contact on very small screens, keep it in scroll or move to sub-line */
+    }
+
+    .name-cell strong {
+        font-size: 0.85rem;
     }
 }
 
@@ -446,7 +558,7 @@ textarea.form-control {
 .inquiry-table {
     width: 100%;
     border-collapse: collapse;
-    min-width: 800px;
+    min-width: 700px;
 }
 
 .inquiry-table th {
