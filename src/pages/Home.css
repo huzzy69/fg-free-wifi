@@ -1,5 +1,5 @@
 .hero-section {
-    padding: 1rem 0 4rem;
+    padding: 2rem 0 5rem;
     background: radial-gradient(circle at top right, #f0f7ff 0%, #ffffff 70%);
     position: relative;
     overflow: hidden;
@@ -481,7 +481,7 @@
 
 @media (max-width: 900px) {
     .container {
-        padding: 0 1.5rem;
+        padding: 0 2rem;
     }
 
     .hero-container {
@@ -491,7 +491,7 @@
     }
 
     .hero-section {
-        padding: 2rem 0 4rem;
+        padding: 3rem 0;
         min-height: auto;
     }
 
@@ -545,7 +545,7 @@
     }
 
     .hero-section {
-        padding: 1rem 0 3rem;
+        padding: 2rem 0;
     }
 
     .hero-title {
@@ -602,7 +602,7 @@
     }
 
     .section {
-        padding: 3rem 0;
+        padding: 3.5rem 0;
     }
 
     .testimonial-card {

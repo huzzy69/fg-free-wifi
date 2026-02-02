@@ -1,5 +1,5 @@
 .free-wifi-page {
-    padding: 4rem 0;
+    /* Rely on global .section */
 }
 
 .page-title {
@@ -110,7 +110,7 @@
 
 @media (max-width: 600px) {
     .free-wifi-page {
-        padding: 2rem 0;
+        /* Rely on global .section responsive padding */
     }
 
     .page-title {

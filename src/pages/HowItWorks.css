@@ -1,5 +1,5 @@
 .hero-subpage {
-    padding: 6rem 0;
+    /* Rely on global .section */
     text-align: center;
 }
 
@@ -87,7 +87,7 @@
     }
 
     .hero-subpage {
-        padding: 4rem 0;
+        /* Rely on global .section responsive padding */
     }
 
     .hero-subpage h1 {

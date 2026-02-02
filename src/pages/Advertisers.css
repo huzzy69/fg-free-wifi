@@ -16,7 +16,7 @@
 }
 
 .hero-subpage {
-    padding: 5rem 0 4rem;
+    /* Rely on global .section */
     position: relative;
 }
 
