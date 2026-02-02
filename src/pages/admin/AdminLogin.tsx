@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Lock, User } from 'lucide-react';
+import { Lock as LockIcon, User as UserIcon, Eye, EyeOff } from 'lucide-react';
 import { useSiteConfig } from '../../context/SiteConfigContext';
 import './AdminLogin.css';
 
@@ -8,6 +8,7 @@ const AdminLogin: React.FC = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
+    const [showPassword, setShowPassword] = useState(false);
     const navigate = useNavigate();
     const { config } = useSiteConfig();
 
@@ -41,7 +42,7 @@ const AdminLogin: React.FC = () => {
                     <div className="form-group">
                         <label>Username</label>
                         <div className="input-wrapper">
-                            <User size={18} className="input-icon" />
+                            <UserIcon size={18} className="input-icon" />
                             <input
                                 type="text"
                                 value={username}
@@ -55,14 +56,22 @@ const AdminLogin: React.FC = () => {
                     <div className="form-group">
                         <label>Password</label>
                         <div className="input-wrapper">
-                            <Lock size={18} className="input-icon" />
+                            <LockIcon size={18} className="field-icon" />
                             <input
-                                type="password"
+                                type={showPassword ? "text" : "password"}
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
                                 placeholder="Enter your password"
                                 required
                             />
+                            <button
+                                type="button"
+                                className="password-toggle"
+                                onClick={() => setShowPassword(!showPassword)}
+                                title={showPassword ? "Hide Password" : "Show Password"}
+                            >
+                                {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
+                            </button>
                         </div>
                     </div>
 

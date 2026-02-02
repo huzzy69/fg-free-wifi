@@ -44,7 +44,6 @@ const Footer: React.FC = () => {
                     <ul className="footer-links">
                         <li><Link to="/locations">Wi-Fi Solutions for Businesses</Link></li>
                         <li><Link to="/advertisers">Advertise with Us</Link></li>
-
                     </ul>
                 </div>
 
@@ -57,8 +56,8 @@ const Footer: React.FC = () => {
                     </ul>
                 </div>
             </div>
+
             <div className="footer-multi-bottom">
-                {/* Logos Row */}
                 <div className="footer-logos-strip">
                     <div className="container">
                         <p className="secured-by-text">Secured By</p>
@@ -85,9 +84,6 @@ const Footer: React.FC = () => {
                     </div>
                 </div>
 
-
-
-                {/* Copyright Row */}
                 <div className="footer-copyright-strip">
                     <div className="container copyright-flex">
                         <p>&copy; Ads on Wifi</p>

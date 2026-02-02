@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { BarChart3, Users, MapPin, Settings, LogOut, Menu, X, Bell, Save, Trash2, Check, RefreshCw, Filter, ExternalLink } from 'lucide-react';
+import { BarChart3, Users, MapPin, Settings, LogOut, Menu, X, Bell, Save, Trash2, Check, RefreshCw, Filter, ExternalLink, User as UserIcon, Lock as LockIcon, Eye, EyeOff } from 'lucide-react';
 import { useSiteConfig } from '../../context/SiteConfigContext';
 import { api, type Inquiry } from '../../api';
 import './AdminDashboard.css';
@@ -265,6 +265,7 @@ const SettingsForm: React.FC = () => {
     const { config, updateConfig } = useSiteConfig();
     const [formData, setFormData] = useState(config);
     const [saved, setSaved] = useState(false);
+    const [showPassword, setShowPassword] = useState(false);
 
     useEffect(() => {
         setFormData(config);
@@ -288,11 +289,11 @@ const SettingsForm: React.FC = () => {
                 <div className="form-grid">
                     <div className="form-group">
                         <label>Company Name</label>
-                        <input type="text" name="companyName" value={formData.companyName} onChange={handleChange} />
+                        <input type="text" name="companyName" className="form-control" value={formData.companyName} onChange={handleChange} />
                     </div>
                     <div className="form-group">
                         <label>Logo URL</label>
-                        <input type="text" name="logoUrl" value={formData.logoUrl} onChange={handleChange} />
+                        <input type="text" name="logoUrl" className="form-control" value={formData.logoUrl} onChange={handleChange} />
                     </div>
                 </div>
             </div>
@@ -302,15 +303,15 @@ const SettingsForm: React.FC = () => {
                 <div className="form-grid">
                     <div className="form-group">
                         <label>Email Address</label>
-                        <input type="email" name="contactEmail" value={formData.contactEmail} onChange={handleChange} />
+                        <input type="email" name="contactEmail" className="form-control" value={formData.contactEmail} onChange={handleChange} />
                     </div>
                     <div className="form-group">
                         <label>Phone Number</label>
-                        <input type="text" name="contactPhone" value={formData.contactPhone} onChange={handleChange} />
+                        <input type="text" name="contactPhone" className="form-control" value={formData.contactPhone} onChange={handleChange} />
                     </div>
                     <div className="form-group full-width">
                         <label>Office Address</label>
-                        <input type="text" name="contactAddress" value={formData.contactAddress} onChange={handleChange} />
+                        <input type="text" name="contactAddress" className="form-control" value={formData.contactAddress} onChange={handleChange} />
                     </div>
                 </div>
             </div>
@@ -320,23 +321,23 @@ const SettingsForm: React.FC = () => {
                 <div className="form-grid">
                     <div className="form-group">
                         <label>Hero Title Part 1</label>
-                        <input type="text" name="heroTitlePart1" value={formData.heroTitlePart1} onChange={handleChange} />
+                        <input type="text" name="heroTitlePart1" className="form-control" value={formData.heroTitlePart1} onChange={handleChange} />
                     </div>
                     <div className="form-group">
                         <label>Hero Title Highlight 1</label>
-                        <input type="text" name="heroTitleHighlight1" value={formData.heroTitleHighlight1} onChange={handleChange} />
+                        <input type="text" name="heroTitleHighlight1" className="form-control" value={formData.heroTitleHighlight1} onChange={handleChange} />
                     </div>
                     <div className="form-group">
                         <label>Hero Title Part 2</label>
-                        <input type="text" name="heroTitlePart2" value={formData.heroTitlePart2} onChange={handleChange} />
+                        <input type="text" name="heroTitlePart2" className="form-control" value={formData.heroTitlePart2} onChange={handleChange} />
                     </div>
                     <div className="form-group">
                         <label>Hero Title Highlight 2</label>
-                        <input type="text" name="heroTitleHighlight2" value={formData.heroTitleHighlight2} onChange={handleChange} />
+                        <input type="text" name="heroTitleHighlight2" className="form-control" value={formData.heroTitleHighlight2} onChange={handleChange} />
                     </div>
                     <div className="form-group full-width">
                         <label>Hero Subtitle</label>
-                        <textarea name="heroSubtitle" value={formData.heroSubtitle} onChange={handleChange} rows={3}></textarea>
+                        <textarea name="heroSubtitle" className="form-control" value={formData.heroSubtitle} onChange={handleChange} rows={3}></textarea>
                     </div>
                 </div>
             </div>
@@ -347,23 +348,39 @@ const SettingsForm: React.FC = () => {
                 <div className="form-grid">
                     <div className="form-group">
                         <label>Admin Username</label>
-                        <input
-                            type="text"
-                            name="adminUsername"
-                            value={formData.adminUsername}
-                            onChange={handleChange}
-                            placeholder="admin"
-                        />
+                        <div className="input-with-icon">
+                            <UserIcon size={18} className="field-icon" />
+                            <input
+                                type="text"
+                                name="adminUsername"
+                                className="form-control icon-padding"
+                                value={formData.adminUsername}
+                                onChange={handleChange}
+                                placeholder="admin"
+                            />
+                        </div>
                     </div>
                     <div className="form-group">
                         <label>Admin Password</label>
-                        <input
-                            type="password"
-                            name="adminPassword"
-                            value={formData.adminPassword}
-                            onChange={handleChange}
-                            placeholder="admin123"
-                        />
+                        <div className="input-with-icon">
+                            <LockIcon size={18} className="field-icon" />
+                            <input
+                                type={showPassword ? "text" : "password"}
+                                name="adminPassword"
+                                className="form-control icon-padding"
+                                value={formData.adminPassword}
+                                onChange={handleChange}
+                                placeholder="admin123"
+                            />
+                            <button
+                                type="button"
+                                className="visibility-toggle"
+                                onClick={() => setShowPassword(!showPassword)}
+                                title={showPassword ? "Hide Password" : "Show Password"}
+                            >
+                                {showPassword ? <EyeOff size={16} /> : <Eye size={16} />}
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
