@@ -36,7 +36,11 @@
 }
 
 .text-primary {
-    color: var(--color-primary);
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    display: inline-block;
 }
 
 .hero-buttons {
@@ -49,21 +53,44 @@
     padding: 1.1rem 2.2rem;
     font-size: 1.15rem;
     border-radius: var(--radius-lg);
-    box-shadow: 0 4px 15px rgba(98, 202, 244, 0.2);
+    box-shadow: 0 10px 25px rgba(98, 202, 244, 0.25);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-hero:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 15px 35px rgba(98, 202, 244, 0.35);
+}
+
+.btn-primary.btn-hero {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    border: none;
 }
 
 .btn-outline.btn-hero {
     background: white;
-    box-shadow: none;
-    border: 1px solid var(--color-primary);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(98, 202, 244, 0.3);
+}
+
+.btn-outline.btn-hero:hover {
+    border-color: var(--color-primary);
 }
 
 /* Hero Quick Stats Strip */
 .hero-stats-strip {
-    background: white;
-    padding: 1.5rem 0;
-    margin: center;
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 2rem 0;
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    border-top: 1px solid rgba(255, 255, 255, 0.4);
+    position: relative;
+    z-index: 5;
+    margin-top: -1rem;
+    /* Slight overlap for better integration */
 }
 
 .hero-quick-stats {
@@ -107,16 +134,22 @@
 }
 
 .section-title {
-    font-size: 2.85rem;
+    font-size: 3rem;
     font-weight: 800;
-    margin-bottom: 1rem;
-    letter-spacing: -0.02em;
+    margin-bottom: 1.25rem;
+    letter-spacing: -2px;
+    color: var(--color-secondary);
 }
 
 .section-desc {
     font-size: 1.25rem;
     color: var(--color-text-light);
     line-height: 1.6;
+    max-width: 600px;
+}
+
+.text-center .section-desc {
+    margin: 0 auto;
 }
 
 .text-white .section-desc {
@@ -236,16 +269,18 @@
 
 .step-card {
     text-align: center;
-    padding: 2rem 1.5rem;
+    padding: 3rem 2rem;
     background: white;
     border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-sm);
-    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: var(--shadow-md);
+    transition: var(--transition-smooth);
+    border: 1px solid rgba(0, 0, 0, 0.03);
 }
 
 .step-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-md);
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-premium);
+    border-color: rgba(98, 202, 244, 0.2);
 }
 
 .step-icon-bg {
@@ -282,36 +317,32 @@
 
 .stat-box {
     text-align: center;
-    padding: 2rem 1rem;
+    padding: 3rem 1.5rem;
+    transition: var(--transition-smooth);
+    border-radius: var(--radius-lg);
 }
 
-.stat-box h3 {
-    font-size: 3rem;
-    font-weight: 700;
-    margin: 0 0 0.5rem 0;
-}
-
-.stat-box p {
-    margin: 0;
-    font-size: 1.1rem;
-    opacity: 0.9;
+.stat-box:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: scale(1.05);
 }
 
 /* Testimonials */
 .testimonial-card {
     background: white;
-    padding: 2.5rem;
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-sm);
-    transition: all 0.3s;
+    padding: 3rem;
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-md);
+    transition: var(--transition-smooth);
     height: 100%;
     display: flex;
     flex-direction: column;
+    border: 1px solid rgba(0, 0, 0, 0.03);
 }
 
 .testimonial-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-md);
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-premium);
 }
 
 .stars {
@@ -432,40 +463,42 @@
 
 .service-card {
     background: white;
-    padding: 2.5rem 2rem;
+    padding: 3rem 2.5rem;
     border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-sm);
-    text-align: center;
-    transition: all 0.3s;
+    box-shadow: var(--shadow-md);
+    text-align: left;
+    /* Switched to left for more professional look */
+    transition: var(--transition-smooth);
     flex: 1 1 300px;
-    /* Grow, shrink, base width */
-    max-width: 350px;
-    border: 1px solid rgba(0, 0, 0, 0.05);
+    max-width: 380px;
+    border: 1px solid rgba(0, 0, 0, 0.03);
+    display: flex;
+    flex-direction: column;
 }
 
 .service-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-md);
-    border-color: var(--color-primary);
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-premium);
+    border-color: rgba(98, 202, 244, 0.2);
 }
 
 .service-icon-wrapper {
-    width: 70px;
-    height: 70px;
-    background: linear-gradient(135deg, #e6f0ff 0%, #f0f7ff 100%);
+    width: 64px;
+    height: 64px;
+    background: rgba(98, 202, 244, 0.1);
     color: var(--color-primary);
-    border-radius: 50%;
+    border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0 auto 1.5rem;
-    transition: transform 0.3s;
+    margin-bottom: 2rem;
+    transition: var(--transition-smooth);
 }
 
 .service-card:hover .service-icon-wrapper {
-    transform: scale(1.1);
     background: var(--color-primary);
     color: white;
+    transform: scale(1.1) rotate(5deg);
 }
 
 .service-card h3 {
@@ -556,9 +589,9 @@
         text-align: left !important;
         align-items: center !important;
         gap: 1.25rem !important;
-        /* Increased gap */
         flex-wrap: nowrap !important;
-        padding: 1.5rem 1rem !important;
+        padding: 3.5rem 1rem !important;
+        /* Increased padding */
     }
 
     .hero-content {
@@ -604,16 +637,19 @@
     }
 
     .btn-hero {
-        padding: 0.4rem 0.3rem !important;
-        font-size: 0.6rem !important;
-        border-radius: 4px !important;
+        padding: 0.7rem 0.6rem !important;
+        /* Slightly larger targets */
+        font-size: 0.7rem !important;
+        border-radius: 8px !important;
         white-space: nowrap !important;
         width: 100% !important;
     }
 
     .hero-stats-strip {
-        padding: 0.75rem 0 !important;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        padding: 1.5rem 0 !important;
+        /* Balanced padding */
+        margin-top: 0 !important;
+        background: rgba(255, 255, 255, 0.8) !important;
     }
 
     .hero-quick-stats {

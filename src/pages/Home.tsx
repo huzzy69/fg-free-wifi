@@ -14,10 +14,31 @@ const iconMap: any = {
 const Home: React.FC = () => {
     const { config } = useSiteConfig();
 
+    React.useEffect(() => {
+        const observerOptions = {
+            threshold: 0.15,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        const elements = document.querySelectorAll('.reveal-up');
+        elements.forEach(el => observer.observe(el));
+
+        return () => observer.disconnect();
+    }, []);
+
     return (
         <div className="home-page">
             {/* Hero Section */}
-            <section className="hero-section">
+            <section className="hero-section reveal-up">
                 <div className="container hero-container">
                     <div className="hero-content">
                         <h1 className="hero-title">
@@ -51,7 +72,7 @@ const Home: React.FC = () => {
             </section>
 
             {/* Quick Stats Strip */}
-            <div className="hero-stats-strip">
+            <div className="hero-stats-strip reveal-up">
                 <div className="container">
                     <div className="hero-quick-stats">
                         <div className="quick-stat">
@@ -71,7 +92,7 @@ const Home: React.FC = () => {
             </div>
 
             {/* Our Services */}
-            <section className="section bg-light">
+            <section className="section bg-light reveal-up">
                 <div className="container">
                     <div className="section-header text-center">
                         <h2 className="section-title">Our Services</h2>
@@ -96,7 +117,7 @@ const Home: React.FC = () => {
             </section>
 
             {/* How It Works Preview */}
-            <section className="section">
+            <section className="section reveal-up">
                 <div className="container">
                     <div className="section-header text-center">
                         <h2 className="section-title">How It Works</h2>
@@ -137,7 +158,7 @@ const Home: React.FC = () => {
             </section>
 
             {/* Stats Section */}
-            <section className="section bg-primary text-white">
+            <section className="section bg-primary text-white reveal-up">
                 <div className="container">
                     <div className="section-header text-center">
                         <h2 className="section-title text-white">Our Impact in Numbers</h2>
@@ -166,7 +187,7 @@ const Home: React.FC = () => {
             </section>
 
             {/* Testimonials */}
-            <section className="section bg-light">
+            <section className="section bg-light reveal-up">
                 <div className="container">
                     <div className="section-header text-center">
                         <h2 className="section-title">What Our Partners Say</h2>
@@ -178,7 +199,7 @@ const Home: React.FC = () => {
             </section>
 
             {/* Why Choose Us */}
-            <section className="section bg-primary-dark text-white">
+            <section className="section bg-primary-dark text-white reveal-up">
                 <div className="container">
                     <div className="grid-cols-2">
                         <div className="why-us-content">
