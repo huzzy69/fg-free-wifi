@@ -4,6 +4,7 @@ import { Wifi, ArrowRight, Eye, CheckCircle, BarChart3, Users, MapPin, TrendingU
 import { useSiteConfig } from '../context/SiteConfigContext';
 import HeroIllustration from '../assets/hero-illustration.png';
 import StatCounter from '../components/StatCounter';
+import TestimonialSlider from '../components/TestimonialSlider';
 import './Home.css';
 
 const iconMap: any = {
@@ -167,65 +168,14 @@ const Home: React.FC = () => {
             </section>
 
             {/* Testimonials */}
-            <section className="section">
+            <section className="section bg-light">
                 <div className="container">
                     <div className="section-header text-center">
                         <h2 className="section-title">What Our Partners Say</h2>
                         <p className="section-desc">Success stories from advertisers and location owners</p>
                     </div>
 
-                    <div className="grid-cols-3">
-                        <div className="testimonial-card">
-                            <div className="stars">
-                                <Star size={18} fill="var(--color-primary)" stroke="var(--color-primary)" />
-                                <Star size={18} fill="var(--color-primary)" stroke="var(--color-primary)" />
-                                <Star size={18} fill="var(--color-primary)" stroke="var(--color-primary)" />
-                                <Star size={18} fill="var(--color-primary)" stroke="var(--color-primary)" />
-                                <Star size={18} fill="var(--color-primary)" stroke="var(--color-primary)" />
-                            </div>
-                            <p className="testimonial-text">
-                                "Our foot traffic increased by 30% after partnering with Ads on WiFi. Customers love the free internet!"
-                            </p>
-                            <div className="testimonial-author">
-                                <strong>Ahmed Khan</strong>
-                                <span>Cafe Owner, Karachi</span>
-                            </div>
-                        </div>
-
-                        <div className="testimonial-card">
-                            <div className="stars">
-                                <Star size={18} fill="var(--color-primary)" stroke="var(--color-primary)" />
-                                <Star size={18} fill="var(--color-primary)" stroke="var(--color-primary)" />
-                                <Star size={18} fill="var(--color-primary)" stroke="var(--color-primary)" />
-                                <Star size={18} fill="var(--color-primary)" stroke="var(--color-primary)" />
-                                <Star size={18} fill="var(--color-primary)" stroke="var(--color-primary)" />
-                            </div>
-                            <p className="testimonial-text">
-                                "Best ROI we've seen from any advertising channel. 100% guaranteed views with local targeting!"
-                            </p>
-                            <div className="testimonial-author">
-                                <strong>Sarah Ali</strong>
-                                <span>Marketing Manager, Local Brand</span>
-                            </div>
-                        </div>
-
-                        <div className="testimonial-card">
-                            <div className="stars">
-                                <Star size={18} fill="var(--color-primary)" stroke="var(--color-primary)" />
-                                <Star size={18} fill="var(--color-primary)" stroke="var(--color-primary)" />
-                                <Star size={18} fill="var(--color-primary)" stroke="var(--color-primary)" />
-                                <Star size={18} fill="var(--color-primary)" stroke="var(--color-primary)" />
-                                <Star size={18} fill="var(--color-primary)" stroke="var(--color-primary)" />
-                            </div>
-                            <p className="testimonial-text">
-                                "Professional setup, zero maintenance cost, and happy customers. It's a win-win partnership!"
-                            </p>
-                            <div className="testimonial-author">
-                                <strong>Bilal Hassan</strong>
-                                <span>Gym Owner, Lahore</span>
-                            </div>
-                        </div>
-                    </div>
+                    <TestimonialSlider />
                 </div>
             </section>
 
