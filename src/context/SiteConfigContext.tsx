@@ -33,6 +33,7 @@ export interface ServiceItem {
 interface SiteConfigContextType {
     config: SiteConfig;
     updateConfig: (newConfig: Partial<SiteConfig>) => void;
+    isLoading: boolean;
 }
 
 const defaultConfig: SiteConfig = {
@@ -69,6 +70,7 @@ import { api } from '../api';
 const SiteConfigContext = createContext<SiteConfigContextType | undefined>(undefined);
 
 export const SiteConfigProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
+    const [isLoading, setIsLoading] = useState(true);
     const [config, setConfig] = useState<SiteConfig>(() => {
         const savedConfig = localStorage.getItem('siteConfig');
         return savedConfig ? JSON.parse(savedConfig) : defaultConfig;
@@ -83,6 +85,9 @@ export const SiteConfigProvider: React.FC<{ children: ReactNode }> = ({ children
                 }
             } catch (error) {
                 console.error('Failed to fetch config:', error);
+            } finally {
+                // Short timeout to ensure loader is visible for a moment even if fast
+                setTimeout(() => setIsLoading(false), 800);
             }
         };
         fetchRemoteConfig();
@@ -114,7 +119,7 @@ export const SiteConfigProvider: React.FC<{ children: ReactNode }> = ({ children
     };
 
     return (
-        <SiteConfigContext.Provider value={{ config, updateConfig }}>
+        <SiteConfigContext.Provider value={{ config, updateConfig, isLoading }}>
             {children}
         </SiteConfigContext.Provider>
     );
