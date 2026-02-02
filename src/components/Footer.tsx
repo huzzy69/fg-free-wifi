@@ -1,12 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Wifi, Mail, Phone, MapPin, Facebook, Twitter, Linkedin, Instagram } from 'lucide-react';
-import crowdstrikeLogo from '../assets/logo_crowdstrike.png';
-import paloAltoLogo from '../assets/logo_palo_alto.png';
-import fortinetLogo from '../assets/logo_fortinet.png';
-import ciscoLogo from '../assets/logo_cisco.png';
-import zscalerLogo from '../assets/logo_zscaler.png';
-import sentineloneLogo from '../assets/logo_sentinelone.png';
 import './Footer.css';
 
 const Footer: React.FC = () => {
@@ -57,38 +51,10 @@ const Footer: React.FC = () => {
                 </div>
             </div>
 
-            <div className="footer-multi-bottom">
-                <div className="footer-logos-strip">
-                    <div className="container">
-                        <p className="secured-by-text">Secured By</p>
-                        <div className="logo-flex">
-                            <div className="partner-logo">
-                                <img src={crowdstrikeLogo} alt="CrowdStrike" className="partner-img" />
-                            </div>
-                            <div className="partner-logo">
-                                <img src={paloAltoLogo} alt="Palo Alto Networks" className="partner-img" />
-                            </div>
-                            <div className="partner-logo">
-                                <img src={fortinetLogo} alt="Fortinet" className="partner-img" />
-                            </div>
-                            <div className="partner-logo">
-                                <img src={ciscoLogo} alt="Cisco" className="partner-img" />
-                            </div>
-                            <div className="partner-logo">
-                                <img src={zscalerLogo} alt="Zscaler" className="partner-img" />
-                            </div>
-                            <div className="partner-logo">
-                                <img src={sentineloneLogo} alt="SentinelOne" className="partner-img" />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div className="footer-copyright-strip">
-                    <div className="container copyright-flex">
-                        <p>&copy; Ads on Wifi</p>
-                        <p>A Project of Fakhir Groups</p>
-                    </div>
+            <div className="footer-copyright-strip">
+                <div className="container copyright-flex">
+                    <p>&copy; Ads on Wifi</p>
+                    <p>A Project of Fakhir Groups</p>
                 </div>
             </div>
         </footer>

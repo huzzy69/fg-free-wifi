@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Wifi, ArrowRight, Eye, CheckCircle, BarChart3, Users, MapPin, TrendingUp, Star } from 'lucide-react';
+import { Wifi, BarChart3, MapPin, TrendingUp, CheckCircle } from 'lucide-react';
 import { useSiteConfig } from '../context/SiteConfigContext';
 import HeroIllustration from '../assets/hero-illustration.png';
 import StatCounter from '../components/StatCounter';
@@ -8,7 +8,7 @@ import TestimonialSlider from '../components/TestimonialSlider';
 import './Home.css';
 
 const iconMap: any = {
-    Wifi, ArrowRight, Eye, CheckCircle, BarChart3, Users, MapPin, TrendingUp, Star
+    Wifi, BarChart3, MapPin, TrendingUp, CheckCircle
 };
 
 const Home: React.FC = () => {
@@ -43,28 +43,32 @@ const Home: React.FC = () => {
                                 <Wifi size={22} strokeWidth={2.5} /> Get Wi-Fi
                             </Link>
                         </div>
-
-                        {/* Quick Stats */}
-                        <div className="hero-quick-stats">
-                            <div className="quick-stat">
-                                <Wifi size={20} className="text-primary" strokeWidth={3} />
-                                <span><StatCounter end={config.heroStat1Value} /></span>
-                            </div>
-                            <div className="quick-stat">
-                                <MapPin size={20} className="text-primary" strokeWidth={3} />
-                                <span><StatCounter end={config.heroStat2Value} /></span>
-                            </div>
-                            <div className="quick-stat">
-                                <TrendingUp size={20} className="text-primary" strokeWidth={3} />
-                                <span><StatCounter end={config.heroStat3Value} /></span>
-                            </div>
-                        </div>
                     </div>
                     <div className="hero-image-placeholder">
                         <img src={HeroIllustration} alt="Free WiFi Network" className="hero-illustration" />
                     </div>
                 </div>
             </section>
+
+            {/* Quick Stats Strip */}
+            <div className="hero-stats-strip">
+                <div className="container">
+                    <div className="hero-quick-stats">
+                        <div className="quick-stat">
+                            <Wifi size={20} className="text-primary" strokeWidth={3} />
+                            <span><StatCounter end={config.heroStat1Value} /></span>
+                        </div>
+                        <div className="quick-stat">
+                            <MapPin size={20} className="text-primary" strokeWidth={3} />
+                            <span><StatCounter end={config.heroStat2Value} /></span>
+                        </div>
+                        <div className="quick-stat">
+                            <TrendingUp size={20} className="text-primary" strokeWidth={3} />
+                            <span><StatCounter end={config.heroStat3Value} /></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             {/* Our Services */}
             <section className="section bg-light">
@@ -116,7 +120,7 @@ const Home: React.FC = () => {
                         </div>
                         <div className="step-card">
                             <div className="step-icon-bg">
-                                <Eye size={32} className="step-icon" />
+                                <Wifi size={32} className="step-icon" />
                             </div>
                             <h3>3. View Ad</h3>
                             <p>Users watch a short, non-skippable 5-second ad to unlock access.</p>
@@ -129,21 +133,15 @@ const Home: React.FC = () => {
                             <p>Advertisers get views, Users get internet, Businesses get happy customers.</p>
                         </div>
                     </div>
-
-
                 </div>
             </section>
-
-
 
             {/* Stats Section */}
             <section className="section bg-primary text-white">
                 <div className="container">
                     <div className="section-header text-center">
-                        <h2>Our Impact in Numbers</h2>
-                        <p className="section-desc" style={{ color: 'rgba(255,255,255,0.9)' }}>
-                            Real results from our growing network
-                        </p>
+                        <h2 className="section-title text-white">Our Impact in Numbers</h2>
+                        <p className="section-desc text-white">Real results from our growing network</p>
                     </div>
 
                     <div className="stats-grid grid-cols-4">

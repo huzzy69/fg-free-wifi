@@ -516,8 +516,8 @@ const Advertisers: React.FC = () => {
             <section className="section bg-primary text-white">
                 <div className="container">
                     <div className="section-header text-center">
-                        <h2>Proven Results</h2>
-                        <p className="section-desc" style={{ color: 'rgba(255,255,255,0.9)' }}>Our advertisers see real, measurable impact</p>
+                        <h2 className="section-title text-white">Our Impact in Numbers</h2>
+                        <p className="section-desc text-white">Real results from our growing network</p>
                     </div>
 
                     <div className="grid-cols-4">
