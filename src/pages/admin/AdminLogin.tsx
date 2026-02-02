@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Lock, User } from 'lucide-react';
+import { useSiteConfig } from '../../context/SiteConfigContext';
 import './AdminLogin.css';
 
 const AdminLogin: React.FC = () => {
@@ -8,13 +9,16 @@ const AdminLogin: React.FC = () => {
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     const navigate = useNavigate();
+    const { config } = useSiteConfig();
 
     const handleLogin = (e: React.FormEvent) => {
         e.preventDefault();
 
-        // Mock Authentication
-        // In a real app, this would hit an API endpoint
-        if (username === 'admin' && password === 'admin123') {
+        // Use credentials from config, fallback to defaults if not set (though they are set in defaultConfig)
+        const validUsername = config.adminUsername || 'admin';
+        const validPassword = config.adminPassword || 'admin123';
+
+        if (username === validUsername && password === validPassword) {
             localStorage.setItem('isAdminAuthenticated', 'true');
             navigate('/admin/dashboard');
         } else {

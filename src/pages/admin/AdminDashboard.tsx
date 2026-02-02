@@ -341,6 +341,33 @@ const SettingsForm: React.FC = () => {
                 </div>
             </div>
 
+            <div className="form-section">
+                <h3>Security Settings</h3>
+                <p className="section-desc">Change your admin portal login credentials.</p>
+                <div className="form-grid">
+                    <div className="form-group">
+                        <label>Admin Username</label>
+                        <input
+                            type="text"
+                            name="adminUsername"
+                            value={formData.adminUsername}
+                            onChange={handleChange}
+                            placeholder="admin"
+                        />
+                    </div>
+                    <div className="form-group">
+                        <label>Admin Password</label>
+                        <input
+                            type="password"
+                            name="adminPassword"
+                            value={formData.adminPassword}
+                            onChange={handleChange}
+                            placeholder="admin123"
+                        />
+                    </div>
+                </div>
+            </div>
+
             <div className="form-actions">
                 <button type="submit" className="save-btn">
                     <Save size={20} /> {saved ? 'Saved!' : 'Save Changes'}

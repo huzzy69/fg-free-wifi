@@ -19,6 +19,8 @@ interface SiteConfig {
     heroStat3Value: string;
     heroStat3Label: string;
     services: ServiceItem[];
+    adminUsername?: string;
+    adminPassword?: string;
 }
 
 export interface ServiceItem {
@@ -57,7 +59,9 @@ const defaultConfig: SiteConfig = {
         { id: '3', icon: 'BarChart3', title: 'Real-Time Survey', description: '100% Organic survey results' },
         { id: '4', icon: 'Users', title: 'Guest Wifi Management', description: 'Internet for your guests' },
         { id: '5', icon: 'TrendingUp', title: 'On-Demand Internet', description: 'Internet for your events' }
-    ]
+    ],
+    adminUsername: 'admin',
+    adminPassword: 'admin123'
 };
 
 import { api } from '../api';
