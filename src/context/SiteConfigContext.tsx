@@ -84,6 +84,19 @@ export const SiteConfigProvider: React.FC<{ children: ReactNode }> = ({ children
         fetchRemoteConfig();
     }, []);
 
+    // Update document title and favicon
+    useEffect(() => {
+        document.title = config.companyName || 'Ads on WiFi';
+
+        let link: HTMLLinkElement | null = document.querySelector("link[rel~='icon']");
+        if (!link) {
+            link = document.createElement('link');
+            link.rel = 'icon';
+            document.getElementsByTagName('head')[0].appendChild(link);
+        }
+        link.href = config.logoUrl || '/logo.png';
+    }, [config.companyName, config.logoUrl]);
+
     const updateConfig = async (newConfig: Partial<SiteConfig>) => {
         try {
             const updated = { ...config, ...newConfig };

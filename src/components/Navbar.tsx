@@ -30,21 +30,30 @@ const Navbar: React.FC = () => {
                 </div>
 
                 {/* Mobile Menu Button */}
-                <button className="mobile-menu-btn mobile-only" onClick={toggleMenu}>
-                    {isOpen ? <X /> : <Menu />}
+                <button className={`mobile-menu-btn mobile-only ${isOpen ? 'active' : ''}`} onClick={toggleMenu} aria-label="Toggle Menu">
+                    {isOpen ? <X size={28} /> : <Menu size={28} />}
                 </button>
             </div>
 
+            {/* Mobile Menu Overlay */}
+            <div className={`mobile-overlay ${isOpen ? 'show' : ''}`} onClick={toggleMenu}></div>
+
             {/* Mobile Menu */}
-            {isOpen && (
-                <div className="mobile-menu mobile-only">
-                    <Link to="/" className="mobile-nav-link" onClick={toggleMenu}>Home</Link>
-                    <Link to="/advertisers" className="mobile-nav-link" onClick={toggleMenu}>Advertise with us</Link>
-                    <Link to="/locations" className="mobile-nav-link" onClick={toggleMenu}>Our Locations</Link>
-                    <Link to="/pricing" className="mobile-nav-link" onClick={toggleMenu}>Pricing</Link>
-                    <Link to="/contact" className="mobile-nav-link btn-prominent" onClick={toggleMenu}>Contact Us</Link>
+            <div className={`mobile-menu mobile-only ${isOpen ? 'open' : ''}`}>
+                <div className="mobile-menu-header">
+                    <img src={config.logoUrl} alt={config.companyName} className="mobile-logo-inner" />
+                    <button className="close-menu" onClick={toggleMenu}><X size={28} /></button>
                 </div>
-            )}
+                <div className="mobile-menu-links">
+                    <Link to="/" className={`mobile-nav-link ${isActive('/')}`} onClick={toggleMenu}>Home</Link>
+                    <Link to="/advertisers" className={`mobile-nav-link ${isActive('/advertisers')}`} onClick={toggleMenu}>Advertise with us</Link>
+                    <Link to="/locations" className={`mobile-nav-link ${isActive('/locations')}`} onClick={toggleMenu}>Our Locations</Link>
+                    <Link to="/pricing" className={`mobile-nav-link ${isActive('/pricing')}`} onClick={toggleMenu}>Pricing</Link>
+                    <div className="mobile-menu-footer">
+                        <Link to="/contact" className="btn btn-primary btn-full" onClick={toggleMenu}>Contact Us</Link>
+                    </div>
+                </div>
+            </div>
         </nav>
     );
 };
