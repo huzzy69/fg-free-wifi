@@ -142,7 +142,7 @@ const Advertisers: React.FC = () => {
                                     type="range"
                                     min="10000"
                                     max="500000"
-                                    step="5000"
+                                    step="1000"
                                     defaultValue="50000"
                                     className="range-slider"
                                     onChange={(e) => {
@@ -218,7 +218,7 @@ const Advertisers: React.FC = () => {
                                 </li>
                             </ul>
                             <div className="mt-6">
-                                <button className="btn btn-light btn-lg" onClick={() => document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth' })}>
+                                <button className="btn btn-light btn-lg" onClick={() => navigate('/pricing')}>
                                     View Pricing Plans <TrendingUp size={20} style={{ display: 'inline', marginLeft: '8px' }} />
                                 </button>
                             </div>
@@ -307,7 +307,7 @@ const Advertisers: React.FC = () => {
                             <h3>Cinemas</h3>
                         </div>
                         <div className="venue-item">
-                            <img src="https://images.unsplash.com/photo-1588880331179-bc9b93a8cf5e?q=80&w=800&auto=format&fit=crop" alt="Public Parks" className="venue-img" />
+                            <img src="https://images.unsplash.com/photo-1519331379826-fda8feb0c191?q=80&w=800&auto=format&fit=crop" alt="Public Parks" className="venue-img" />
                             <h3>Public Parks</h3>
                         </div>
                         <div className="venue-item">
@@ -424,7 +424,7 @@ const Advertisers: React.FC = () => {
                                 <li><strong>Device Analytics:</strong> Understand your audience's tech.</li>
                                 <li><strong>Exportable Reports:</strong> Easy PDF/Excel exports for your team.</li>
                             </ul>
-                            <button className="btn btn-outline mt-6">View Demo Dashboard</button>
+                            <button className="btn btn-outline mt-6" onClick={() => document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth' })}>Book Demo Dashboard</button>
                         </div>
                     </div>
                 </div>
@@ -558,7 +558,7 @@ const Advertisers: React.FC = () => {
                                     <Mail size={24} className="text-primary" />
                                     <div>
                                         <h4>Email Us</h4>
-                                        <p>advertise@adsonwifi.com</p>
+                                        <p>advertise@Ads on WiFi.com</p>
                                     </div>
                                 </div>
                                 <div className="contact-method">

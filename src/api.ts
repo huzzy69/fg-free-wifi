@@ -61,30 +61,39 @@ const initialInquiries: Inquiry[] = [
 const initialLocations: WifiLocation[] = [
     {
         id: 'loc_1',
-        name: "Allama Iqbal Town Campus, Karachi",
-        address: "B-09 Block W Allama Iqbal Town paposhnagar (Pre-School)",
-        contact: "021-36613835",
+        name: "FG-Free-Wifi Service Provider",
+        address: "Federal B Area, Karachi",
+        contact: "0300-1234567",
         city: "Karachi",
-        category: "Education Sector",
+        category: "On-Demand Internet",
         province: "Sindh"
     },
     {
         id: 'loc_2',
-        name: "Cinepax Cinema",
-        address: "Ocean Mall, Clifton, Karachi",
-        contact: "021-111-222-333",
+        name: "FG-Free-Wifi Shahrah-e-Jahangir",
+        address: "Shahrah-e-Jahangir, Federal B Area, Karachi",
+        contact: "0300-1234567",
         city: "Karachi",
-        category: "Cinemas",
+        category: "On-Demand Internet",
         province: "Sindh"
     },
     {
         id: 'loc_3',
-        name: "Gulberg Campus Lahore",
-        address: "12-Main Boulevard, Gulberg III, Lahore",
-        contact: "042-35712345",
-        city: "Lahore",
-        category: "Education Sector",
-        province: "Punjab"
+        name: "FG-Free-Wifi Shifa Medical",
+        address: "Shifa Medical, Block L North Nazimabad, Karachi",
+        contact: "0300-1234567",
+        city: "Karachi",
+        category: "Healthcare",
+        province: "Sindh"
+    },
+    {
+        id: 'loc_4',
+        name: "FG-Free-Wifi Gulshan-e-Iqbal",
+        address: "Block 2 Gulshan-e-Iqbal, Karachi",
+        contact: "0300-1234567",
+        city: "Karachi",
+        category: "On-Demand Internet",
+        province: "Sindh"
     }
 ];
 
@@ -191,9 +200,9 @@ export const api = {
     locations: {
         async getAll(): Promise<WifiLocation[]> {
             await sleep(SLEEP_TIME);
-            const data = localStorage.getItem('wifi_locations');
+            const data = localStorage.getItem('wifi_locations_v2');
             if (data === null) {
-                localStorage.setItem('wifi_locations', JSON.stringify(initialLocations));
+                localStorage.setItem('wifi_locations_v2', JSON.stringify(initialLocations));
                 return initialLocations;
             }
             return JSON.parse(data);

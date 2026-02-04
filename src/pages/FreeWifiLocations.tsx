@@ -5,13 +5,8 @@ import { api, type WifiLocation } from '../api';
 import './FreeWifiLocations.css';
 
 const FAMOUS_CITIES = [
-    "Karachi", "Lahore", "Islamabad", "Faisalabad", "Rawalpindi", "Multan",
-    "Peshawar", "Quetta", "Sialkot", "Gujranwala", "Hyderabad", "Bahawalpur",
-    "Sargodha", "Sheikhupura", "Jhang", "Rahim Yar Khan", "Gujrat", "Kasur",
-    "Sahiwal", "Okara", "Wah Cantonment", "Dera Ghazi Khan", "Mandi Bahauddin",
-    "Jhelum", "Abbottabad", "Mardan", "Mingora", "Kohat", "Sukkur",
-    "Larkana", "Nawabshah", "Mirpur Khas"
-].sort();
+    "Karachi"
+];
 
 const CATEGORIES = [
     "Shopping Venues",
@@ -26,7 +21,7 @@ const CATEGORIES = [
 ];
 
 const FreeWifiLocations: React.FC = () => {
-    const [selectedCity, setSelectedCity] = useState<string>("");
+    const [selectedCity, setSelectedCity] = useState<string>("Karachi");
     const [selectedCategory, setSelectedCategory] = useState<string>("");
     const [locations, setLocations] = useState<WifiLocation[]>([]);
     const [loading, setLoading] = useState(true);
@@ -93,8 +88,7 @@ const FreeWifiLocations: React.FC = () => {
                             value={selectedCity}
                             onChange={handleCityChange}
                         >
-                            <option value="">Please select a city</option>
-                            <option value="All Cities">All Cities</option>
+                            <option value="" disabled>Please select a city</option>
                             {FAMOUS_CITIES.map((city) => (
                                 <option key={city} value={city}>{city}</option>
                             ))}

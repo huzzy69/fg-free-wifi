@@ -3,7 +3,11 @@ import { Link } from 'react-router-dom';
 import { Wifi, Mail, Phone, MapPin, Facebook, Twitter, Linkedin, Instagram } from 'lucide-react';
 import './Footer.css';
 
+import { useSiteConfig } from '../context/SiteConfigContext';
+
 const Footer: React.FC = () => {
+    const { config } = useSiteConfig();
+
     return (
         <footer className="footer">
             <div className="container footer-container">
@@ -27,7 +31,7 @@ const Footer: React.FC = () => {
                     <h3>Company</h3>
                     <ul className="footer-links">
                         <li><Link to="/about">About Us</Link></li>
-                        <li><Link to="/how-it-works">How It Works</Link></li>
+
                         <li><Link to="/contact">Contact</Link></li>
                         <li><a href="#">Privacy Policy</a></li>
                     </ul>
@@ -44,17 +48,17 @@ const Footer: React.FC = () => {
                 <div className="footer-col">
                     <h3>Contact Us</h3>
                     <ul className="contact-list">
-                        <li><MapPin size={16} /> <span>123 Business Park, City</span></li>
-                        <li><Phone size={16} /> <span>+1 234 567 8900</span></li>
-                        <li><Mail size={16} /> <span>fakhirgroupss.smtp@gmail.com</span></li>
+                        <li><MapPin size={16} /> <span>{config.contactAddress}</span></li>
+                        <li><Phone size={16} /> <span>{config.contactPhone}</span></li>
+                        <li><Mail size={16} /> <span>{config.contactEmail}</span></li>
                     </ul>
                 </div>
             </div>
 
             <div className="footer-copyright-strip">
                 <div className="container copyright-flex">
-                    <p>&copy; Ads on Wifi</p>
-                    <p>A Project of Fakhir Groups</p>
+                    <p>&copy; Ads on WiFi</p>
+                    <p>A Project of {config.companyName}</p>
                 </div>
             </div>
         </footer>
