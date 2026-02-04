@@ -20,8 +20,10 @@ const AdminLogin: React.FC = () => {
         const validPassword = config.adminPassword || 'admin123';
 
         if (username === validUsername && password === validPassword) {
+            const loginTime = new Date().getTime();
             localStorage.setItem('isAdminAuthenticated', 'true');
-            navigate('/admin/dashboard');
+            localStorage.setItem('adminLoginTime', loginTime.toString());
+            navigate('/nimda/dashboard');
         } else {
             setError('Invalid credentials.');
         }

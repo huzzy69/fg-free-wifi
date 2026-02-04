@@ -399,8 +399,40 @@ const AdminDashboard: React.FC = () => {
     const [sidebarOpen, setSidebarOpen] = useState(false);
     const [activeSection, setActiveSection] = useState('overview');
     const [stats, setStats] = useState({ totalInquiries: 0, newInquiries: 0, totalLocations: 0 });
+    const [isAuthChecked, setIsAuthChecked] = useState(false);
+
+    // Check authentication FIRST before anything else
+    useEffect(() => {
+        const isAuthenticated = localStorage.getItem('isAdminAuthenticated');
+        const loginTime = localStorage.getItem('adminLoginTime');
+
+        // Check if authenticated
+        if (!isAuthenticated) {
+            navigate('/nimda');
+            return;
+        }
+
+        // Check session expiration (2 hours = 7200000 ms)
+        if (loginTime) {
+            const currentTime = new Date().getTime();
+            const sessionDuration = currentTime - parseInt(loginTime);
+            const SESSION_TIMEOUT = 2 * 60 * 60 * 1000; // 2 hours
+
+            if (sessionDuration > SESSION_TIMEOUT) {
+                // Session expired, logout
+                localStorage.removeItem('isAdminAuthenticated');
+                localStorage.removeItem('adminLoginTime');
+                navigate('/nimda');
+                return;
+            }
+        }
+
+        setIsAuthChecked(true);
+    }, [navigate]);
 
     useEffect(() => {
+        if (!isAuthChecked) return; // Don't fetch stats until auth is verified
+
         const fetchStats = async () => {
             const [inquiries, locations] = await Promise.all([
                 api.inquiries.getAll(),
@@ -417,19 +449,18 @@ const AdminDashboard: React.FC = () => {
             });
         };
         fetchStats();
-    }, [activeSection]);
-
-    useEffect(() => {
-        const isAuthenticated = localStorage.getItem('isAdminAuthenticated');
-        if (!isAuthenticated) {
-            navigate('/admin');
-        }
-    }, [navigate]);
+    }, [activeSection, isAuthChecked]);
 
     const handleLogout = () => {
         localStorage.removeItem('isAdminAuthenticated');
+        localStorage.removeItem('adminLoginTime');
         navigate('/');
     };
+
+    // Don't render anything until authentication is verified
+    if (!isAuthChecked) {
+        return null;
+    }
 
     return (
         <div className="admin-layout">

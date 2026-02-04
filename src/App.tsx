@@ -7,8 +7,8 @@ import About from './pages/About';
 import Contact from './pages/Contact';
 import FreeWifiLocations from './pages/FreeWifiLocations';
 import LocationDetail from './pages/LocationDetail';
-import AdminLogin from './pages/admin/AdminLogin';
-import AdminDashboard from './pages/admin/AdminDashboard';
+import AdminLogin from './pages/nimda/AdminLogin';
+import AdminDashboard from './pages/nimda/AdminDashboard';
 import { SiteConfigProvider, useSiteConfig } from './context/SiteConfigContext';
 import ScrollToTop from './components/ScrollToTop';
 import Loader from './components/Loader';
@@ -24,9 +24,9 @@ function AppContent() {
     <>
       <ScrollToTop />
       <Routes>
-        {/* Admin Routes - No Public Layout */}
-        <Route path="/admin" element={<AdminLogin />} />
-        <Route path="/admin/dashboard" element={<AdminDashboard />} />
+        {/* Nimda Routes - No Public Layout */}
+        <Route path="/nimda" element={<AdminLogin />} />
+        <Route path="/nimda/dashboard" element={<AdminDashboard />} />
 
         {/* Public Routes - Wrapped in Layout */}
         <Route path="*" element={
