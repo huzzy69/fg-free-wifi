@@ -224,7 +224,7 @@ export const api = {
             const updated = current.map(item =>
                 item.id === id ? { ...item, ...location } : item
             );
-            localStorage.setItem('wifi_locations', JSON.stringify(updated));
+            localStorage.setItem('wifi_locations_v2', JSON.stringify(updated));
             return { success: true };
         },
         async delete(id: string) {

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { BarChart3, Users, MapPin, Settings, LogOut, Menu, X, Bell, Save, Trash2, Check, RefreshCw, Filter, ExternalLink, User as UserIcon, Lock as LockIcon, Eye, EyeOff } from 'lucide-react';
+import { BarChart3, Users, MapPin, Settings, LogOut, Menu, X, Bell, Save, Trash2, Check, RefreshCw, Filter, ExternalLink, User as UserIcon, Lock as LockIcon, Eye, EyeOff, Edit } from 'lucide-react';
 import { useSiteConfig } from '../../context/SiteConfigContext';
 import { api, type Inquiry } from '../../api';
 import './AdminDashboard.css';
@@ -166,7 +166,9 @@ const LocationsList: React.FC = () => {
     const [locations, setLocations] = useState<any[]>([]);
     const [loading, setLoading] = useState(true);
     const [showAddModal, setShowAddModal] = useState(false);
+    const [showEditModal, setShowEditModal] = useState(false);
     const [newLoc, setNewLoc] = useState({ name: '', address: '', city: '', category: '', contact: '', province: '' });
+    const [editLoc, setEditLoc] = useState<any>(null);
 
     const fetchLocations = async () => {
         setLoading(true);
@@ -184,6 +186,19 @@ const LocationsList: React.FC = () => {
         await api.locations.add(newLoc);
         setShowAddModal(false);
         setNewLoc({ name: '', address: '', city: '', category: '', contact: '', province: '' });
+        fetchLocations();
+    };
+
+    const handleEdit = (location: any) => {
+        setEditLoc(location);
+        setShowEditModal(true);
+    };
+
+    const handleUpdate = async (e: React.FormEvent) => {
+        e.preventDefault();
+        await api.locations.update(editLoc.id, editLoc);
+        setShowEditModal(false);
+        setEditLoc(null);
         fetchLocations();
     };
 
@@ -216,8 +231,42 @@ const LocationsList: React.FC = () => {
                             <input type="text" placeholder="Location Name" required value={newLoc.name} onChange={e => setNewLoc({ ...newLoc, name: e.target.value })} className="form-control mb-2" />
                             <input type="text" placeholder="Address" required value={newLoc.address} onChange={e => setNewLoc({ ...newLoc, address: e.target.value })} className="form-control mb-2" />
                             <div className="form-grid mb-2">
-                                <input type="text" placeholder="City" required value={newLoc.city} onChange={e => setNewLoc({ ...newLoc, city: e.target.value })} className="form-control" />
-                                <input type="text" placeholder="Category" required value={newLoc.category} onChange={e => setNewLoc({ ...newLoc, category: e.target.value })} className="form-control" />
+                                <select
+                                    required
+                                    value={newLoc.city}
+                                    onChange={e => setNewLoc({ ...newLoc, city: e.target.value })}
+                                    className="form-control"
+                                >
+                                    <option value="">Select City</option>
+                                    <option value="Karachi">Karachi</option>
+                                    <option value="Lahore">Lahore</option>
+                                    <option value="Islamabad">Islamabad</option>
+                                    <option value="Rawalpindi">Rawalpindi</option>
+                                    <option value="Faisalabad">Faisalabad</option>
+                                    <option value="Multan">Multan</option>
+                                    <option value="Peshawar">Peshawar</option>
+                                    <option value="Quetta">Quetta</option>
+                                    <option value="Sialkot">Sialkot</option>
+                                    <option value="Gujranwala">Gujranwala</option>
+                                    <option value="Hyderabad">Hyderabad</option>
+                                </select>
+                                <select
+                                    required
+                                    value={newLoc.category}
+                                    onChange={e => setNewLoc({ ...newLoc, category: e.target.value })}
+                                    className="form-control"
+                                >
+                                    <option value="">Select Category</option>
+                                    <option value="Shopping Venues">Shopping Venues</option>
+                                    <option value="Food & Beverages">Food & Beverages</option>
+                                    <option value="Education Sector">Education Sector</option>
+                                    <option value="Healthcare">Healthcare</option>
+                                    <option value="Cinemas">Cinemas</option>
+                                    <option value="Public Parks">Public Parks</option>
+                                    <option value="Museums">Museums</option>
+                                    <option value="On-Demand Internet">On-Demand Internet</option>
+                                    <option value="On the Move">On the Move</option>
+                                </select>
                             </div>
                             <div className="btn-group mt-4" style={{ display: 'flex', gap: '1rem' }}>
                                 <button type="submit" className="btn btn-primary">Save Location</button>
@@ -227,6 +276,61 @@ const LocationsList: React.FC = () => {
                     </div>
                 </div>
             )}
+
+            {showEditModal && editLoc && (
+                <div className="modal-overlay">
+                    <div className="modal-content">
+                        <h3>Edit Location</h3>
+                        <form onSubmit={handleUpdate}>
+                            <input type="text" placeholder="Location Name" required value={editLoc.name} onChange={e => setEditLoc({ ...editLoc, name: e.target.value })} className="form-control mb-2" />
+                            <input type="text" placeholder="Address" required value={editLoc.address} onChange={e => setEditLoc({ ...editLoc, address: e.target.value })} className="form-control mb-2" />
+                            <div className="form-grid mb-2">
+                                <select
+                                    required
+                                    value={editLoc.city}
+                                    onChange={e => setEditLoc({ ...editLoc, city: e.target.value })}
+                                    className="form-control"
+                                >
+                                    <option value="">Select City</option>
+                                    <option value="Karachi">Karachi</option>
+                                    <option value="Lahore">Lahore</option>
+                                    <option value="Islamabad">Islamabad</option>
+                                    <option value="Rawalpindi">Rawalpindi</option>
+                                    <option value="Faisalabad">Faisalabad</option>
+                                    <option value="Multan">Multan</option>
+                                    <option value="Peshawar">Peshawar</option>
+                                    <option value="Quetta">Quetta</option>
+                                    <option value="Sialkot">Sialkot</option>
+                                    <option value="Gujranwala">Gujranwala</option>
+                                    <option value="Hyderabad">Hyderabad</option>
+                                </select>
+                                <select
+                                    required
+                                    value={editLoc.category}
+                                    onChange={e => setEditLoc({ ...editLoc, category: e.target.value })}
+                                    className="form-control"
+                                >
+                                    <option value="">Select Category</option>
+                                    <option value="Shopping Venues">Shopping Venues</option>
+                                    <option value="Food & Beverages">Food & Beverages</option>
+                                    <option value="Education Sector">Education Sector</option>
+                                    <option value="Healthcare">Healthcare</option>
+                                    <option value="Cinemas">Cinemas</option>
+                                    <option value="Public Parks">Public Parks</option>
+                                    <option value="Museums">Museums</option>
+                                    <option value="On-Demand Internet">On-Demand Internet</option>
+                                    <option value="On the Move">On the Move</option>
+                                </select>
+                            </div>
+                            <div className="btn-group mt-4" style={{ display: 'flex', gap: '1rem' }}>
+                                <button type="submit" className="btn btn-primary">Update Location</button>
+                                <button type="button" className="btn btn-light" onClick={() => setShowEditModal(false)}>Cancel</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            )}
+
 
             <div className="inquiry-table-wrapper">
                 <table className="inquiry-table">
@@ -250,7 +354,10 @@ const LocationsList: React.FC = () => {
                                 <td>{loc.city}</td>
                                 <td><span className="badge-type location">{loc.category}</span></td>
                                 <td>
-                                    <button onClick={() => handleDelete(loc.id)} className="btn-icon delete"><Trash2 size={16} /></button>
+                                    <div className="action-btns">
+                                        <button onClick={() => handleEdit(loc)} className="btn-icon" title="Edit"><Edit size={16} /></button>
+                                        <button onClick={() => handleDelete(loc.id)} className="btn-icon delete" title="Delete"><Trash2 size={16} /></button>
+                                    </div>
                                 </td>
                             </tr>
                         ))}

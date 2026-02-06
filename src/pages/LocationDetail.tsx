@@ -1,124 +1,47 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
+import { RefreshCw } from 'lucide-react';
+import { api, type WifiLocation } from '../api';
 import './LocationDetail.css';
-
-// Import the same data structure
-const WIFI_LOCATIONS = [
-    {
-        id: 1,
-        name: "Allama Iqbal Town Campus, Karachi",
-        address: "B-09 Block W Allama Iqbal Town paposhnagar (Pre-School)",
-        contact: "021-36613835",
-        email: "allama_iqbal.campus@educators.edu.pk",
-        city: "Karachi",
-        town: "North Nazimabad",
-        province: "Sindh",
-        lat: 24.9207,
-        lng: 67.0827
-    },
-    {
-        id: 2,
-        name: "Allama Iqbal Town Campus, Karachi",
-        address: "B-11, Block W, Allama Iqbal Town, Paposh Nagar, Karachi(primary-comprehensive)",
-        contact: "021-36613835",
-        email: "allama_iqbal.campus@educators.edu.pk",
-        city: "Karachi",
-        town: "North Nazimabad",
-        province: "Sindh",
-        lat: 24.9210,
-        lng: 67.0830
-    },
-    {
-        id: 3,
-        name: "Arafat Town Campus",
-        address: "Plot N0. LS 2-3-4-5-6-7-8, Arafat Town, Murghi Khana Stop Quaidabad, Karachi.",
-        contact: "02135022415",
-        email: "arafat.campus@educators.edu.pk",
-        city: "Karachi",
-        town: "Bin Qasim",
-        province: "Sindh",
-        lat: 24.8607,
-        lng: 67.0011
-    },
-    {
-        id: 4,
-        name: "Arizona Campus, Karachi",
-        address: "C-35, Sector 11-B, North Karachi.",
-        contact: "02136978194",
-        email: "arizona.campus@educators.edu.pk",
-        city: "Karachi",
-        town: "North Nazimabad",
-        province: "Sindh",
-        lat: 24.9856,
-        lng: 67.0364
-    },
-    {
-        id: 5,
-        name: "Bahria Town Campus Karachi",
-        address: "Plot ST-1, Bin Rahim Garden Society, adj. Bahria Town, Karachi",
-        contact: "0331 234 0213",
-        email: "bahria.campus@educators.edu.pk",
-        city: "Karachi",
-        town: "Bahria Town",
-        province: "Sindh",
-        lat: 24.8607,
-        lng: 67.1011
-    },
-    {
-        id: 6,
-        name: "Baldia Town Campus II",
-        address: "Plot # 449-452 Sector 5-J Chandni Chowk Baldia Town Karachi.",
-        contact: "021-32816091",
-        email: "baldia.campus@educators.edu.pk",
-        city: "Karachi",
-        town: "Baldia Town",
-        province: "Sindh",
-        lat: 24.9324,
-        lng: 66.9890
-    },
-    {
-        id: 7,
-        name: "Gulberg Campus Lahore",
-        address: "12-Main Boulevard, Gulberg III, Lahore",
-        contact: "042-35712345",
-        email: "gulberg.campus@educators.edu.pk",
-        city: "Lahore",
-        town: "Gulberg",
-        province: "Punjab",
-        lat: 31.5204,
-        lng: 74.3587
-    },
-    {
-        id: 8,
-        name: "DHA Phase 6 Campus",
-        address: "Sector H, DHA Phase 6, Lahore",
-        contact: "042-37123456",
-        email: "dha.campus@educators.edu.pk",
-        city: "Lahore",
-        town: "DHA",
-        province: "Punjab",
-        lat: 31.4697,
-        lng: 74.4081
-    },
-    {
-        id: 9,
-        name: "F-10 Markaz Branch",
-        address: "Street 10, F-10 Markaz, Islamabad",
-        contact: "051-2233445",
-        email: "f10.branch@educators.edu.pk",
-        city: "Islamabad",
-        town: "F-10",
-        province: "Islamabad Capital Territory",
-        lat: 33.6973,
-        lng: 73.0169
-    }
-];
 
 const LocationDetail: React.FC = () => {
     const { id } = useParams<{ id: string }>();
     const navigate = useNavigate();
+    const [location, setLocation] = useState<WifiLocation | null>(null);
+    const [loading, setLoading] = useState(true);
 
-    const location = WIFI_LOCATIONS.find(loc => loc.id === parseInt(id || '0'));
+    useEffect(() => {
+        const fetchLocation = async () => {
+            setLoading(true);
+            try {
+                const locations = await api.locations.getAll();
+                const foundLocation = locations.find(loc => loc.id === id);
+                setLocation(foundLocation || null);
+            } catch (error) {
+                console.error('Error fetching location:', error);
+                setLocation(null);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        if (id) {
+            fetchLocation();
+        }
+    }, [id]);
+
+    if (loading) {
+        return (
+            <div className="location-detail-page">
+                <div className="container">
+                    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1rem', padding: '3rem', color: '#6b7280' }}>
+                        <RefreshCw size={32} style={{ animation: 'spin 2s linear infinite' }} />
+                        <p>Loading location details...</p>
+                    </div>
+                </div>
+            </div>
+        );
+    }
 
     if (!location) {
         return (
@@ -142,7 +65,7 @@ const LocationDetail: React.FC = () => {
 
                 <div className="detail-grid">
                     <div className="detail-info">
-                        <div className="org-name">F-G Free WiFi Location</div>
+                        <div className="org-name">FG Free WiFi Location</div>
                         <h1 className="location-name">{location.name}</h1>
 
                         <div className="info-section">
@@ -150,10 +73,27 @@ const LocationDetail: React.FC = () => {
                                 <strong>Address</strong>
                                 <p>{location.address}</p>
                             </div>
+
+                            <div className="info-item">
+                                <strong>City</strong>
+                                <p>{location.city}</p>
+                            </div>
+
+                            <div className="info-item">
+                                <strong>Category</strong>
+                                <p>{location.category}</p>
+                            </div>
+
+                            {location.contact && (
+                                <div className="info-item">
+                                    <strong>Contact</strong>
+                                    <p>{location.contact}</p>
+                                </div>
+                            )}
                         </div>
 
                         <a
-                            href={`https://www.google.com/maps/dir/?api=1&destination=${location.lat},${location.lng}`}
+                            href={`https://www.google.com/maps/search/FG-FreeWifi+${encodeURIComponent(location.address + ', ' + location.city)}`}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="btn btn-primary"
@@ -168,7 +108,7 @@ const LocationDetail: React.FC = () => {
                             height="100%"
                             frameBorder="0"
                             style={{ border: 0 }}
-                            src={`https://www.google.com/maps?q=${location.lat},${location.lng}&hl=en&z=15&output=embed`}
+                            src={`https://www.google.com/maps?q=${encodeURIComponent(location.address + ', ' + location.city)}&hl=en&z=15&output=embed`}
                             allowFullScreen
                             loading="lazy"
                             referrerPolicy="no-referrer-when-downgrade"
