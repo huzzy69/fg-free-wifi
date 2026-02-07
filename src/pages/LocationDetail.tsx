@@ -84,12 +84,7 @@ const LocationDetail: React.FC = () => {
                                 <p>{location.category}</p>
                             </div>
 
-                            {location.contact && (
-                                <div className="info-item">
-                                    <strong>Contact</strong>
-                                    <p>{location.contact}</p>
-                                </div>
-                            )}
+
                         </div>
 
                         <a
