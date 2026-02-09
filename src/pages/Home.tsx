@@ -49,7 +49,7 @@ const Home: React.FC = () => {
                                 <span className="text-black">Business</span> <span className="text-cyan">getting</span> <span className="text-primary">Growth</span>
                             </div>
                             <div className="hero-spacer">
-                                <span className="text-black">Advertisers</span> <span className="text-cyan">getting</span> <span className="text-primary">Revenue</span>
+                                <span className="text-black">Brands</span> <span className="text-cyan">getting</span> <span className="text-primary">Revenue</span>
                             </div>
                             <div>
                                 <span className="text-black">Everyone</span> <span className="text-cyan">getting</span> <span className="text-primary">Benefits</span>
