@@ -85,7 +85,7 @@ const Advertisers: React.FC = () => {
                 <div className="container">
                     <div className="hero-content-wrapper">
                         <div className="hero-text-content">
-                            <h1>Advertise with Ads on WiFi</h1>
+                            <h1>Advertise with AdsOnWifi</h1>
                             <p className="hero-subtitle">Reach your local audience with 100% guaranteed, non-skippable impressions. Transform every WiFi connection into a powerful marketing opportunity.</p>
                             <div className="hero-cta-buttons">
                                 <button className="btn btn-primary btn-lg" onClick={() => document.getElementById('why-choose-us')?.scrollIntoView({ behavior: 'smooth' })}>

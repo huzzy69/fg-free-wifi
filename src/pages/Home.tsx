@@ -203,7 +203,7 @@ const Home: React.FC = () => {
                 <div className="container">
                     <div className="grid-cols-2">
                         <div className="why-us-content">
-                            <h2>Why Choose Ads on WiFi?</h2>
+                            <h2>Why Choose AdsOnWifi?</h2>
                             <ul className="why-us-list">
                                 <li>
                                     <CheckCircle className="list-icon" />

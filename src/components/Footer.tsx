@@ -57,7 +57,7 @@ const Footer: React.FC = () => {
 
             <div className="footer-copyright-strip">
                 <div className="container copyright-flex">
-                    <p>&copy; Ads on WiFi</p>
+                    <p>&copy; AdsOnWifi</p>
                     <p>A Project of {config.companyName}</p>
                 </div>
             </div>

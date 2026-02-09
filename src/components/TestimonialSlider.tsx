@@ -13,7 +13,7 @@ interface Testimonial {
 const testimonials: Testimonial[] = [
     {
         id: 1,
-        text: "Our foot traffic increased by 30% after partnering with Ads on WiFi. Customers love the free internet!",
+        text: "Our foot traffic increased by 30% after partnering with AdsOnWifi. Customers love the free internet!",
         author: "Ahmed Khan",
         role: "Cafe Owner, Karachi",
         stars: 5
