@@ -147,13 +147,13 @@ const Advertisers: React.FC = () => {
                                     className="range-slider"
                                     onChange={(e) => {
                                         const val = parseInt(e.target.value);
-                                        const views = Math.floor(val / 2.5); // Assuming avg 2.5 PKR per view
+                                        const views = Math.floor(val / 10); // Assuming avg 10 PKR per view
                                         const budgetEl = document.getElementById('calc-budget');
                                         const viewsEl = document.getElementById('calc-views');
                                         const usersEl = document.getElementById('calc-users');
                                         if (budgetEl) budgetEl.innerText = val.toLocaleString();
                                         if (viewsEl) viewsEl.innerText = views.toLocaleString();
-                                        if (usersEl) usersEl.innerText = Math.floor(views * 0.85).toLocaleString();
+                                        if (usersEl) usersEl.innerText = Math.floor(views * 0.75).toLocaleString();
                                     }}
                                 />
                                 <div className="budget-display">PKR <span id="calc-budget">10,000</span></div>
@@ -162,11 +162,11 @@ const Advertisers: React.FC = () => {
                         <div className="calculator-results">
                             <div className="result-item">
                                 <span className="label">Minimum Guaranteed Views</span>
-                                <span className="value" id="calc-views">4,000</span>
+                                <span className="value" id="calc-views">1,000</span>
                             </div>
                             <div className="result-item">
                                 <span className="label">Estimated Unique Users</span>
-                                <span className="value" id="calc-users">3,400</span>
+                                <span className="value" id="calc-users">750</span>
                             </div>
                             <div className="result-item highlight">
                                 <span className="label">Average Pay Per Click</span>
