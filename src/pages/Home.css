@@ -46,6 +46,10 @@
     color: #000000;
 }
 
+.text-cyan {
+    color: var(--color-primary);
+}
+
 .hero-buttons {
     display: flex;
     gap: 1.25rem;
