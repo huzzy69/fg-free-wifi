@@ -39,8 +39,8 @@ interface SiteConfigContextType {
 const defaultConfig: SiteConfig = {
     companyName: 'Fakhir Group',
     logoUrl: '/logo.png',
-    contactEmail: 'fakhirgroupss.smtp@gmail.com',
-    contactPhone: '+92 311 1133221',
+    contactEmail: 'info@fakhirgroup.com',
+    contactPhone: '0334-5588889',
     heroTitlePart1: 'FREE Wi-Fi for Users.',
     heroTitleHighlight1: 'Revenue',
     heroTitlePart2: 'for Businesses.',
@@ -53,7 +53,7 @@ const defaultConfig: SiteConfig = {
     heroStat2Label: 'Active Locations',
     heroStat3Value: '100%',
     heroStat3Label: 'View Rate',
-    contactAddress: 'Suite 204, Business Center, Shahra-e-Faisal, Karachi',
+    contactAddress: 'B1-104, UK Square, Federal B. Area, Karachi',
     services: [
         { id: '1', icon: 'MapPin', title: 'Pin-Point Advertising', description: 'Your ads on exact location' },
         { id: '2', icon: 'Wifi', title: 'Free Wifi', description: 'Free Internet services for all' },
@@ -72,7 +72,7 @@ const SiteConfigContext = createContext<SiteConfigContextType | undefined>(undef
 export const SiteConfigProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
     const [isLoading, setIsLoading] = useState(true);
     const [config, setConfig] = useState<SiteConfig>(() => {
-        const savedConfig = localStorage.getItem('siteConfig');
+        const savedConfig = localStorage.getItem('siteConfig_v2');
         return savedConfig ? JSON.parse(savedConfig) : defaultConfig;
     });
 

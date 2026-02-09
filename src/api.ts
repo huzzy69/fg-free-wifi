@@ -101,9 +101,9 @@ const initialLocations: WifiLocation[] = [
 const initialConfig = {
     companyName: 'Fakhir Group',
     logoUrl: '/logo.png',
-    contactEmail: 'fakhirgroupss.smtp@gmail.com',
-    contactPhone: '+92 311 1133221',
-    contactAddress: 'Suite 204, Business Center, Shahra-e-Faisal, Karachi',
+    contactEmail: 'info@fakhirgroup.com',
+    contactPhone: '0334-5588889',
+    contactAddress: 'B1-104, UK Square, Federal B. Area, Karachi',
     heroTitlePart1: 'FREE Wi-Fi for Users.',
     heroTitleHighlight1: 'Revenue',
     heroTitlePart2: 'for Businesses.',
@@ -132,16 +132,16 @@ export const api = {
     siteConfig: {
         async get() {
             await sleep(SLEEP_TIME);
-            const data = localStorage.getItem('siteConfig');
+            const data = localStorage.getItem('siteConfig_v2');
             if (data === null) {
-                localStorage.setItem('siteConfig', JSON.stringify(initialConfig));
+                localStorage.setItem('siteConfig_v2', JSON.stringify(initialConfig));
                 return initialConfig;
             }
 
             const parsed = JSON.parse(data);
             // Validation: if critical fields are missing (due to code updates), reset to initial
             if (!parsed.services || !parsed.heroStat1Value) {
-                localStorage.setItem('siteConfig', JSON.stringify(initialConfig));
+                localStorage.setItem('siteConfig_v2', JSON.stringify(initialConfig));
                 return initialConfig;
             }
 
@@ -149,7 +149,7 @@ export const api = {
         },
         async update(config: any) {
             await sleep(SLEEP_TIME);
-            localStorage.setItem('siteConfig', JSON.stringify(config));
+            localStorage.setItem('siteConfig_v2', JSON.stringify(config));
             return { success: true };
         }
     },

@@ -558,21 +558,21 @@ const Advertisers: React.FC = () => {
                                     <Mail size={24} className="text-primary" />
                                     <div>
                                         <h4>Email Us</h4>
-                                        <p>advertise@Ads on WiFi.com</p>
+                                        <p>info@fakhirgroup.com</p>
                                     </div>
                                 </div>
                                 <div className="contact-method">
                                     <Phone size={24} className="text-primary" />
                                     <div>
                                         <h4>Call Us</h4>
-                                        <p>+92 300 1234567</p>
+                                        <p>0334-5588889</p>
                                     </div>
                                 </div>
                                 <div className="contact-method">
                                     <Building size={24} className="text-primary" />
                                     <div>
                                         <h4>Visit Us</h4>
-                                        <p>Karachi, Pakistan</p>
+                                        <p>B1-104, UK Square, Federal B. Area, Karachi</p>
                                     </div>
                                 </div>
                             </div>
