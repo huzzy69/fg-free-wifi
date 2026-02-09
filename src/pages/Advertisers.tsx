@@ -143,7 +143,7 @@ const Advertisers: React.FC = () => {
                                     min="10000"
                                     max="500000"
                                     step="1000"
-                                    defaultValue="50000"
+                                    defaultValue="10000"
                                     className="range-slider"
                                     onChange={(e) => {
                                         const val = parseInt(e.target.value);
@@ -156,21 +156,21 @@ const Advertisers: React.FC = () => {
                                         if (usersEl) usersEl.innerText = Math.floor(views * 0.85).toLocaleString();
                                     }}
                                 />
-                                <div className="budget-display">PKR <span id="calc-budget">50,000</span></div>
+                                <div className="budget-display">PKR <span id="calc-budget">10,000</span></div>
                             </div>
                         </div>
                         <div className="calculator-results">
                             <div className="result-item">
-                                <span className="label">Guaranteed Views</span>
-                                <span className="value" id="calc-views">20,000</span>
+                                <span className="label">Minimum Guaranteed Views</span>
+                                <span className="value" id="calc-views">4,000</span>
                             </div>
                             <div className="result-item">
-                                <span className="label">Est. Unique Users</span>
-                                <span className="value" id="calc-users">17,000</span>
+                                <span className="label">Estimated Unique Users</span>
+                                <span className="value" id="calc-users">3,400</span>
                             </div>
                             <div className="result-item highlight">
-                                <span className="label">Avg. CPV</span>
-                                <span className="value">PKR 2.5</span>
+                                <span className="label">Average Pay Per Click</span>
+                                <span className="value">PKR 10</span>
                             </div>
                         </div>
                     </div>
