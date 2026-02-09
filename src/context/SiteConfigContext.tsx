@@ -37,7 +37,7 @@ interface SiteConfigContextType {
 }
 
 const defaultConfig: SiteConfig = {
-    companyName: 'Fakhir Group',
+    companyName: 'AdsOnWifi',
     logoUrl: '/logo.png',
     contactEmail: 'info@fakhirgroup.com',
     contactPhone: '0334-5588889',
@@ -72,7 +72,7 @@ const SiteConfigContext = createContext<SiteConfigContextType | undefined>(undef
 export const SiteConfigProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
     const [isLoading, setIsLoading] = useState(true);
     const [config, setConfig] = useState<SiteConfig>(() => {
-        const savedConfig = localStorage.getItem('siteConfig_v2');
+        const savedConfig = localStorage.getItem('siteConfig_v3');
         return savedConfig ? JSON.parse(savedConfig) : defaultConfig;
     });
 

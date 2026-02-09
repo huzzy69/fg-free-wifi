@@ -7,7 +7,7 @@ const About: React.FC = () => {
         <div className="about-page">
             <section className="hero-subpage bg-secondary text-white">
                 <div className="container">
-                    <h1>About Fakhir Wifi Ads</h1>
+                    <h1>About AdsOnWifi</h1>
                     <p>We are an independent technology and advertising company dedicated to solving connectivity gaps.</p>
                 </div>
             </section>

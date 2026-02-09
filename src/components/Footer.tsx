@@ -14,7 +14,7 @@ const Footer: React.FC = () => {
                 <div className="footer-col">
                     <div className="footer-logo">
                         <Wifi className="logo-icon-sm" />
-                        <span>Fakhir Wifi Ads</span>
+                        <span>AdsOnWifi</span>
                     </div>
                     <p className="footer-desc">
                         We manage connectivity and advertising end-to-end. Independent company ensuring views and trust.
