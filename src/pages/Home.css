@@ -31,6 +31,7 @@
 
 .hero-spacer {
     margin-bottom: 25px;
+    white-space: nowrap;
     /* This is roughly 50% of your 50px font size */
 }
 
@@ -633,6 +634,7 @@
 
     .hero-spacer {
         margin-bottom: 4px !important;
+        white-space: normal !important;
     }
 
     .hero-buttons {
