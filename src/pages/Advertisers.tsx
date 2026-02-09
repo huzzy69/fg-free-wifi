@@ -182,7 +182,7 @@ const Advertisers: React.FC = () => {
                 <div className="container">
                     <div className="grid-cols-2 align-center">
                         <div>
-                            <h2 className="mb-4">For Advertisers: The Future of Local Marketing</h2>
+                            <h2 className="mb-4">For Brands: The Future of Local Marketing</h2>
                             <p className="mb-6" style={{ fontSize: '1.1rem', opacity: 0.95 }}>
                                 Stop wasting money on ads people scroll past. Our platform guarantees 100% view completion
                                 because users MUST watch your ad to access WiFi. No skip buttons, no distractions.
@@ -224,7 +224,7 @@ const Advertisers: React.FC = () => {
                             </div>
                         </div>
                         <div className="advertiser-stats-box">
-                            <h3 className="mb-4">Average Advertiser Results</h3>
+                            <h3 className="mb-4">Average Brand Results</h3>
                             <div className="result-stat">
                                 <div className="result-number">85%</div>
                                 <div className="result-label">Brand Recall Rate</div>
