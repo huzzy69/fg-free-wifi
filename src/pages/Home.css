@@ -42,6 +42,10 @@
     display: inline-block;
 }
 
+.text-black {
+    color: #000000;
+}
+
 .hero-buttons {
     display: flex;
     gap: 1.25rem;
