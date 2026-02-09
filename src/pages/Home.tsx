@@ -43,16 +43,16 @@ const Home: React.FC = () => {
                     <div className="hero-content">
                         <h1 className="hero-title">
                             <div className="hero-spacer">
-                                <span className="text-primary">Free Wifi for</span> Customers
+                                Customer getting <span className="text-primary">Free Wifi</span>
                             </div>
                             <div className="hero-spacer">
-                                <span className="text-primary">Growth for</span> Business
+                                Business getting <span className="text-primary">Growth</span>
                             </div>
                             <div className="hero-spacer">
-                                <span className="text-primary">Revenue for</span> Advertisers
+                                Advertisers getting <span className="text-primary">Revenue</span>
                             </div>
                             <div>
-                                <span className="text-primary">Shared Success for</span> All
+                                Everyone getting <span className="text-primary">Benefits</span>
                             </div>
                         </h1>
 
