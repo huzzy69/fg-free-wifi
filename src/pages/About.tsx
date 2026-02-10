@@ -17,7 +17,7 @@ const About: React.FC = () => {
                     <div className="grid-cols-2 align-center">
                         <div className="about-text">
                             <h2 className="mb-4">Our Vision</h2>
-                            <p className="mb-4">Founded by the Fakhir Group, we believe that internet access is a basic necessity in the modern age. Our mission is to make high-speed Wi-Fi available in every public corner, powered by ethical and local advertising.</p>
+                            <p className="mb-4">Founded by the Fakhir Group, we believe that internet access is a basic necessity in the modern age. Our mission is to make high-speed WiFi available in every public corner, powered by ethical and local advertising.</p>
                             <p>We own our infrastructure and our proprietary ad platform. This means we don't rely on third-party tracking or invasive data collection. We just connect people to what they need.</p>
                         </div>
                         <div className="about-stats grid-cols-2">

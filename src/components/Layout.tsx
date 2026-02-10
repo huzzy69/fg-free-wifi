@@ -1,6 +1,7 @@
 import React, { type ReactNode } from 'react';
 import Navbar from './Navbar';
 import Footer from './Footer';
+import BackToTopButton from './BackToTopButton';
 
 interface LayoutProps {
     children: ReactNode;
@@ -14,6 +15,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                 {children}
             </main>
             <Footer />
+            <BackToTopButton />
         </div>
     );
 };

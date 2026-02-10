@@ -21,8 +21,8 @@ const HowItWorks: React.FC = () => {
                                 <div className="step-icon-wrapper">
                                     <Settings size={40} />
                                 </div>
-                                <h3>We Install Wi-Fi</h3>
-                                <p>We maintain and install enterprise-grade Wi-Fi routers at your location. We handle everything.</p>
+                                <h3>We Install WiFi</h3>
+                                <p>We maintain and install enterprise-grade WiFi routers at your location. We handle everything.</p>
                             </div>
                         </div>
 
@@ -33,7 +33,7 @@ const HowItWorks: React.FC = () => {
                                     <Wifi size={40} />
                                 </div>
                                 <h3>Users Connect & See Ads</h3>
-                                <p>When customers connect to the Wi-Fi, they are redirected to a beautiful login page where they view a 5-second non-skippable ad from local sponsors.</p>
+                                <p>When customers connect to the WiFi, they are redirected to a beautiful login page where they view a 5-second non-skippable ad from local sponsors.</p>
                             </div>
                         </div>
 
@@ -79,7 +79,7 @@ const HowItWorks: React.FC = () => {
                         <div className="win-card">
                             <Settings className="text-primary mb-4" size={48} />
                             <h3>For Locations</h3>
-                            <p>Better customer satisfaction and professional guest Wi-Fi at no cost.</p>
+                            <p>Better customer satisfaction and professional guest WiFi at no cost.</p>
                         </div>
                     </div>
                 </div>

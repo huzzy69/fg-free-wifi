@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Wifi, Mail, Phone, MapPin, Facebook, Twitter, Linkedin, Instagram } from 'lucide-react';
+import { Wifi, Mail, Phone, MapPin, Linkedin } from 'lucide-react';
 import './Footer.css';
 
 import { useSiteConfig } from '../context/SiteConfigContext';
@@ -20,10 +20,7 @@ const Footer: React.FC = () => {
                         We manage connectivity and advertising end-to-end. Independent company ensuring views and trust.
                     </p>
                     <div className="social-links">
-                        <a href="#" className="social-link"><Facebook size={20} /></a>
-                        <a href="#" className="social-link"><Twitter size={20} /></a>
-                        <a href="#" className="social-link"><Linkedin size={20} /></a>
-                        <a href="#" className="social-link"><Instagram size={20} /></a>
+                        <a href="https://linkedin.com" className="social-link" target="_blank" rel="noopener noreferrer"><Linkedin size={20} /></a>
                     </div>
                 </div>
 
@@ -40,8 +37,11 @@ const Footer: React.FC = () => {
                 <div className="footer-col">
                     <h3>Services</h3>
                     <ul className="footer-links">
-                        <li><Link to="/locations">Wi-Fi Solutions for Businesses</Link></li>
-                        <li><Link to="/advertisers">Advertise with Us</Link></li>
+                        <li><Link to="/advertisers">Pin-Point Advertising</Link></li>
+                        <li><Link to="/locations">Free Wifi</Link></li>
+                        <li><Link to="/advertisers">Real-Time Survey</Link></li>
+                        <li><Link to="/locations">Guest Wifi Management</Link></li>
+                        <li><Link to="/advertisers">On-Demand Internet</Link></li>
                     </ul>
                 </div>
 
@@ -58,7 +58,7 @@ const Footer: React.FC = () => {
             <div className="footer-copyright-strip">
                 <div className="container copyright-flex">
                     <p>&copy; AdsOnWifi</p>
-                    <p>A Project of {config.companyName}</p>
+                    <p>A Project of Fakhir Groups</p>
                 </div>
             </div>
         </footer>

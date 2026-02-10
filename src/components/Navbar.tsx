@@ -24,7 +24,7 @@ const Navbar: React.FC = () => {
                 <div className="navbar-links desktop-only">
                     <Link to="/" className={`nav-link ${isActive('/')}`}>Home</Link>
                     <Link to="/advertisers" className={`nav-link ${isActive('/advertisers')}`}>Advertise with us</Link>
-                    <Link to="/locations" className={`nav-link ${isActive('/locations')}`}>Our Locations</Link>
+                    <Link to="/free-wifi-locations" className={`nav-link ${isActive('/free-wifi-locations')}`}>Our Locations</Link>
                     <Link to="/pricing" className={`nav-link ${isActive('/pricing')}`}>Pricing</Link>
                     <Link to="/contact" className="btn btn-primary btn-sm">Contact Us</Link>
                 </div>
@@ -47,7 +47,7 @@ const Navbar: React.FC = () => {
                 <div className="mobile-menu-links">
                     <Link to="/" className={`mobile-nav-link ${isActive('/')}`} onClick={toggleMenu}>Home</Link>
                     <Link to="/advertisers" className={`mobile-nav-link ${isActive('/advertisers')}`} onClick={toggleMenu}>Advertise with us</Link>
-                    <Link to="/locations" className={`mobile-nav-link ${isActive('/locations')}`} onClick={toggleMenu}>Our Locations</Link>
+                    <Link to="/free-wifi-locations" className={`mobile-nav-link ${isActive('/free-wifi-locations')}`} onClick={toggleMenu}>Our Locations</Link>
                     <Link to="/pricing" className={`mobile-nav-link ${isActive('/pricing')}`} onClick={toggleMenu}>Pricing</Link>
                     <div className="mobile-menu-footer">
                         <Link to="/contact" className="btn btn-primary btn-full" onClick={toggleMenu}>Contact Us</Link>

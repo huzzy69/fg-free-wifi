@@ -93,7 +93,7 @@ const LocationDetail: React.FC = () => {
                             rel="noopener noreferrer"
                             className="btn btn-primary"
                         >
-                            🚶 Get Directions
+                            Get Directions
                         </a>
                     </div>
 

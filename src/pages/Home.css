@@ -32,7 +32,19 @@
 .hero-spacer {
     margin-bottom: 25px;
     white-space: nowrap;
-    /* This is roughly 50% of your 50px font size */
+    transition: var(--transition-smooth);
+}
+
+.hero-spacer:hover {
+    transform: translateX(10px);
+}
+
+.hero-spacer span {
+    transition: var(--transition-smooth);
+}
+
+.hero-spacer:hover .text-cyan {
+    text-shadow: 0 0 15px rgba(98, 202, 244, 0.4);
 }
 
 .text-primary {
@@ -474,14 +486,14 @@
     padding: 3rem 2.5rem;
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-md);
-    text-align: left;
-    /* Switched to left for more professional look */
+    text-align: center;
     transition: var(--transition-smooth);
     flex: 1 1 300px;
     max-width: 380px;
     border: 1px solid rgba(0, 0, 0, 0.03);
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 .service-card:hover {

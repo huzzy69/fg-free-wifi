@@ -42,17 +42,17 @@ const Home: React.FC = () => {
                 <div className="container hero-container">
                     <div className="hero-content">
                         <h1 className="hero-title">
-                            <div className="hero-spacer">
-                                <span className="text-black">Customer</span> <span className="text-cyan">getting</span> <span className="text-primary">Free Wifi</span>
+                            <div className="hero-spacer reveal-up" style={{ transitionDelay: '0.1s' }}>
+                                <span className="text-black">Customer</span> <span className="text-cyan">getting</span> <span className="text-cyan">Free Wifi</span>
                             </div>
-                            <div className="hero-spacer">
-                                <span className="text-black">Business</span> <span className="text-cyan">getting</span> <span className="text-primary">Growth</span>
+                            <div className="hero-spacer reveal-up" style={{ transitionDelay: '0.2s' }}>
+                                <span className="text-black">Business</span> <span className="text-cyan">getting</span> <span className="text-cyan">Growth</span>
                             </div>
-                            <div className="hero-spacer">
-                                <span className="text-black">Brands</span> <span className="text-cyan">getting</span> <span className="text-primary">Revenue</span>
+                            <div className="hero-spacer reveal-up" style={{ transitionDelay: '0.3s' }}>
+                                <span className="text-black">Brands</span> <span className="text-cyan">getting</span> <span className="text-cyan">Revenue</span>
                             </div>
-                            <div>
-                                <span className="text-black">Everyone</span> <span className="text-cyan">getting</span> <span className="text-primary">Benefits</span>
+                            <div className="hero-spacer reveal-up" style={{ transitionDelay: '0.4s' }}>
+                                <span className="text-black">Everyone</span> <span className="text-cyan">getting</span> <span className="text-cyan">Benefits</span>
                             </div>
                         </h1>
 
@@ -60,8 +60,8 @@ const Home: React.FC = () => {
                             <Link to="/advertisers" className="btn btn-primary btn-hero">
                                 <BarChart3 size={22} strokeWidth={2.5} /> Advertise With Us
                             </Link>
-                            <Link to="/locations" className="btn btn-outline btn-hero">
-                                <Wifi size={22} strokeWidth={2.5} /> Get Wi-Fi
+                            <Link to="/contact?tab=location" className="btn btn-outline btn-hero">
+                                <Wifi size={22} strokeWidth={2.5} /> Get Free WiFi Device
                             </Link>
                         </div>
                     </div>
@@ -130,14 +130,14 @@ const Home: React.FC = () => {
                                 <Wifi size={32} className="step-icon" />
                             </div>
                             <h3>1. We Install</h3>
-                            <p>We set up enterprise-grade Wi-Fi hardware at your location.</p>
+                            <p>We set up enterprise-grade WiFi hardware at your location.</p>
                         </div>
                         <div className="step-card">
                             <div className="step-icon-bg">
                                 <CheckCircle size={32} className="step-icon" />
                             </div>
                             <h3>2. Users Connect</h3>
-                            <p>Visitors connect to the open Wi-Fi network easily.</p>
+                            <p>Visitors connect to the open WiFi network easily.</p>
                         </div>
                         <div className="step-card">
                             <div className="step-icon-bg">
@@ -157,34 +157,7 @@ const Home: React.FC = () => {
                 </div>
             </section>
 
-            {/* Stats Section */}
-            <section className="section bg-primary text-white reveal-up">
-                <div className="container">
-                    <div className="section-header text-center">
-                        <h2 className="section-title text-white">Our Impact in Numbers</h2>
-                        <p className="section-desc text-white">Real results from our growing network</p>
-                    </div>
 
-                    <div className="stats-grid grid-cols-4">
-                        <div className="stat-box">
-                            <h3><StatCounter end="1M+" /></h3>
-                            <p>Monthly Ad Views</p>
-                        </div>
-                        <div className="stat-box">
-                            <h3><StatCounter end="200+" /></h3>
-                            <p>Active Locations</p>
-                        </div>
-                        <div className="stat-box">
-                            <h3><StatCounter end="50K+" /></h3>
-                            <p>Daily Users</p>
-                        </div>
-                        <div className="stat-box">
-                            <h3><StatCounter end="100%" /></h3>
-                            <p>Completion Rate</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
 
             {/* Testimonials */}
             <section className="section bg-light reveal-up">
@@ -233,7 +206,7 @@ const Home: React.FC = () => {
                             <p>Join the network of over 200+ locations and reach thousands of daily users.</p>
                             <div className="cta-buttons-vertical">
                                 <Link to="/contact" className="btn btn-light btn-full">Contact Sales</Link>
-                                <Link to="/advertisers" className="btn btn-outline-light btn-full">For Locations</Link>
+                                <Link to="/contact?tab=location" className="btn btn-outline-light btn-full">Get Free WiFi Device</Link>
                             </div>
                         </div>
                     </div>

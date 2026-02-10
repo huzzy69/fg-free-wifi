@@ -5,6 +5,7 @@ import Pricing from './pages/Pricing';
 import Advertisers from './pages/Advertisers';
 import About from './pages/About';
 import Contact from './pages/Contact';
+import Locations from './pages/Locations';
 import FreeWifiLocations from './pages/FreeWifiLocations';
 import LocationDetail from './pages/LocationDetail';
 import AdminLogin from './pages/nimda/AdminLogin';
@@ -35,7 +36,7 @@ function AppContent() {
               <Route path="/" element={<Home />} />
               <Route path="/pricing" element={<Pricing />} />
               <Route path="/advertisers" element={<Advertisers />} />
-              <Route path="/locations" element={<FreeWifiLocations />} />
+              <Route path="/locations" element={<Locations />} />
               <Route path="/about" element={<About />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/free-wifi-locations" element={<FreeWifiLocations />} />

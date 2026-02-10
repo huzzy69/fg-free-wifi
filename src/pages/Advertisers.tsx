@@ -177,73 +177,7 @@ const Advertisers: React.FC = () => {
                 </div>
             </section>
 
-            {/* Advertiser Focus Section - Moved from Home */}
-            <section className="section bg-gradient-primary text-white">
-                <div className="container">
-                    <div className="grid-cols-2 align-center">
-                        <div>
-                            <h2 className="mb-4">For Brands: The Future of Local Marketing</h2>
-                            <p className="mb-6" style={{ fontSize: '1.1rem', opacity: 0.95 }}>
-                                Stop wasting money on ads people scroll past. Our platform guarantees 100% view completion
-                                because users MUST watch your ad to access WiFi. No skip buttons, no distractions.
-                            </p>
-                            <ul className="advertiser-benefits">
-                                <li>
-                                    <CheckCircle size={24} />
-                                    <div>
-                                        <strong>100% Guaranteed Views</strong>
-                                        <p>Every impression is a real view - no bots, no fraud</p>
-                                    </div>
-                                </li>
-                                <li>
-                                    <CheckCircle size={24} />
-                                    <div>
-                                        <strong>Hyper-Local Targeting</strong>
-                                        <p>Target specific cafes, gyms, malls, or neighborhoods</p>
-                                    </div>
-                                </li>
-                                <li>
-                                    <CheckCircle size={24} />
-                                    <div>
-                                        <strong>Premium Placement</strong>
-                                        <p>Full-screen, undivided attention at the moment of engagement</p>
-                                    </div>
-                                </li>
-                                <li>
-                                    <CheckCircle size={24} />
-                                    <div>
-                                        <strong>Detailed Analytics</strong>
-                                        <p>Track every impression, location, and time of day</p>
-                                    </div>
-                                </li>
-                            </ul>
-                            <div className="mt-6">
-                                <button className="btn btn-light btn-lg" onClick={() => navigate('/pricing')}>
-                                    View Pricing Plans <TrendingUp size={20} style={{ display: 'inline', marginLeft: '8px' }} />
-                                </button>
-                            </div>
-                        </div>
-                        <div className="advertiser-stats-box">
-                            <h3 className="mb-4">Average Brand Results</h3>
-                            <div className="result-stat">
-                                <div className="result-number">85%</div>
-                                <div className="result-label">Brand Recall Rate</div>
-                            </div>
-                            <div className="result-stat">
-                                <div className="result-number">3x</div>
-                                <div className="result-label">Better ROI vs Social Media</div>
-                            </div>
-                            <div className="result-stat">
-                                <div className="result-number">50K+</div>
-                                <div className="result-label">Daily Impressions Available</div>
-                            </div>
-                            <div className="cta-note">
-                                <p>Starting from just <strong>PKR 25,000/month</strong></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+
 
             <section className="section" id="why-choose-us">
                 <div className="container">
@@ -307,15 +241,15 @@ const Advertisers: React.FC = () => {
                             <h3>Cinemas</h3>
                         </div>
                         <div className="venue-item">
-                            <img src="https://images.unsplash.com/photo-1519331379826-fda8feb0c191?q=80&w=800&auto=format&fit=crop" alt="Public Parks" className="venue-img" />
+                            <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=800&auto=format&fit=crop" alt="Public Parks" className="venue-img" />
                             <h3>Public Parks</h3>
                         </div>
                         <div className="venue-item">
-                            <img src="https://images.unsplash.com/photo-1518998053901-5348d3961a04?q=80&w=800&auto=format&fit=crop" alt="Museums" className="venue-img" />
+                            <img src="https://images.unsplash.com/photo-1554907984-15263bfd63bd?q=80&w=800&auto=format&fit=crop" alt="Museums" className="venue-img" />
                             <h3>Museums</h3>
                         </div>
                         <div className="venue-item">
-                            <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=800&auto=format&fit=crop" alt="On-Demand Internet" className="venue-img" />
+                            <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=800&auto=format&fit=crop" alt="On-Demand Internet" className="venue-img" />
                             <h3>On-Demand Internet</h3>
                         </div>
                         <div className="venue-item">
@@ -326,220 +260,81 @@ const Advertisers: React.FC = () => {
                 </div>
             </section>
 
-            <section className="section">
+
+
+
+
+
+
+
+
+
+
+
+
+            {/* Advertiser Focus Section - Moved Down */}
+            <section className="section bg-gradient-primary text-white">
                 <div className="container">
-                    <div className="grid-cols-2">
-                        <div className="benefits-for-owner">
-                            <h2 className="mb-6">0% Cost. 100% Benefit.</h2>
-                            <div className="benefit-item">
-                                <Zap className="text-primary" />
-                                <div>
-                                    <h4>Professional Installation</h4>
-                                    <p>Enterprise hardware installed by our technicians for you.</p>
-                                </div>
-                            </div>
-                            <div className="benefit-item">
-                                <Shield className="text-primary" />
-                                <div>
-                                    <h4>No Maintenance Headache</h4>
-                                    <p>We handle all technical issues, updates, and customer support.</p>
-                                </div>
-                            </div>
-
-                            <div className="cta-section text-center">
-                                <p>Wi-Fi is the #1 amenity customers look for in public spaces.</p>
-                                <div className="btn-group">
-
-                                    <Link to="/locations" className="btn btn-primary" title="For users who want to see where FG Free Wifi is available">See FG Free Wifi Locations</Link>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="location-info-img">
-                            <div className="info-card">
-                                <h3>Our Promise to Owners</h3>
-                                <p>"We treat your location with respect. Our hardware is discreet, our network is secure, and our service is invisible until it's needed."</p>
-                                <cite>— Fakhir Group Team</cite>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-
-
-
-
-            {/* Analytics Dashboard Preview */}
-            <section className="section bg-light">
-                <div className="container">
-                    <div className="grid-cols-2 align-center gap-large">
-                        <div className="dashboard-mockup">
-                            <div className="browser-frame">
-                                <div className="browser-header">
-                                    <span className="dot red"></span>
-                                    <span className="dot yellow"></span>
-                                    <span className="dot green"></span>
-                                    <div className="browser-bar">ads.fakhir.com/dashboard</div>
-                                </div>
-                                <div className="browser-content">
-                                    <div className="dash-header">
-                                        <h4>Campaign Overview</h4>
-                                        <span className="date-range">Last 30 Days</span>
+                    <div className="grid-cols-2 align-center">
+                        <div>
+                            <h2 className="mb-4">For Brands: The Future of Local Marketing</h2>
+                            <p className="mb-6" style={{ fontSize: '1.1rem', opacity: 0.95 }}>
+                                Stop wasting money on ads people scroll past. Our platform guarantees 100% view completion
+                                because users MUST watch your ad to access WiFi. No skip buttons, no distractions.
+                            </p>
+                            <ul className="advertiser-benefits">
+                                <li>
+                                    <CheckCircle size={24} />
+                                    <div>
+                                        <strong>100% Guaranteed Views</strong>
+                                        <p>Every impression is a real view - no bots, no fraud</p>
                                     </div>
-                                    <div className="dash-stats">
-                                        <div className="d-stat">
-                                            <small>Impressions</small>
-                                            <strong>45,231</strong>
-                                            <span className="text-success">↑ 12%</span>
-                                        </div>
-                                        <div className="d-stat">
-                                            <small>Clicks</small>
-                                            <strong>1,204</strong>
-                                            <span className="text-success">↑ 5%</span>
-                                        </div>
-                                        <div className="d-stat">
-                                            <small>CTR</small>
-                                            <strong>2.6%</strong>
-                                            <span className="text-neutral">-</span>
-                                        </div>
+                                </li>
+                                <li>
+                                    <CheckCircle size={24} />
+                                    <div>
+                                        <strong>Hyper-Local Targeting</strong>
+                                        <p>Target specific cafes, gyms, malls, or neighborhoods</p>
                                     </div>
-                                    <div className="dash-chart">
-                                        <div className="chart-bar" style={{ height: '40%' }}></div>
-                                        <div className="chart-bar" style={{ height: '60%' }}></div>
-                                        <div className="chart-bar" style={{ height: '45%' }}></div>
-                                        <div className="chart-bar" style={{ height: '80%' }}></div>
-                                        <div className="chart-bar" style={{ height: '55%' }}></div>
-                                        <div className="chart-bar" style={{ height: '90%' }}></div>
-                                        <div className="chart-bar" style={{ height: '70%' }}></div>
+                                </li>
+                                <li>
+                                    <CheckCircle size={24} />
+                                    <div>
+                                        <strong>Premium Placement</strong>
+                                        <p>Full-screen, undivided attention at the moment of engagement</p>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="dashboard-info">
-                            <h2>Transparancy You Can Trust</h2>
-                            <p className="mb-6">We provide a comprehensive advertiser dashboard where you can track your campaign performance in real-time.</p>
-                            <ul className="bullet-list">
-                                <li><strong>Real-Time Stats:</strong> See views as they happen.</li>
-                                <li><strong>Location Breakdown:</strong> Know which venues perform best.</li>
-                                <li><strong>Device Analytics:</strong> Understand your audience's tech.</li>
-                                <li><strong>Exportable Reports:</strong> Easy PDF/Excel exports for your team.</li>
+                                </li>
+                                <li>
+                                    <CheckCircle size={24} />
+                                    <div>
+                                        <strong>Detailed Analytics</strong>
+                                        <p>Track every impression, location, and time of day</p>
+                                    </div>
+                                </li>
                             </ul>
-                            <button className="btn btn-outline mt-6" onClick={() => document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth' })}>Book Demo Dashboard</button>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            {/* Audience Demographics */}
-            <section className="section">
-                <div className="container">
-                    <div className="section-header text-center">
-                        <h2>Who Will You Reach?</h2>
-                        <p className="section-desc">Our network covers a diverse range of high-value users.</p>
-                    </div>
-
-                    <div className="demographics-grid">
-                        <div className="demo-card">
-                            <h3>Age Groups</h3>
-                            <div className="progress-list">
-                                <div className="p-item">
-                                    <span>18-24</span>
-                                    <div className="p-bar"><div style={{ width: '35%' }}></div></div>
-                                    <span>35%</span>
-                                </div>
-                                <div className="p-item">
-                                    <span>25-34</span>
-                                    <div className="p-bar"><div style={{ width: '45%' }}></div></div>
-                                    <span>45%</span>
-                                </div>
-                                <div className="p-item">
-                                    <span>35-44</span>
-                                    <div className="p-bar"><div style={{ width: '15%' }}></div></div>
-                                    <span>15%</span>
-                                </div>
+                            <div className="mt-6">
+                                <button className="btn btn-light btn-lg" onClick={() => navigate('/pricing')}>
+                                    View Pricing Plans <TrendingUp size={20} style={{ display: 'inline', marginLeft: '8px' }} />
+                                </button>
                             </div>
                         </div>
-                        <div className="demo-card">
-                            <h3>Interests</h3>
-                            <div className="tags-cloud">
-                                <span>Tech</span>
-                                <span>Travel</span>
-                                <span>Food & Dining</span>
-                                <span>Shopping</span>
-                                <span>Education</span>
-                                <span>Business</span>
-                                <span>Entertainment</span>
-                                <span>Health</span>
+                        <div className="advertiser-stats-box">
+                            <h3 className="mb-4">Average Brand Results</h3>
+                            <div className="result-stat">
+                                <div className="result-number">85%</div>
+                                <div className="result-label">Brand Recall Rate</div>
                             </div>
-                        </div>
-                        <div className="demo-card">
-                            <h3>Locations</h3>
-                            <ul className="icon-list">
-                                <li><Building size={16} /> Shopping Malls</li>
-                                <li><Users size={16} /> Universities</li>
-                                <li><Layout size={16} /> Cafes & Restaurants</li>
-                                <li><MapPin size={16} /> Public Transport Areas</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            {/* Support / FAQ */}
-            <section className="section bg-light">
-                <div className="container">
-                    <div className="section-header text-center block-header">
-                        <h2>Frequently Asked Questions</h2>
-                    </div>
-                    <div className="faq-grid">
-                        <div className="faq-item">
-                            <h4>Can I choose specific locations?</h4>
-                            <p>Yes! With our Professional and Enterprise plans, you can select specific zones or types of venues to target.</p>
-                        </div>
-                        <div className="faq-item">
-                            <h4>How do you verify views?</h4>
-                            <p>Our system requires the ad to fully load and play on the user's screen before internet access is granted. We track completed views, not just loads.</p>
-                        </div>
-                        <div className="faq-item">
-                            <h4>Can I change my ad creative?</h4>
-                            <p>Absolutely. You can update your image or video creatives at any time through your dashboard or by contacting support.</p>
-                        </div>
-                        <div className="faq-item">
-                            <h4>What is the minimum contract?</h4>
-                            <p>There is no long-term contract! Our plans are monthly. Site Sponsorships have a minimum 1-month commitment.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            {/* Success Stats */}
-            <section className="section bg-primary text-white">
-                <div className="container">
-                    <div className="section-header text-center">
-                        <h2 className="section-title text-white">Our Impact in Numbers</h2>
-                        <p className="section-desc text-white">Real results from our growing network</p>
-                    </div>
-
-                    <div className="grid-cols-4">
-                        <div className="stat-card">
-                            <TrendingUp size={32} className="mb-3" />
-                            <h3><StatCounter end="85%" /></h3>
-                            <p>Average Recall Rate</p>
-                        </div>
-                        <div className="stat-card">
-                            <Eye size={32} className="mb-3" />
-                            <h3><StatCounter end="100%" /></h3>
-                            <p>Completion Rate</p>
-                        </div>
-                        <div className="stat-card">
-                            <MapPin size={32} className="mb-3" />
-                            <h3><StatCounter end="200+" /></h3>
-                            <p>Active Locations</p>
-                        </div>
-                        <div className="stat-card">
-                            <Users size={32} className="mb-3" />
-                            <h3><StatCounter end="50K+" /></h3>
-                            <p>Daily Reach</p>
+                            <div className="result-stat">
+                                <div className="result-number">3x</div>
+                                <div className="result-label">Better ROI vs Social Media</div>
+                            </div>
+                            <div className="result-stat">
+                                <div className="result-number">50K+</div>
+                                <div className="result-label">Daily Impressions Available</div>
+                            </div>
+                            <div className="cta-note">
+                                <p>Starting from just <strong>PKR 25,000/month</strong></p>
+                            </div>
                         </div>
                     </div>
                 </div>

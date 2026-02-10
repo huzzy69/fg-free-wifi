@@ -1,10 +1,15 @@
 import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
+import { useLocation } from 'react-router-dom';
 import { api } from '../api';
 import emailjs from '@emailjs/browser';
 
 const Contact: React.FC = () => {
-    const [activeTab, setActiveTab] = useState<'advertiser' | 'location'>('advertiser');
+    const location = useLocation();
+    const queryParams = new URLSearchParams(location.search);
+    const defaultTab = queryParams.get('tab') === 'location' ? 'location' : 'advertiser';
+
+    const [activeTab, setActiveTab] = useState<'advertiser' | 'location'>(defaultTab);
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [formData, setFormData] = useState({
         name: '',

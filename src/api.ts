@@ -104,7 +104,7 @@ const initialConfig = {
     contactEmail: 'info@fakhirgroup.com',
     contactPhone: '0334-5588889',
     contactAddress: 'B1-104, UK Square, Federal B. Area, Karachi',
-    heroTitlePart1: 'FREE Wi-Fi for Users.',
+    heroTitlePart1: 'FREE WiFi for Users.',
     heroTitleHighlight1: 'Revenue',
     heroTitlePart2: 'for Businesses.',
     heroTitleHighlight2: 'Visibility',
