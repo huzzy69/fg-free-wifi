@@ -38,9 +38,9 @@ const Footer: React.FC = () => {
                     <h3>Services</h3>
                     <ul className="footer-links">
                         <li><Link to="/advertisers">Pin-Point Advertising</Link></li>
-                        <li><Link to="/locations">Free Wifi</Link></li>
+                        <li><Link to="/free-wifi-locations">Free WiFi</Link></li>
                         <li><Link to="/advertisers">Real-Time Survey</Link></li>
-                        <li><Link to="/locations">Guest Wifi Management</Link></li>
+                        <li><Link to="/locations">Guest WiFi Management</Link></li>
                         <li><Link to="/advertisers">On-Demand Internet</Link></li>
                     </ul>
                 </div>
