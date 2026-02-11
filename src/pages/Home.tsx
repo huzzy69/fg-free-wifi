@@ -43,16 +43,13 @@ const Home: React.FC = () => {
                     <div className="hero-content">
                         <h1 className="hero-title">
                             <div className="hero-spacer reveal-up" style={{ transitionDelay: '0.1s' }}>
-                                <span className="text-black">Customer</span> <span className="text-cyan">getting</span> <span className="text-cyan">Free Wifi</span>
+                                <span className="text-cyan">Connecting</span> <span className="text-black">Customers</span>
                             </div>
                             <div className="hero-spacer reveal-up" style={{ transitionDelay: '0.2s' }}>
-                                <span className="text-black">Business</span> <span className="text-cyan">getting</span> <span className="text-cyan">Growth</span>
+                                <span className="text-cyan">Growing</span> <span className="text-black">Businesses</span>
                             </div>
                             <div className="hero-spacer reveal-up" style={{ transitionDelay: '0.3s' }}>
-                                <span className="text-black">Brands</span> <span className="text-cyan">getting</span> <span className="text-cyan">Revenue</span>
-                            </div>
-                            <div className="hero-spacer reveal-up" style={{ transitionDelay: '0.4s' }}>
-                                <span className="text-black">Everyone</span> <span className="text-cyan">getting</span> <span className="text-cyan">Benefits</span>
+                                <span className="text-cyan">Rewarding</span> <span className="text-black">Brands</span>
                             </div>
                         </h1>
 
