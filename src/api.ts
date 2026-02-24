@@ -116,12 +116,12 @@ const initialTeamMembers: TeamMember[] = [
         photo: '', order: 1
     },
     {
-        id: 'tm_pg', name: 'Patricia Garcia', designation: 'Global Head of Audits & Compliance',
+        id: 'tm_pg', name: 'Ms. Patricia Garcia', designation: 'Global Head of Audits & Compliance',
         bio: 'CPA from Spain, speaking English and Spanish. Currently a Joint Partner at Baker Tilly, Houston, ensuring the highest standards of transparency for Fakhir Group.',
         photo: '/team/patricia_garcia.jpeg', order: 2
     },
     {
-        id: 'tm_hbb', name: 'Hamdan Bin Muhammad Al Baloshi', designation: 'Global Director Government Affairs',
+        id: 'tm_hbb', name: 'Hamdan Bin Muhammad Al Balushi', designation: 'Global Director Government Affairs',
         bio: 'Facilitates strategic relationships and collaboration with government entities worldwide to drive the fakhir group\'s digital transformation.',
         photo: '', order: 3
     },
@@ -146,7 +146,7 @@ const initialTeamMembers: TeamMember[] = [
         photo: '', order: 7
     },
     {
-        id: 'tm_4', name: 'Rahima Ejaz', designation: 'Human Resources Manager (Pakistan)',
+        id: 'tm_4', name: 'Ms. Rahima Ejaz', designation: 'Human Resources Manager (Pakistan)',
         bio: 'Champions a culture of innovation and excellence, managing talent acquisition and development across our growing regional teams.',
         photo: '', order: 8
     },
@@ -171,7 +171,7 @@ const initialTeamMembers: TeamMember[] = [
         photo: '', order: 12
     },
     {
-        id: 'tm_ms1', name: 'Misbah Siddiqui', designation: 'Business Development Executive (Karachi)',
+        id: 'tm_ms1', name: 'Ms. Misbah Siddiqui', designation: 'Business Development Executive (Karachi)',
         bio: 'Focuses on expanding our reach in Karachi, building relationships with venue partners and driving business growth.',
         photo: '', order: 13
     },
@@ -191,9 +191,14 @@ const initialTeamMembers: TeamMember[] = [
         photo: '', order: 16
     },
     {
-        id: 'tm_as1', name: 'Albina Shakirova', designation: 'Business Development Executive (UAE)',
+        id: 'tm_as1', name: 'Ms. Albina Shakirova', designation: 'Business Development Executive (UAE)',
         bio: 'Russian speaker driving business growth and strategic partnerships across the UAE, expanding Fakhir Group\'s global reach.',
         photo: '/team/albina_shakirova.jpeg', order: 17
+    },
+    {
+        id: 'tm_at1', name: 'Ms Amna Tahir', designation: 'Business Development Manager (UAE Real Estate)',
+        bio: 'Driving business development and strategic growth in the UAE real estate sector for Fakhir Group.',
+        photo: '/team/amna_tahir.jpeg', order: 18
     }
 ];
 
@@ -340,9 +345,9 @@ export const api = {
     team: {
         async getAll(): Promise<TeamMember[]> {
             await sleep(SLEEP_TIME);
-            const data = localStorage.getItem('team_members_v15');
+            const data = localStorage.getItem('team_members_v16');
             if (data === null) {
-                localStorage.setItem('team_members_v15', JSON.stringify(initialTeamMembers));
+                localStorage.setItem('team_members_v16', JSON.stringify(initialTeamMembers));
                 return initialTeamMembers;
             }
             const parsed: TeamMember[] = JSON.parse(data);
@@ -356,7 +361,7 @@ export const api = {
                 id: 'tm_' + Math.random().toString(36).substr(2, 9)
             };
             const updated = [...current, newMember];
-            localStorage.setItem('team_members_v15', JSON.stringify(updated));
+            localStorage.setItem('team_members_v16', JSON.stringify(updated));
             return { success: true, id: newMember.id };
         },
         async update(id: string, member: Partial<TeamMember>) {
@@ -365,14 +370,14 @@ export const api = {
             const updated = current.map(item =>
                 item.id === id ? { ...item, ...member } : item
             );
-            localStorage.setItem('team_members_v15', JSON.stringify(updated));
+            localStorage.setItem('team_members_v16', JSON.stringify(updated));
             return { success: true };
         },
         async delete(id: string) {
             await sleep(SLEEP_TIME);
             const current = await this.getAll();
             const updated = current.filter(item => item.id !== id);
-            localStorage.setItem('team_members_v15', JSON.stringify(updated));
+            localStorage.setItem('team_members_v16', JSON.stringify(updated));
             return { success: true };
         }
     },
