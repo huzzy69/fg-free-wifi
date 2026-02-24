@@ -89,21 +89,21 @@ const Contact: React.FC = () => {
                                     <Phone className="text-primary" />
                                     <div>
                                         <h4>Call Us</h4>
-                                        <p>+1 234 567 8900</p>
+                                        <p>0334-5588889</p>
                                     </div>
                                 </div>
                                 <div className="contact-item">
                                     <Mail className="text-primary" />
                                     <div>
                                         <h4>Email Us</h4>
-                                        <p>fakhirgroupss.smtp@gmail.com</p>
+                                        <p>info@fakhirgroup.com</p>
                                     </div>
                                 </div>
                                 <div className="contact-item">
                                     <MapPin className="text-primary" />
                                     <div>
                                         <h4>Visit Us</h4>
-                                        <p>123 Business Park, City, Country</p>
+                                        <p>B1-104, UK Square, Federal B. Area, Karachi</p>
                                     </div>
                                 </div>
                             </div>

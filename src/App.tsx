@@ -8,6 +8,7 @@ import Contact from './pages/Contact';
 import Locations from './pages/Locations';
 import FreeWifiLocations from './pages/FreeWifiLocations';
 import LocationDetail from './pages/LocationDetail';
+import Team from './pages/Team';
 import AdminLogin from './pages/nimda/AdminLogin';
 import AdminDashboard from './pages/nimda/AdminDashboard';
 import { SiteConfigProvider, useSiteConfig } from './context/SiteConfigContext';
@@ -41,6 +42,7 @@ function AppContent() {
               <Route path="/contact" element={<Contact />} />
               <Route path="/free-wifi-locations" element={<FreeWifiLocations />} />
               <Route path="/location/:id" element={<LocationDetail />} />
+              <Route path="/team" element={<Team />} />
             </Routes>
           </Layout>
         } />

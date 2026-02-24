@@ -29,6 +29,17 @@ export interface WifiLocation {
     province: string;
 }
 
+export interface TeamMember {
+    id: string;
+    name: string;
+    designation: string;
+    bio: string;
+    photo: string;   // URL or base64 data URI
+    email?: string;
+    linkedin?: string;
+    order: number;   // display order
+}
+
 // Initial seed data for Inquiries
 const initialInquiries: Inquiry[] = [
     {
@@ -38,7 +49,7 @@ const initialInquiries: Inquiry[] = [
         businessName: 'Khan Electronics',
         city: 'Lahore',
         phone: '0300-1234567',
-        email: 'fakhirgroupss.smtp@gmail.com',
+        email: 'info@fakhirgroup.com',
         message: 'I want to advertise my new store opening.',
         date: new Date(Date.now() - 3600000).toISOString(),
         status: 'new'
@@ -50,7 +61,7 @@ const initialInquiries: Inquiry[] = [
         businessName: 'The Coffee Bean',
         city: 'Islamabad',
         phone: '0321-7654321',
-        email: 'fakhirgroupss.smtp@gmail.com',
+        email: 'info@fakhirgroup.com',
         message: 'Interested in providing free wifi to my customers.',
         date: new Date(Date.now() - 86400000).toISOString(),
         status: 'contacted'
@@ -97,10 +108,89 @@ const initialLocations: WifiLocation[] = [
     }
 ];
 
+// Initial seed data for Team Members (18 cards)
+const initialTeamMembers: TeamMember[] = [
+    {
+        id: 'tm_2', name: 'Saif Saeed', designation: 'Director Global Operations',
+        bio: 'Oversees the end-to-end deployment and operations of the AdsOnWifi network globally, ensuring high-quality service and strategic growth.',
+        photo: '', order: 1
+    },
+    {
+        id: 'tm_z1', name: 'Zubair Paracha', designation: 'Country Head (Pakistan)',
+        bio: 'Leading strategic operations and nationwide expansion in Pakistan, focusing on high-level partnerships and digital inclusion.',
+        photo: '', order: 2
+    },
+    {
+        id: 'tm_m1', name: 'Muhammad Bin Saeed', designation: 'Country Head (Pakistan)',
+        bio: 'Drives growth and operational excellence across Pakistan, ensuring the AdsOnWifi network reaches every corner of the country.',
+        photo: '', order: 3
+    },
+    {
+        id: 'tm_b1', name: 'Ms. Bahar Azam', designation: 'Country Head (Pakistan)',
+        bio: 'Focused on scaling Pakistani operations and fostering key domestic alliances to bridge the connectivity gap.',
+        photo: '', order: 4
+    },
+    {
+        id: 'tm_n1', name: 'Noman ul Haq', designation: 'Country Head (Pakistan)',
+        bio: 'Leads the Pakistani operations, focusing on nationwide expansion and building key domestic partnerships to bridge the digital divide.',
+        photo: '', order: 5
+    },
+    {
+        id: 'tm_4', name: 'Rahima Ejaz', designation: 'Human Resources Manager (Pakistan)',
+        bio: 'Champions a culture of innovation and excellence, managing talent acquisition and development across our growing regional teams.',
+        photo: '', order: 6
+    },
+    {
+        id: 'tm_5', name: 'Aquib Ali', designation: 'Business Development Manager (SME & Govt. Sector)',
+        bio: 'Leading strategic partnerships with small-to-medium enterprises and government bodies to expand the AdsOnWifi footprint.',
+        photo: '', order: 7
+    },
+    {
+        id: 'tm_6', name: 'Tayyaba Fatima', designation: 'Business Development Manager (Corporate Sector)',
+        bio: 'Focuses on building and maintaining relationships with corporate clients, delivering innovative advertising solutions that drive results.',
+        photo: '', order: 8
+    },
+    {
+        id: 'tm_7', name: 'Arhub Hussain', designation: 'Visual Designer',
+        bio: 'Crafts the visual identity and user experience of our platforms, ensuring every touchpoint is engaging and visually stunning.',
+        photo: '', order: 9
+    },
+    {
+        id: 'tm_8', name: 'Huzaifa Shiraz', designation: 'Business Development Executive (Karachi)',
+        bio: 'Drives growth within the Karachi region, identifying new venues and opportunities for the AdsOnWifi network.',
+        photo: '/team/huzaifa_shiraz.png', order: 10
+    },
+    {
+        id: 'tm_9', name: 'Zayan Farooq Khan', designation: 'Business Development Executive (Karachi)',
+        bio: 'Dedicated to expanding our presence in Karachi, fostering local partnerships and site acquisitions.',
+        photo: '', order: 11
+    },
+    {
+        id: 'tm_ms1', name: 'Misbah Siddiqui', designation: 'Business Development Executive (Karachi)',
+        bio: 'Focuses on expanding our reach in Karachi, building relationships with venue partners and driving business growth.',
+        photo: '', order: 12
+    },
+    {
+        id: 'tm_hk1', name: 'Hamza Khan', designation: 'Business Development Executive (Karachi)',
+        bio: 'Dedicated to identifying and securing high-footfall locations in Karachi to expand the AdsOnWifi network.',
+        photo: '', order: 13
+    },
+    {
+        id: 'tm_10', name: 'Syed Hasaan', designation: 'Sites Acquisition Officer (Karachi)',
+        bio: 'Expert in securing high-footfall locations for hotspot installations, ensuring optimal network coverage across the city.',
+        photo: '', order: 14
+    },
+    {
+        id: 'tm_11', name: 'Mohsin Sabri', designation: 'Sites Acquisition Officer (Karachi)',
+        bio: 'Works on the ground to identify and acquire prime sites for our WiFi hotspots, fueling our network expansion strategy.',
+        photo: '', order: 15
+    }
+];
+
 // Site Configuration
 const initialConfig = {
     companyName: 'AdsOnWifi',
-    logoUrl: '/logo.png',
+    logoUrl: '/team/logo.jpeg',
     contactEmail: 'info@fakhirgroup.com',
     contactPhone: '0334-5588889',
     contactAddress: 'B1-104, UK Square, Federal B. Area, Karachi',
@@ -132,16 +222,16 @@ export const api = {
     siteConfig: {
         async get() {
             await sleep(SLEEP_TIME);
-            const data = localStorage.getItem('siteConfig_v3');
+            const data = localStorage.getItem('siteConfig_v4');
             if (data === null) {
-                localStorage.setItem('siteConfig_v3', JSON.stringify(initialConfig));
+                localStorage.setItem('siteConfig_v4', JSON.stringify(initialConfig));
                 return initialConfig;
             }
 
             const parsed = JSON.parse(data);
             // Validation: if critical fields are missing (due to code updates), reset to initial
             if (!parsed.services || !parsed.heroStat1Value) {
-                localStorage.setItem('siteConfig_v3', JSON.stringify(initialConfig));
+                localStorage.setItem('siteConfig_v4', JSON.stringify(initialConfig));
                 return initialConfig;
             }
 
@@ -149,7 +239,7 @@ export const api = {
         },
         async update(config: any) {
             await sleep(SLEEP_TIME);
-            localStorage.setItem('siteConfig_v3', JSON.stringify(config));
+            localStorage.setItem('siteConfig_v4', JSON.stringify(config));
             return { success: true };
         }
     },
@@ -215,7 +305,7 @@ export const api = {
                 id: 'loc_' + Math.random().toString(36).substr(2, 9)
             };
             const updated = [...current, newLoc];
-            localStorage.setItem('wifi_locations', JSON.stringify(updated));
+            localStorage.setItem('wifi_locations_v2', JSON.stringify(updated));
             return { success: true, id: newLoc.id };
         },
         async update(id: string, location: Partial<WifiLocation>) {
@@ -231,7 +321,48 @@ export const api = {
             await sleep(SLEEP_TIME);
             const current = await this.getAll();
             const updated = current.filter(item => item.id !== id);
-            localStorage.setItem('wifi_locations', JSON.stringify(updated));
+            localStorage.setItem('wifi_locations_v2', JSON.stringify(updated));
+            return { success: true };
+        }
+    },
+
+    // Team Members API
+    team: {
+        async getAll(): Promise<TeamMember[]> {
+            await sleep(SLEEP_TIME);
+            const data = localStorage.getItem('team_members_v7');
+            if (data === null) {
+                localStorage.setItem('team_members_v7', JSON.stringify(initialTeamMembers));
+                return initialTeamMembers;
+            }
+            const parsed: TeamMember[] = JSON.parse(data);
+            return parsed.sort((a, b) => a.order - b.order);
+        },
+        async add(member: Omit<TeamMember, 'id'>) {
+            await sleep(SLEEP_TIME);
+            const current = await this.getAll();
+            const newMember: TeamMember = {
+                ...member,
+                id: 'tm_' + Math.random().toString(36).substr(2, 9)
+            };
+            const updated = [...current, newMember];
+            localStorage.setItem('team_members_v7', JSON.stringify(updated));
+            return { success: true, id: newMember.id };
+        },
+        async update(id: string, member: Partial<TeamMember>) {
+            await sleep(SLEEP_TIME);
+            const current = await this.getAll();
+            const updated = current.map(item =>
+                item.id === id ? { ...item, ...member } : item
+            );
+            localStorage.setItem('team_members_v7', JSON.stringify(updated));
+            return { success: true };
+        },
+        async delete(id: string) {
+            await sleep(SLEEP_TIME);
+            const current = await this.getAll();
+            const updated = current.filter(item => item.id !== id);
+            localStorage.setItem('team_members_v7', JSON.stringify(updated));
             return { success: true };
         }
     },

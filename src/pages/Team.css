@@ -1,0 +1,306 @@
+/* ===================================================
+   TEAM PAGE  –  White & Cyan Theme (matches site)
+   =================================================== */
+
+/* ── Hero ─────────────────────────────────────────── */
+.team-hero {
+    position: relative;
+    padding: 110px 0 80px;
+    overflow: hidden;
+    background: linear-gradient(180deg,
+            rgba(98, 202, 244, 0.35) 0%,
+            rgba(98, 202, 244, 0.18) 40%,
+            rgba(98, 202, 244, 0.05) 75%,
+            #ffffff 100%);
+    text-align: center;
+    border-bottom: 1px solid rgba(98, 202, 244, 0.15);
+}
+
+.team-hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(ellipse 80% 50% at 50% 0%, rgba(98, 202, 244, 0.22) 0%, transparent 60%),
+        radial-gradient(ellipse 40% 35% at 10% 100%, rgba(98, 202, 244, 0.1) 0%, transparent 60%);
+    pointer-events: none;
+}
+
+.team-hero-content {
+    position: relative;
+    z-index: 1;
+}
+
+.team-eyebrow {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--color-primary-dark, #2196b5);
+    border: 1.5px solid rgba(98, 202, 244, 0.55);
+    background: rgba(255, 255, 255, 0.55);
+    backdrop-filter: blur(6px);
+    border-radius: 999px;
+    padding: 7px 20px;
+    margin-bottom: 22px;
+}
+
+.team-hero h1 {
+    font-size: clamp(2.2rem, 5vw, 3.6rem);
+    font-weight: 800;
+    color: var(--color-secondary);
+    line-height: 1.12;
+    margin-bottom: 20px;
+}
+
+.team-highlight {
+    color: var(--color-primary);
+}
+
+.team-hero-desc {
+    max-width: 600px;
+    margin: 0 auto;
+    color: var(--color-text-light);
+    font-size: 1.05rem;
+    line-height: 1.75;
+}
+
+/* ── Section ──────────────────────────────────────── */
+.team-section {
+    background: var(--color-bg-light);
+    padding: 80px 0 100px;
+}
+
+/* ── Grid ─────────────────────────────────────────── */
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 28px;
+}
+
+/* ── Card ─────────────────────────────────────────── */
+.team-card {
+    position: relative;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.32s ease, border-color 0.32s ease, box-shadow 0.32s ease;
+}
+
+.team-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(98, 202, 244, 0.5);
+    box-shadow:
+        0 20px 40px -10px rgba(98, 202, 244, 0.2),
+        var(--shadow-md);
+}
+
+/* ── Photo wrapper ────────────────────────────────── */
+.team-card-photo-wrap {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4 / 4;
+    overflow: hidden;
+    background: var(--color-bg-light);
+    flex-shrink: 0;
+}
+
+.team-card-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    display: block;
+    transition: transform 0.45s ease;
+}
+
+.team-card:hover .team-card-photo {
+    transform: scale(1.04);
+}
+
+/* Subtle bottom fade to merge photo into card body */
+.team-photo-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom,
+            transparent 50%,
+            rgba(255, 255, 255, 0.25) 80%,
+            rgba(255, 255, 255, 0.7) 100%);
+    pointer-events: none;
+}
+
+/* Fallback avatar (shown when photo is missing) */
+.team-photo-fallback {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(98, 202, 244, 0.08);
+    border-bottom: 2px solid rgba(98, 202, 244, 0.25);
+}
+
+.team-photo-fallback span {
+    font-size: 3.5rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    color: var(--color-primary);
+    opacity: 0.8;
+}
+
+/* ── Card body ────────────────────────────────────── */
+.team-card-body {
+    padding: 22px 24px 26px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    flex: 1;
+    border-top: 1px solid #f3f4f6;
+}
+
+.team-member-name {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--color-secondary);
+    margin: 0;
+    line-height: 1.2;
+}
+
+.team-member-designation {
+    font-size: 0.76rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-primary);
+    display: block;
+    margin-bottom: 10px;
+}
+
+.team-member-bio {
+    color: var(--color-text-light);
+    font-size: 0.9rem;
+    line-height: 1.7;
+    margin: 0 0 14px;
+    flex: 1;
+}
+
+/* ── Social buttons ───────────────────────────────── */
+.team-socials {
+    display: flex;
+    gap: 8px;
+    margin-top: auto;
+}
+
+.team-social-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: rgba(98, 202, 244, 0.07);
+    border: 1.5px solid rgba(98, 202, 244, 0.3);
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: background 0.22s ease, color 0.22s ease, transform 0.22s ease, border-color 0.22s ease;
+}
+
+.team-social-btn:hover {
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+    color: #ffffff;
+    transform: scale(1.1);
+}
+
+/* ── CTA section ──────────────────────────────────── */
+.team-cta-section {
+    background: #ffffff;
+    border-top: 1px solid #e5e7eb;
+    padding: 90px 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.team-cta-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 55% 70% at 50% 110%, rgba(98, 202, 244, 0.12) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.team-cta-inner {
+    position: relative;
+    z-index: 1;
+    max-width: 560px;
+}
+
+.team-cta-inner h2 {
+    font-size: clamp(1.7rem, 3.5vw, 2.4rem);
+    font-weight: 800;
+    color: var(--color-secondary);
+    margin-bottom: 14px;
+}
+
+.team-cta-inner p {
+    color: var(--color-text-light);
+    font-size: 1rem;
+    line-height: 1.75;
+    margin-bottom: 32px;
+}
+
+/* ── Responsive ───────────────────────────────────── */
+@media (max-width: 768px) {
+    .team-hero {
+        padding: 100px 0 60px;
+    }
+
+    .team-grid {
+        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+        gap: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .team-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .team-card-photo-wrap {
+        aspect-ratio: 3 / 3;
+    }
+}
+
+/* ── Skeleton loading ─────────────────────────────── */
+@keyframes shimmer {
+    0% {
+        background-position: -600px 0;
+    }
+
+    100% {
+        background-position: 600px 0;
+    }
+}
+
+.team-card-skeleton {
+    pointer-events: none;
+}
+
+.skeleton-photo {
+    width: 100%;
+    aspect-ratio: 4 / 4;
+    background: linear-gradient(90deg, #f0f4f8 25%, #e2eaf2 50%, #f0f4f8 75%);
+    background-size: 600px 100%;
+    animation: shimmer 1.4s infinite linear;
+}
+
+.skeleton-line {
+    border-radius: 6px;
+    background: linear-gradient(90deg, #f0f4f8 25%, #e2eaf2 50%, #f0f4f8 75%);
+    background-size: 600px 100%;
+    animation: shimmer 1.4s infinite linear;
+}

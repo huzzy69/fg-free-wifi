@@ -88,7 +88,7 @@ const LocationDetail: React.FC = () => {
                         </div>
 
                         <a
-                            href={`https://www.google.com/maps/search/FG-FreeWifi+${encodeURIComponent(location.address + ', ' + location.city)}`}
+                            href={`https://www.google.com/maps/search/FG-Free-Wifi+${encodeURIComponent(location.address + ', ' + location.city)}`}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="btn btn-primary"

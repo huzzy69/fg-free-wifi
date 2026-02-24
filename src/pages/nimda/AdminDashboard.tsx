@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { BarChart3, Users, MapPin, Settings, LogOut, Menu, X, Bell, Save, Trash2, Check, RefreshCw, Filter, ExternalLink, User as UserIcon, Lock as LockIcon, Eye, EyeOff, Edit } from 'lucide-react';
+import { BarChart3, Users, MapPin, Settings, LogOut, Menu, X, Bell, Save, Trash2, Check, RefreshCw, Filter, ExternalLink, User as UserIcon, Lock as LockIcon, Eye, EyeOff, Edit, UserCog, Upload } from 'lucide-react';
 import { useSiteConfig } from '../../context/SiteConfigContext';
-import { api, type Inquiry } from '../../api';
+import { api, type Inquiry, type TeamMember } from '../../api';
 import './AdminDashboard.css';
 
 const InquiriesList: React.FC = () => {
@@ -368,6 +368,150 @@ const LocationsList: React.FC = () => {
     );
 };
 
+// ─────────────────────────────────────────────
+// Team Members Manager
+// ─────────────────────────────────────────────
+const emptyMember = { name: '', designation: '', bio: '', photo: '', email: '', linkedin: '', order: 99 };
+
+const TeamMembersList: React.FC = () => {
+    const [members, setMembers] = useState<TeamMember[]>([]);
+    const [loading, setLoading] = useState(true);
+    const [showModal, setShowModal] = useState(false);
+    const [editTarget, setEditTarget] = useState<TeamMember | null>(null);
+    const [form, setForm] = useState<Omit<TeamMember, 'id'>>(emptyMember);
+    const [saving, setSaving] = useState(false);
+
+    const load = async () => { setLoading(true); setMembers(await api.team.getAll()); setLoading(false); };
+    useEffect(() => { load(); }, []);
+
+    const openAdd = () => { setEditTarget(null); setForm({ ...emptyMember, order: members.length + 1 }); setShowModal(true); };
+    const openEdit = (m: TeamMember) => { setEditTarget(m); setForm({ name: m.name, designation: m.designation, bio: m.bio, photo: m.photo, email: m.email || '', linkedin: m.linkedin || '', order: m.order }); setShowModal(true); };
+    const closeModal = () => { setShowModal(false); setEditTarget(null); };
+
+    const handlePhotoUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const file = e.target.files?.[0];
+        if (!file) return;
+        const reader = new FileReader();
+        reader.onload = (ev) => setForm(f => ({ ...f, photo: ev.target?.result as string }));
+        reader.readAsDataURL(file);
+    };
+
+    const handleSave = async (e: React.FormEvent) => {
+        e.preventDefault();
+        setSaving(true);
+        if (editTarget) {
+            await api.team.update(editTarget.id, form);
+        } else {
+            await api.team.add(form);
+        }
+        setSaving(false);
+        closeModal();
+        load();
+    };
+
+    const handleDelete = async (id: string) => {
+        if (window.confirm('Delete this team member?')) { await api.team.delete(id); load(); }
+    };
+
+    if (loading) return <div className="loading-spinner"><RefreshCw className="spin" /> Loading team...</div>;
+
+    return (
+        <div className="locations-mgmt">
+            <div className="section-header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem' }}>
+                <div>
+                    <h3>Team Members</h3>
+                    <p>Manage the staff shown on the public Team page.</p>
+                </div>
+                <button className="btn btn-primary" onClick={openAdd} style={{ padding: '0.5rem 1rem', fontSize: '0.85rem' }}>+ Add Member</button>
+            </div>
+
+            {/* Modal */}
+            {showModal && (
+                <div className="modal-overlay">
+                    <div className="modal-content" style={{ maxWidth: 520 }}>
+                        <h3>{editTarget ? 'Edit Member' : 'Add New Member'}</h3>
+                        <form onSubmit={handleSave}>
+                            {/* Photo upload */}
+                            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1rem' }}>
+                                <div style={{ width: 72, height: 72, borderRadius: '50%', overflow: 'hidden', background: 'rgba(98,202,244,0.1)', border: '2px solid rgba(98,202,244,0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                                    {form.photo
+                                        ? <img src={form.photo} alt="preview" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                                        : <UserIcon size={28} style={{ color: 'rgba(98,202,244,0.6)' }} />}
+                                </div>
+                                <label className="btn" style={{ background: 'rgba(98,202,244,0.1)', border: '1.5px solid rgba(98,202,244,0.3)', color: '#2196b5', cursor: 'pointer', display: 'flex', gap: '0.4rem', alignItems: 'center', padding: '0.5rem 1rem', borderRadius: 8 }}>
+                                    <Upload size={16} /> Upload Photo
+                                    <input type="file" accept="image/*" style={{ display: 'none' }} onChange={handlePhotoUpload} />
+                                </label>
+                                {form.photo && <button type="button" style={{ background: 'none', border: 'none', color: '#e11d48', cursor: 'pointer', fontSize: '0.8rem' }} onClick={() => setForm(f => ({ ...f, photo: '' }))}>Remove</button>}
+                            </div>
+
+                            <div className="form-grid mb-2">
+                                <input type="text" placeholder="Full Name *" required value={form.name} onChange={e => setForm(f => ({ ...f, name: e.target.value }))} className="form-control" />
+                                <input type="text" placeholder="Designation *" required value={form.designation} onChange={e => setForm(f => ({ ...f, designation: e.target.value }))} className="form-control" />
+                            </div>
+                            <textarea placeholder="Bio (2–3 sentences) *" required value={form.bio} onChange={e => setForm(f => ({ ...f, bio: e.target.value }))} className="form-control mb-2" rows={3} style={{ resize: 'vertical' }} />
+                            <div className="form-grid mb-2">
+                                <input type="email" placeholder="Email (optional)" value={form.email} onChange={e => setForm(f => ({ ...f, email: e.target.value }))} className="form-control" />
+                                <input type="url" placeholder="LinkedIn URL (optional)" value={form.linkedin} onChange={e => setForm(f => ({ ...f, linkedin: e.target.value }))} className="form-control" />
+                            </div>
+                            <input type="number" placeholder="Display Order" min={1} value={form.order} onChange={e => setForm(f => ({ ...f, order: parseInt(e.target.value) || 1 }))} className="form-control mb-2" style={{ width: 120 }} />
+
+                            <div className="btn-group mt-4" style={{ display: 'flex', gap: '1rem' }}>
+                                <button type="submit" className="btn btn-primary" disabled={saving}>{saving ? 'Saving…' : (editTarget ? 'Update Member' : 'Add Member')}</button>
+                                <button type="button" className="btn btn-light" onClick={closeModal}>Cancel</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            )}
+
+            {/* Table */}
+            <div className="inquiry-table-wrapper">
+                <table className="inquiry-table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Photo</th>
+                            <th>Name &amp; Designation</th>
+                            <th>Bio</th>
+                            <th>Contact</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {members.map(m => (
+                            <tr key={m.id}>
+                                <td>{m.order}</td>
+                                <td>
+                                    <div style={{ width: 44, height: 44, borderRadius: '50%', overflow: 'hidden', background: 'rgba(98,202,244,0.1)', border: '1.5px solid rgba(98,202,244,0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                                        {m.photo
+                                            ? <img src={m.photo} alt={m.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                                            : <span style={{ fontSize: '1rem', fontWeight: 700, color: 'rgba(98,202,244,0.7)' }}>{m.name.split(' ').map(w => w[0]).slice(0, 2).join('')}</span>}
+                                    </div>
+                                </td>
+                                <td>
+                                    <div className="name-cell">
+                                        <strong>{m.name}</strong>
+                                        <span>{m.designation}</span>
+                                    </div>
+                                </td>
+                                <td style={{ maxWidth: 240, fontSize: '0.85rem', color: '#6b7280' }}>{m.bio.slice(0, 80)}…</td>
+                                <td style={{ fontSize: '0.8rem', color: '#6b7280' }}>{m.email || '—'}</td>
+                                <td>
+                                    <div className="action-btns">
+                                        <button onClick={() => openEdit(m)} className="btn-icon" title="Edit"><Edit size={16} /></button>
+                                        <button onClick={() => handleDelete(m.id)} className="btn-icon delete" title="Delete"><Trash2 size={16} /></button>
+                                    </div>
+                                </td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    );
+};
+
 const SettingsForm: React.FC = () => {
     const { config, updateConfig } = useSiteConfig();
     const [formData, setFormData] = useState(config);
@@ -593,6 +737,9 @@ const AdminDashboard: React.FC = () => {
                     <button className={`nav-item ${activeSection === 'locations' ? 'active' : ''} `} onClick={() => { setActiveSection('locations'); setSidebarOpen(false); }}>
                         <MapPin size={20} /> Locations
                     </button>
+                    <button className={`nav-item ${activeSection === 'team' ? 'active' : ''} `} onClick={() => { setActiveSection('team'); setSidebarOpen(false); }}>
+                        <UserCog size={20} /> Team
+                    </button>
                     <button className={`nav-item ${activeSection === 'settings' ? 'active' : ''} `} onClick={() => { setActiveSection('settings'); setSidebarOpen(false); }}>
                         <Settings size={20} /> Settings
                     </button>
@@ -671,6 +818,12 @@ const AdminDashboard: React.FC = () => {
                     {activeSection === 'locations' && (
                         <div className="inquiries-container">
                             <LocationsList />
+                        </div>
+                    )}
+
+                    {activeSection === 'team' && (
+                        <div className="inquiries-container">
+                            <TeamMembersList />
                         </div>
                     )}
 

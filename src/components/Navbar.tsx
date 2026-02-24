@@ -26,6 +26,7 @@ const Navbar: React.FC = () => {
                     <Link to="/advertisers" className={`nav-link ${isActive('/advertisers')}`}>Advertise with us</Link>
                     <Link to="/free-wifi-locations" className={`nav-link ${isActive('/free-wifi-locations')}`}>Our Locations</Link>
                     <Link to="/pricing" className={`nav-link ${isActive('/pricing')}`}>Pricing</Link>
+                    <Link to="/team" className={`nav-link ${isActive('/team')}`}>Our Team</Link>
                     <Link to="/contact" className="btn btn-primary btn-sm">Contact Us</Link>
                 </div>
 
@@ -49,6 +50,7 @@ const Navbar: React.FC = () => {
                     <Link to="/advertisers" className={`mobile-nav-link ${isActive('/advertisers')}`} onClick={toggleMenu}>Advertise with us</Link>
                     <Link to="/free-wifi-locations" className={`mobile-nav-link ${isActive('/free-wifi-locations')}`} onClick={toggleMenu}>Our Locations</Link>
                     <Link to="/pricing" className={`mobile-nav-link ${isActive('/pricing')}`} onClick={toggleMenu}>Pricing</Link>
+                    <Link to="/team" className={`mobile-nav-link ${isActive('/team')}`} onClick={toggleMenu}>Our Team</Link>
                     <div className="mobile-menu-footer">
                         <Link to="/contact" className="btn btn-primary btn-full" onClick={toggleMenu}>Contact Us</Link>
                     </div>

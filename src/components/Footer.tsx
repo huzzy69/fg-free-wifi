@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Wifi, Mail, Phone, MapPin, Linkedin } from 'lucide-react';
+import { Wifi, Mail, Phone, MapPin, Linkedin, Facebook, Instagram } from 'lucide-react';
 import './Footer.css';
 
 import { useSiteConfig } from '../context/SiteConfigContext';
@@ -20,7 +20,9 @@ const Footer: React.FC = () => {
                         We manage connectivity and advertising end-to-end. Independent company ensuring views and trust.
                     </p>
                     <div className="social-links">
-                        <a href="https://linkedin.com" className="social-link" target="_blank" rel="noopener noreferrer"><Linkedin size={20} /></a>
+                        <a href="https://www.linkedin.com/company/adsonwifi/posts/?feedView=all" className="social-link" target="_blank" rel="noopener noreferrer"><Linkedin size={20} /></a>
+                        <a href="https://www.facebook.com/adsonwifi" className="social-link" target="_blank" rel="noopener noreferrer"><Facebook size={20} /></a>
+                        <a href="https://www.instagram.com/adsonwifi" className="social-link" target="_blank" rel="noopener noreferrer"><Instagram size={20} /></a>
                     </div>
                 </div>
 

@@ -69,7 +69,7 @@ const FreeWifiLocations: React.FC = () => {
                         <h1 className="page-title" style={{ marginBottom: 0 }}>Show your ads on our Network.</h1>
                         <p className="page-subtitle" style={{ color: '#6b7280', marginTop: '0.5rem', fontSize: '1.1rem' }}>Find high-speed, free internet access at your favorite spots across Karachi.</p>
                     </div>
-                    <button className="view-map-btn" onClick={() => window.open('https://www.google.com/maps/search/FG-FreeWifi/', '_blank')}>
+                    <button className="view-map-btn" onClick={() => window.open('https://www.google.com/maps/search/FG-Free-Wifi/', '_blank')}>
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                             <polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"></polygon>
                             <line x1="8" y1="2" x2="8" y2="18"></line>
