@@ -126,7 +126,7 @@ const initialTeamMembers: TeamMember[] = [
         photo: '', order: 3
     },
     {
-        id: 'tm_nb', name: 'Nabeel', designation: 'Global Director Supply Chain',
+        id: 'tm_nb', name: 'Nabeel Bin Asghar Al Balushi', designation: 'Global Director Supply Chain',
         bio: 'Optimizes the global supply chain and logistics network, ensuring efficient deployment of the fakhir group\'s infrastructure.',
         photo: '', order: 4
     },
@@ -350,9 +350,9 @@ export const api = {
     team: {
         async getAll(): Promise<TeamMember[]> {
             await sleep(SLEEP_TIME);
-            const data = localStorage.getItem('team_members_v19');
+            const data = localStorage.getItem('team_members_v20');
             if (data === null) {
-                localStorage.setItem('team_members_v19', JSON.stringify(initialTeamMembers));
+                localStorage.setItem('team_members_v20', JSON.stringify(initialTeamMembers));
                 return initialTeamMembers;
             }
             const parsed: TeamMember[] = JSON.parse(data);
@@ -366,7 +366,7 @@ export const api = {
                 id: 'tm_' + Math.random().toString(36).substr(2, 9)
             };
             const updated = [...current, newMember];
-            localStorage.setItem('team_members_v19', JSON.stringify(updated));
+            localStorage.setItem('team_members_v20', JSON.stringify(updated));
             return { success: true, id: newMember.id };
         },
         async update(id: string, member: Partial<TeamMember>) {
@@ -375,14 +375,14 @@ export const api = {
             const updated = current.map(item =>
                 item.id === id ? { ...item, ...member } : item
             );
-            localStorage.setItem('team_members_v19', JSON.stringify(updated));
+            localStorage.setItem('team_members_v20', JSON.stringify(updated));
             return { success: true };
         },
         async delete(id: string) {
             await sleep(SLEEP_TIME);
             const current = await this.getAll();
             const updated = current.filter(item => item.id !== id);
-            localStorage.setItem('team_members_v19', JSON.stringify(updated));
+            localStorage.setItem('team_members_v20', JSON.stringify(updated));
             return { success: true };
         }
     },
