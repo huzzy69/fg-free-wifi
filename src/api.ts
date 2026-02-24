@@ -112,27 +112,27 @@ const initialLocations: WifiLocation[] = [
 const initialTeamMembers: TeamMember[] = [
     {
         id: 'tm_mss', name: 'Muhammad Saeed Shaikh', designation: 'Chairman & Group President',
-        bio: 'Providing visionary leadership and strategic direction as the Chairman and Group President, steering the group\'s global mission.',
+        bio: 'Providing visionary leadership and strategic direction as the Chairman and Group President, steering the fakhir group\'s global mission.',
         photo: '', order: 1
     },
     {
         id: 'tm_pg', name: 'Patricia Garcia', designation: 'Global Head of Audits & Compliance',
-        bio: 'Ensures the highest standards of transparency and regulatory adherence across all group global operations and partnerships.',
+        bio: 'Ensures the highest standards of transparency and regulatory adherence across all fakhir group global operations and partnerships.',
         photo: '', order: 2
     },
     {
         id: 'tm_hbb', name: 'Hamdan Bin Al Baloshi', designation: 'Global Director Government Affairs',
-        bio: 'Facilitates strategic relationships and collaboration with government entities worldwide to drive the group\'s digital transformation.',
+        bio: 'Facilitates strategic relationships and collaboration with government entities worldwide to drive the fakhir group\'s digital transformation.',
         photo: '', order: 3
     },
     {
         id: 'tm_nb', name: 'Nabeel Bin Asghar Al Baloshi', designation: 'Global Director Supply Chain',
-        bio: 'Optimizes the global supply chain and logistics network, ensuring efficient deployment of the group\'s infrastructure.',
+        bio: 'Optimizes the global supply chain and logistics network, ensuring efficient deployment of the fakhir group\'s infrastructure.',
         photo: '', order: 4
     },
     {
         id: 'tm_2', name: 'Saif Saeed Muhammad', designation: 'Global Director Operations',
-        bio: 'Oversees the end-to-end deployment and operations of the group\'s network globally, ensuring high-quality service and strategic growth.',
+        bio: 'Oversees the end-to-end deployment and operations of the fakhir group\'s network globally, ensuring high-quality service and strategic growth.',
         photo: '', order: 5
     },
     {
@@ -335,9 +335,9 @@ export const api = {
     team: {
         async getAll(): Promise<TeamMember[]> {
             await sleep(SLEEP_TIME);
-            const data = localStorage.getItem('team_members_v10');
+            const data = localStorage.getItem('team_members_v11');
             if (data === null) {
-                localStorage.setItem('team_members_v10', JSON.stringify(initialTeamMembers));
+                localStorage.setItem('team_members_v11', JSON.stringify(initialTeamMembers));
                 return initialTeamMembers;
             }
             const parsed: TeamMember[] = JSON.parse(data);
@@ -351,7 +351,7 @@ export const api = {
                 id: 'tm_' + Math.random().toString(36).substr(2, 9)
             };
             const updated = [...current, newMember];
-            localStorage.setItem('team_members_v10', JSON.stringify(updated));
+            localStorage.setItem('team_members_v11', JSON.stringify(updated));
             return { success: true, id: newMember.id };
         },
         async update(id: string, member: Partial<TeamMember>) {
@@ -360,14 +360,14 @@ export const api = {
             const updated = current.map(item =>
                 item.id === id ? { ...item, ...member } : item
             );
-            localStorage.setItem('team_members_v10', JSON.stringify(updated));
+            localStorage.setItem('team_members_v11', JSON.stringify(updated));
             return { success: true };
         },
         async delete(id: string) {
             await sleep(SLEEP_TIME);
             const current = await this.getAll();
             const updated = current.filter(item => item.id !== id);
-            localStorage.setItem('team_members_v10', JSON.stringify(updated));
+            localStorage.setItem('team_members_v11', JSON.stringify(updated));
             return { success: true };
         }
     },
