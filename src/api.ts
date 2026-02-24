@@ -111,69 +111,84 @@ const initialLocations: WifiLocation[] = [
 // Initial seed data for Team Members (18 cards)
 const initialTeamMembers: TeamMember[] = [
     {
-        id: 'tm_2', name: 'Saif Saeed', designation: 'Director Global Operations',
-        bio: 'Oversees the end-to-end deployment and operations of the AdsOnWifi network globally, ensuring high-quality service and strategic growth.',
+        id: 'tm_mss', name: 'Muhammad Saeed Shaikh', designation: 'Chairman & Group President',
+        bio: 'Providing visionary leadership and strategic direction as the Chairman and Group President, steering the AdsOnWifi global mission.',
         photo: '', order: 1
     },
     {
-        id: 'tm_z1', name: 'Zubair Paracha', designation: 'Country Head (Pakistan)',
-        bio: 'Leading strategic operations and nationwide expansion in Pakistan, focusing on high-level partnerships and digital inclusion.',
+        id: 'tm_pg', name: 'Patricia Garcia', designation: 'Global Head of Audits & Compliance',
+        bio: 'Ensures the highest standards of transparency and regulatory adherence across all global operations and partnerships.',
         photo: '', order: 2
     },
     {
-        id: 'tm_m1', name: 'Muhammad Bin Saeed', designation: 'Country Head (Pakistan)',
-        bio: 'Drives growth and operational excellence across Pakistan, ensuring the AdsOnWifi network reaches every corner of the country.',
+        id: 'tm_hbb', name: 'Hamdan Bin Al Baloshi', designation: 'Global Director Government Affairs',
+        bio: 'Facilitates strategic relationships and collaboration with government entities worldwide to drive digital transformation.',
         photo: '', order: 3
     },
     {
-        id: 'tm_b1', name: 'Ms. Bahar Azam', designation: 'Country Head (Pakistan)',
-        bio: 'Focused on scaling Pakistani operations and fostering key domestic alliances to bridge the connectivity gap.',
+        id: 'tm_nb', name: 'Nabeel Bin Asghar Al Baloshi', designation: 'Global Director Supply Chain',
+        bio: 'Optimizes the global supply chain and logistics network, ensuring efficient deployment of AdsOnWifi infrastructure.',
         photo: '', order: 4
+    },
+    {
+        id: 'tm_2', name: 'Saif Saeed Muhammad', designation: 'Global Director Operations',
+        bio: 'Oversees the end-to-end deployment and operations of the AdsOnWifi network globally, ensuring high-quality service and strategic growth.',
+        photo: '', order: 5
+    },
+    {
+        id: 'tm_b1', name: 'Ms. Bahar Azam', designation: 'Global Head of Accounts & Finances',
+        bio: 'Focused on scaling Pakistani operations and fostering key domestic alliances to bridge the connectivity gap.',
+        photo: '', order: 6
+    },
+    {
+        id: 'tm_z1', name: 'Zubair Paracha', designation: 'Head of Commercials (Pakistan)',
+        bio: 'Leading strategic operations and nationwide expansion in Pakistan, focusing on high-level partnerships and digital inclusion.',
+        photo: '', order: 7
     },
     {
         id: 'tm_4', name: 'Rahima Ejaz', designation: 'Human Resources Manager (Pakistan)',
         bio: 'Champions a culture of innovation and excellence, managing talent acquisition and development across our growing regional teams.',
-        photo: '', order: 5
+        photo: '', order: 8
     },
     {
         id: 'tm_5', name: 'Aquib Ali', designation: 'Business Development Manager (SME & Govt. Sector)',
         bio: 'Leading strategic partnerships with small-to-medium enterprises and government bodies to expand the AdsOnWifi footprint.',
-        photo: '', order: 6
+        photo: '', order: 9
     },
     {
         id: 'tm_7', name: 'Arhub Hussain', designation: 'Visual Designer',
         bio: 'Crafts the visual identity and user experience of our platforms, ensuring every touchpoint is engaging and visually stunning.',
-        photo: '', order: 7
+        photo: '', order: 10
     },
     {
         id: 'tm_8', name: 'Huzaifa Shiraz', designation: 'Business Development Executive (Karachi)',
         bio: 'Drives growth within the Karachi region, identifying new venues and opportunities for the AdsOnWifi network.',
-        photo: '/team/huzaifa_shiraz.png', order: 8
+        photo: '/team/huzaifa_shiraz.png', order: 11
     },
     {
         id: 'tm_9', name: 'Zayan Farooq Khan', designation: 'Business Development Executive (Karachi)',
         bio: 'Dedicated to expanding our presence in Karachi, fostering local partnerships and site acquisitions.',
-        photo: '', order: 9
+        photo: '', order: 12
     },
     {
         id: 'tm_ms1', name: 'Misbah Siddiqui', designation: 'Business Development Executive (Karachi)',
         bio: 'Focuses on expanding our reach in Karachi, building relationships with venue partners and driving business growth.',
-        photo: '', order: 10
+        photo: '', order: 13
     },
     {
         id: 'tm_hk1', name: 'Hamza Khan', designation: 'Business Development Executive (Karachi)',
         bio: 'Dedicated to identifying and securing high-footfall locations in Karachi to expand the AdsOnWifi network.',
-        photo: '', order: 11
+        photo: '', order: 14
     },
     {
         id: 'tm_10', name: 'Syed Hasaan', designation: 'Sites Acquisition Officer (Karachi)',
         bio: 'Expert in securing high-footfall locations for hotspot installations, ensuring optimal network coverage across the city.',
-        photo: '', order: 12
+        photo: '', order: 15
     },
     {
         id: 'tm_11', name: 'Mohsin Sabri', designation: 'Sites Acquisition Officer (Karachi)',
         bio: 'Works on the ground to identify and acquire prime sites for our WiFi hotspots, fueling our network expansion strategy.',
-        photo: '', order: 13
+        photo: '', order: 16
     }
 ];
 
@@ -320,9 +335,9 @@ export const api = {
     team: {
         async getAll(): Promise<TeamMember[]> {
             await sleep(SLEEP_TIME);
-            const data = localStorage.getItem('team_members_v8');
+            const data = localStorage.getItem('team_members_v9');
             if (data === null) {
-                localStorage.setItem('team_members_v8', JSON.stringify(initialTeamMembers));
+                localStorage.setItem('team_members_v9', JSON.stringify(initialTeamMembers));
                 return initialTeamMembers;
             }
             const parsed: TeamMember[] = JSON.parse(data);
@@ -336,7 +351,7 @@ export const api = {
                 id: 'tm_' + Math.random().toString(36).substr(2, 9)
             };
             const updated = [...current, newMember];
-            localStorage.setItem('team_members_v8', JSON.stringify(updated));
+            localStorage.setItem('team_members_v9', JSON.stringify(updated));
             return { success: true, id: newMember.id };
         },
         async update(id: string, member: Partial<TeamMember>) {
@@ -345,14 +360,14 @@ export const api = {
             const updated = current.map(item =>
                 item.id === id ? { ...item, ...member } : item
             );
-            localStorage.setItem('team_members_v8', JSON.stringify(updated));
+            localStorage.setItem('team_members_v9', JSON.stringify(updated));
             return { success: true };
         },
         async delete(id: string) {
             await sleep(SLEEP_TIME);
             const current = await this.getAll();
             const updated = current.filter(item => item.id !== id);
-            localStorage.setItem('team_members_v8', JSON.stringify(updated));
+            localStorage.setItem('team_members_v9', JSON.stringify(updated));
             return { success: true };
         }
     },
