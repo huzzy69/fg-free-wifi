@@ -78,6 +78,34 @@
     gap: 28px;
 }
 
+.team-board-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    justify-content: center;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.team-board-section {
+    margin-top: 60px;
+}
+
+.team-regional-section {
+    margin-top: 60px;
+}
+
+/* ── Center Leadership ── */
+.team-leadership-centered {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 80px;
+}
+
+.team-leadership-centered .team-card {
+    max-width: 420px;
+    width: 100%;
+}
+
 /* ── Card ─────────────────────────────────────────── */
 .team-card {
     position: relative;

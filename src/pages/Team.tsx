@@ -95,6 +95,17 @@ const Team: React.FC = () => {
         });
     }, []);
 
+    // Split members into sections
+    const chairman = members.find(m => m.id === 'tm_mss');
+    const globalBoard = members.filter(m => ['tm_b1', 'tm_pg', 'tm_hbb'].includes(m.id))
+        .sort((a, b) => {
+            const order = ['tm_b1', 'tm_pg', 'tm_hbb'];
+            return order.indexOf(a.id) - order.indexOf(b.id);
+        });
+    const regionalTeam = members.filter(m =>
+        !['tm_mss', 'tm_b1', 'tm_pg', 'tm_hbb'].includes(m.id)
+    );
+
     return (
         <div className="team-page">
             {/* ── Hero ── */}
@@ -113,12 +124,36 @@ const Team: React.FC = () => {
             {/* ── Cards ── */}
             <section className="team-section">
                 <div className="container">
-                    <div className="team-grid">
-                        {loading
-                            ? Array.from({ length: 19 }).map((_, i) => <SkeletonCard key={i} />)
-                            : members.map(m => <TeamCard key={m.id} member={m} />)
-                        }
-                    </div>
+                    {loading ? (
+                        <div className="team-grid">
+                            {Array.from({ length: 18 }).map((_, i) => <SkeletonCard key={i} />)}
+                        </div>
+                    ) : (
+                        <>
+                            {/* ── Leadership ── */}
+                            {chairman && (
+                                <div className="team-leadership-centered">
+                                    <TeamCard member={chairman} />
+                                </div>
+                            )}
+
+                            {/* ── Global Advisory / Board ── */}
+                            {globalBoard.length > 0 && (
+                                <div className="team-board-section">
+                                    <div className="team-grid team-board-grid">
+                                        {globalBoard.map(m => <TeamCard key={m.id} member={m} />)}
+                                    </div>
+                                </div>
+                            )}
+
+                            {/* ── Regional Team ── */}
+                            <div className="team-regional-section">
+                                <div className="team-grid">
+                                    {regionalTeam.map(m => <TeamCard key={m.id} member={m} />)}
+                                </div>
+                            </div>
+                        </>
+                    )}
                 </div>
             </section>
 

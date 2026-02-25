@@ -123,17 +123,12 @@ const initialTeamMembers: TeamMember[] = [
     {
         id: 'tm_hbb', name: 'Hamdan Bin Muhammad Al Balushi', designation: 'Global Director Government Affairs',
         bio: 'Facilitates strategic relationships and collaboration with government entities worldwide to drive the fakhir group\'s digital transformation.',
-        photo: '', order: 3
+        photo: '/team/Hamdan Bin Muhammad Al Balushi.jpeg', order: 3
     },
     {
         id: 'tm_nb', name: 'Nabeel Bin Asghar Al Balushi', designation: 'Global Director Supply Chain',
         bio: 'Optimizes the global supply chain and logistics network, ensuring efficient deployment of the fakhir group\'s infrastructure.',
         photo: '', order: 4
-    },
-    {
-        id: 'tm_2', name: 'Saif Saeed Muhammad', designation: 'Global Director Operations',
-        bio: 'Oversees the end-to-end deployment and operations of the fakhir group\'s network globally, ensuring high-quality service and strategic growth.',
-        photo: '', order: 5
     },
     {
         id: 'tm_b1', name: 'Ms. Azam Sadeghzadeh', designation: 'Global Head of Accounts & Finances',
@@ -146,65 +141,65 @@ const initialTeamMembers: TeamMember[] = [
         photo: '', order: 7
     },
     {
+        id: 'tm_mbs', name: 'Muhammad Bin Saeed', designation: 'Head of Commercials (Pakistan)',
+        bio: 'Leading strategic operations and nationwide expansion in Pakistan, focusing on high-level partnerships and digital inclusion.',
+        photo: '', order: 8
+    },
+    {
         id: 'tm_4', name: 'Ms. Rahima Ejaz', designation: 'Human Resources Manager (Pakistan)',
         bio: 'Champions a culture of innovation and excellence, managing talent acquisition and development across our growing regional teams.',
-        photo: '', order: 8
+        photo: '', order: 9
     },
     {
         id: 'tm_5', name: 'Aquib Ali', designation: 'Business Development Manager (SME & Govt. Sector)',
         bio: 'Leading strategic partnerships with small-to-medium enterprises and government bodies to expand the AdsOnWifi footprint.',
-        photo: '', order: 9
-    },
-    {
-        id: 'tm_7', name: 'Arhub Hussain', designation: 'Visual Designer',
-        bio: 'Crafts the visual identity and user experience of our platforms, ensuring every touchpoint is engaging and visually stunning.',
         photo: '', order: 10
-    },
-    {
-        id: 'tm_8', name: 'Huzaifa Shiraz', designation: 'Business Development Executive (Karachi)',
-        bio: 'Drives growth within the Karachi region, identifying new venues and opportunities for the AdsOnWifi network.',
-        photo: '/team/huzaifa_shiraz.png', order: 11
-    },
-    {
-        id: 'tm_9', name: 'Zayan Farooq Khan', designation: 'Business Development Executive (Karachi)',
-        bio: 'Dedicated to expanding our presence in Karachi, fostering local partnerships and site acquisitions.',
-        photo: '', order: 12
-    },
-    {
-        id: 'tm_ms1', name: 'Ms. Misbah Siddiqui', designation: 'Business Development Executive (Karachi)',
-        bio: 'Focuses on expanding our reach in Karachi, building relationships with venue partners and driving business growth.',
-        photo: '', order: 13
-    },
-    {
-        id: 'tm_hk1', name: 'Hamza Khan', designation: 'Business Development Executive (Karachi)',
-        bio: 'Dedicated to identifying and securing high-footfall locations in Karachi to expand the AdsOnWifi network.',
-        photo: '', order: 14
-    },
-    {
-        id: 'tm_10', name: 'Syed Hasaan', designation: 'Sites Acquisition Officer (Karachi)',
-        bio: 'Expert in securing high-footfall locations for hotspot installations, ensuring optimal network coverage across the city.',
-        photo: '', order: 15
-    },
-    {
-        id: 'tm_11', name: 'Mohsin Sabri', designation: 'Sites Acquisition Officer (Karachi)',
-        bio: 'Works on the ground to identify and acquire prime sites for our WiFi hotspots, fueling our network expansion strategy.',
-        photo: '', order: 16
     },
     {
         id: 'tm_as1', name: 'Ms. Albina Shakirova', designation: 'Business Development Executive (UAE)',
         bio: 'Russian speaker driving business growth and strategic partnerships across the UAE, expanding Fakhir Group\'s global reach.',
-        photo: '/team/albina_shakirova.jpeg', order: 17
+        photo: '/team/albina_shakirova.jpeg', order: 11
+    },
+    {
+        id: 'tm_ms1', name: 'Ms. Misbah Siddiqui', designation: 'Business Development Executive (Karachi)',
+        bio: 'Focuses on expanding our reach in Karachi, building relationships with venue partners and driving business growth.',
+        photo: '', order: 12
     },
     {
         id: 'tm_at1', name: 'Ms Amna Tahir', designation: 'Business Development Manager (UAE Real Estate)',
         bio: 'Driving business development and strategic growth in the UAE real estate sector for Fakhir Group.',
-        photo: '/team/amna_tahir.jpeg', order: 18
+        photo: '/team/amna_tahir.jpeg', order: 13
+    },
+    {
+        id: 'tm_8', name: 'Huzaifa Shiraz', designation: 'Business Development Executive (Karachi)',
+        bio: 'Drives growth within the Karachi region, identifying new venues and opportunities for the AdsOnWifi network.',
+        photo: '/team/huzaifa_shiraz.png', order: 14
+    },
+    {
+        id: 'tm_hk1', name: 'Hamza Khan', designation: 'Business Development Executive (Karachi)',
+        bio: 'Dedicated to identifying and securing high-footfall locations in Karachi to expand the AdsOnWifi network.',
+        photo: '', order: 15
+    },
+    {
+        id: 'tm_7', name: 'Arhub Hussain', designation: 'Visual Designer',
+        bio: 'Crafts the visual identity and user experience of our platforms, ensuring every touchpoint is engaging and visually stunning.',
+        photo: '', order: 16
     },
     {
         id: 'tm_ma1', name: 'Muskan Arif', designation: 'Management Trainee',
         bio: 'Supporting strategic operations and learning the ropes of our global network management as a Management Trainee.',
+        photo: '', order: 17
+    },
+    {
+        id: 'tm_10', name: 'Syed Hasaan', designation: 'Sites Acquisition Officer (Karachi)',
+        bio: 'Expert in securing high-footfall locations for hotspot installations, ensuring optimal network coverage across the city.',
+        photo: '', order: 18
+    },
+    {
+        id: 'tm_11', name: 'Mohsin Sabri', designation: 'Sites Acquisition Officer (Karachi)',
+        bio: 'Works on the ground to identify and acquire prime sites for our WiFi hotspots, fueling our network expansion strategy.',
         photo: '', order: 19
-    }
+    },
 ];
 
 // Site Configuration
@@ -350,9 +345,9 @@ export const api = {
     team: {
         async getAll(): Promise<TeamMember[]> {
             await sleep(SLEEP_TIME);
-            const data = localStorage.getItem('team_members_v20');
+            const data = localStorage.getItem('team_members_v27');
             if (data === null) {
-                localStorage.setItem('team_members_v20', JSON.stringify(initialTeamMembers));
+                localStorage.setItem('team_members_v27', JSON.stringify(initialTeamMembers));
                 return initialTeamMembers;
             }
             const parsed: TeamMember[] = JSON.parse(data);
@@ -366,7 +361,7 @@ export const api = {
                 id: 'tm_' + Math.random().toString(36).substr(2, 9)
             };
             const updated = [...current, newMember];
-            localStorage.setItem('team_members_v20', JSON.stringify(updated));
+            localStorage.setItem('team_members_v27', JSON.stringify(updated));
             return { success: true, id: newMember.id };
         },
         async update(id: string, member: Partial<TeamMember>) {
@@ -375,14 +370,14 @@ export const api = {
             const updated = current.map(item =>
                 item.id === id ? { ...item, ...member } : item
             );
-            localStorage.setItem('team_members_v20', JSON.stringify(updated));
+            localStorage.setItem('team_members_v27', JSON.stringify(updated));
             return { success: true };
         },
         async delete(id: string) {
             await sleep(SLEEP_TIME);
             const current = await this.getAll();
             const updated = current.filter(item => item.id !== id);
-            localStorage.setItem('team_members_v20', JSON.stringify(updated));
+            localStorage.setItem('team_members_v27', JSON.stringify(updated));
             return { success: true };
         }
     },
