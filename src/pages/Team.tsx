@@ -116,7 +116,7 @@ const Team: React.FC = () => {
                     <h1>Meet Our <span className="team-highlight">Team</span></h1>
                     <p className="team-hero-desc">
                         A passionate group of innovators, engineers, and marketers working together
-                        to bridge the digital divide — one free WiFi hotspot at a time.
+                        to bridge the digital divide.
                     </p>
                 </div>
             </section>
