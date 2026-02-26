@@ -108,7 +108,7 @@ const initialLocations: WifiLocation[] = [
     }
 ];
 
-// Initial seed data for Team Members (18 cards)
+// Initial seed data for Team Members (19 cards)
 const initialTeamMembers: TeamMember[] = [
     {
         id: 'tm_mss', name: 'Muhammad Saeed Shaikh', designation: 'Chairman & Group President',
@@ -156,49 +156,54 @@ const initialTeamMembers: TeamMember[] = [
         photo: '', order: 10
     },
     {
+        id: 'tm_wm1', name: 'Waseem Mallah', designation: 'Manager Sindh Government Affairs',
+        bio: 'Manages strategic government relations and affairs in Sindh, facilitating key partnerships to advance Fakhir Group\'s digital inclusion mission.',
+        photo: '/team/waseem_mallah.jpg', order: 11
+    },
+    {
         id: 'tm_as1', name: 'Ms. Albina Shakirova', designation: 'Business Development Executive (UAE)',
         bio: 'Russian speaker driving business growth and strategic partnerships across the UAE, expanding Fakhir Group\'s global reach.',
-        photo: '/team/albina_shakirova.jpeg', order: 11
+        photo: '/team/albina_shakirova.jpeg', order: 12
     },
     {
         id: 'tm_ms1', name: 'Ms. Misbah Siddiqui', designation: 'Business Development Executive (Karachi)',
         bio: 'Focuses on expanding our reach in Karachi, building relationships with venue partners and driving business growth.',
-        photo: '', order: 12
+        photo: '', order: 13
     },
     {
         id: 'tm_at1', name: 'Ms Amna Tahir', designation: 'Business Development Manager (UAE Real Estate)',
         bio: 'Driving business development and strategic growth in the UAE real estate sector for Fakhir Group.',
-        photo: '/team/amna_tahir.jpeg', order: 13
+        photo: '/team/amna_tahir.jpeg', order: 14
     },
     {
         id: 'tm_8', name: 'Huzaifa Shiraz', designation: 'Business Development Executive (Karachi)',
         bio: 'Drives growth within the Karachi region, identifying new venues and opportunities for the AdsOnWifi network.',
-        photo: '/team/huzaifa_shiraz.png', order: 14
+        photo: '/team/huzaifa_shiraz.png', order: 15
     },
     {
         id: 'tm_hk1', name: 'Hamza Khan', designation: 'Business Development Executive (Karachi)',
         bio: 'Dedicated to identifying and securing high-footfall locations in Karachi to expand the AdsOnWifi network.',
-        photo: '', order: 15
+        photo: '', order: 16
     },
     {
         id: 'tm_7', name: 'Arhub Hussain', designation: 'Visual Designer',
         bio: 'Crafts the visual identity and user experience of our platforms, ensuring every touchpoint is engaging and visually stunning.',
-        photo: '', order: 16
+        photo: '', order: 17
     },
     {
         id: 'tm_ma1', name: 'Muskan Arif', designation: 'Management Trainee',
         bio: 'Supporting strategic operations and learning the ropes of our global network management as a Management Trainee.',
-        photo: '', order: 17
+        photo: '', order: 18
     },
     {
         id: 'tm_10', name: 'Syed Hasaan', designation: 'Sites Acquisition Officer (Karachi)',
         bio: 'Expert in securing high-footfall locations for hotspot installations, ensuring optimal network coverage across the city.',
-        photo: '', order: 18
+        photo: '', order: 19
     },
     {
         id: 'tm_11', name: 'Mohsin Sabri', designation: 'Sites Acquisition Officer (Karachi)',
         bio: 'Works on the ground to identify and acquire prime sites for our WiFi hotspots, fueling our network expansion strategy.',
-        photo: '', order: 19
+        photo: '', order: 20
     },
 ];
 
@@ -345,9 +350,9 @@ export const api = {
     team: {
         async getAll(): Promise<TeamMember[]> {
             await sleep(SLEEP_TIME);
-            const data = localStorage.getItem('team_members_v27');
+            const data = localStorage.getItem('team_members_v28');
             if (data === null) {
-                localStorage.setItem('team_members_v27', JSON.stringify(initialTeamMembers));
+                localStorage.setItem('team_members_v28', JSON.stringify(initialTeamMembers));
                 return initialTeamMembers;
             }
             const parsed: TeamMember[] = JSON.parse(data);
@@ -361,7 +366,7 @@ export const api = {
                 id: 'tm_' + Math.random().toString(36).substr(2, 9)
             };
             const updated = [...current, newMember];
-            localStorage.setItem('team_members_v27', JSON.stringify(updated));
+            localStorage.setItem('team_members_v28', JSON.stringify(updated));
             return { success: true, id: newMember.id };
         },
         async update(id: string, member: Partial<TeamMember>) {
@@ -370,14 +375,14 @@ export const api = {
             const updated = current.map(item =>
                 item.id === id ? { ...item, ...member } : item
             );
-            localStorage.setItem('team_members_v27', JSON.stringify(updated));
+            localStorage.setItem('team_members_v28', JSON.stringify(updated));
             return { success: true };
         },
         async delete(id: string) {
             await sleep(SLEEP_TIME);
             const current = await this.getAll();
             const updated = current.filter(item => item.id !== id);
-            localStorage.setItem('team_members_v27', JSON.stringify(updated));
+            localStorage.setItem('team_members_v28', JSON.stringify(updated));
             return { success: true };
         }
     },

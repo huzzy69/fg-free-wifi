@@ -126,7 +126,7 @@ const Team: React.FC = () => {
                 <div className="container">
                     {loading ? (
                         <div className="team-grid">
-                            {Array.from({ length: 18 }).map((_, i) => <SkeletonCard key={i} />)}
+                            {Array.from({ length: 19 }).map((_, i) => <SkeletonCard key={i} />)}
                         </div>
                     ) : (
                         <>
