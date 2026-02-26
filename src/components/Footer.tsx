@@ -50,7 +50,7 @@ const Footer: React.FC = () => {
                 <div className="footer-col">
                     <h3>Contact Us</h3>
                     <ul className="contact-list">
-                        <li><MapPin size={16} /> <span>{config.contactAddress}</span></li>
+                        <li><MapPin size={16} /> <a href="https://maps.google.com/?q=B1-104+UK+Square+Federal+B+Area+Karachi" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'underline', textDecorationStyle: 'dotted' }}>{config.contactAddress}</a></li>
                         <li><Phone size={16} /> <span>{config.contactPhone}</span></li>
                         <li><Mail size={16} /> <span>{config.contactEmail}</span></li>
                     </ul>

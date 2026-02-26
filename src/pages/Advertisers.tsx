@@ -367,7 +367,7 @@ const Advertisers: React.FC = () => {
                                     <Building size={24} className="text-primary" />
                                     <div>
                                         <h4>Visit Us</h4>
-                                        <p>B1-104, UK Square, Federal B. Area, Karachi</p>
+                                        <p><a href="https://maps.google.com/?q=B1-104+UK+Square+Federal+B+Area+Karachi" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'underline', textDecorationStyle: 'dotted' }}>B1-104, UK Square, Federal B. Area, Karachi</a></p>
                                     </div>
                                 </div>
                             </div>
