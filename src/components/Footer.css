@@ -79,10 +79,17 @@
 
 .contact-list li {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 0.8rem;
     margin-bottom: 1rem;
     color: #a0a0a0;
+}
+
+.contact-list li svg {
+    margin-top: 4px;
+    /* Adjust as needed for visual alignment with the first line of text */
+    flex-shrink: 0;
+    /* Prevent the icon from shrinking */
 }
 
 /* Footer Bottom Multi-row Styles */

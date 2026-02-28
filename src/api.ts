@@ -153,7 +153,7 @@ const initialTeamMembers: TeamMember[] = [
     {
         id: 'tm_5', name: 'Aquib Ali', designation: 'Business Development Manager (SME & Govt. Sector)',
         bio: 'Leading strategic partnerships with small-to-medium enterprises and government bodies to expand the AdsOnWifi footprint.',
-        photo: '', order: 10
+        photo: '/team/aquib_ali.png', order: 10
     },
     {
         id: 'tm_wm1', name: 'Waseem Mallah', designation: 'Manager Sindh Government Affairs',
@@ -183,7 +183,7 @@ const initialTeamMembers: TeamMember[] = [
     {
         id: 'tm_hk1', name: 'Hamza Khan', designation: 'Business Development Executive (Karachi)',
         bio: 'Dedicated to identifying and securing high-footfall locations in Karachi to expand the AdsOnWifi network.',
-        photo: '', order: 16
+        photo: '/team/hamza_khan.jpg', order: 16
     },
     {
         id: 'tm_7', name: 'Arhub Hussain', designation: 'Visual Designer',
@@ -213,7 +213,7 @@ const initialConfig = {
     logoUrl: '/team/logo.jpeg',
     contactEmail: 'info@fakhirgroup.com',
     contactPhone: '0334-5588889',
-    contactAddress: 'B1-104, UK Square, Federal B. Area, Karachi',
+    contactAddress: '1405, Ibex Tower,Next to FTC Building, Karachi, Karachi, Pakistan',
     heroTitlePart1: 'FREE WiFi for Users.',
     heroTitleHighlight1: 'Revenue',
     heroTitlePart2: 'for Businesses.',
@@ -222,7 +222,7 @@ const initialConfig = {
     heroSubtitle: '',
     heroStat1Value: '50K+',
     heroStat1Label: 'Daily Impressions',
-    heroStat2Value: '200+',
+    heroStat2Value: '20+',
     heroStat2Label: 'Active Locations',
     heroStat3Value: '100%',
     heroStat3Label: 'View Rate',
@@ -242,16 +242,16 @@ export const api = {
     siteConfig: {
         async get() {
             await sleep(SLEEP_TIME);
-            const data = localStorage.getItem('siteConfig_v4');
+            const data = localStorage.getItem('siteConfig_v6');
             if (data === null) {
-                localStorage.setItem('siteConfig_v4', JSON.stringify(initialConfig));
+                localStorage.setItem('siteConfig_v6', JSON.stringify(initialConfig));
                 return initialConfig;
             }
 
             const parsed = JSON.parse(data);
             // Validation: if critical fields are missing (due to code updates), reset to initial
             if (!parsed.services || !parsed.heroStat1Value) {
-                localStorage.setItem('siteConfig_v4', JSON.stringify(initialConfig));
+                localStorage.setItem('siteConfig_v6', JSON.stringify(initialConfig));
                 return initialConfig;
             }
 
@@ -259,7 +259,7 @@ export const api = {
         },
         async update(config: any) {
             await sleep(SLEEP_TIME);
-            localStorage.setItem('siteConfig_v4', JSON.stringify(config));
+            localStorage.setItem('siteConfig_v6', JSON.stringify(config));
             return { success: true };
         }
     },
@@ -350,9 +350,9 @@ export const api = {
     team: {
         async getAll(): Promise<TeamMember[]> {
             await sleep(SLEEP_TIME);
-            const data = localStorage.getItem('team_members_v30');
+            const data = localStorage.getItem('team_members_v33');
             if (data === null) {
-                localStorage.setItem('team_members_v30', JSON.stringify(initialTeamMembers));
+                localStorage.setItem('team_members_v33', JSON.stringify(initialTeamMembers));
                 return initialTeamMembers;
             }
             const parsed: TeamMember[] = JSON.parse(data);
@@ -366,7 +366,7 @@ export const api = {
                 id: 'tm_' + Math.random().toString(36).substr(2, 9)
             };
             const updated = [...current, newMember];
-            localStorage.setItem('team_members_v30', JSON.stringify(updated));
+            localStorage.setItem('team_members_v33', JSON.stringify(updated));
             return { success: true, id: newMember.id };
         },
         async update(id: string, member: Partial<TeamMember>) {
@@ -375,14 +375,14 @@ export const api = {
             const updated = current.map(item =>
                 item.id === id ? { ...item, ...member } : item
             );
-            localStorage.setItem('team_members_v30', JSON.stringify(updated));
+            localStorage.setItem('team_members_v33', JSON.stringify(updated));
             return { success: true };
         },
         async delete(id: string) {
             await sleep(SLEEP_TIME);
             const current = await this.getAll();
             const updated = current.filter(item => item.id !== id);
-            localStorage.setItem('team_members_v30', JSON.stringify(updated));
+            localStorage.setItem('team_members_v33', JSON.stringify(updated));
             return { success: true };
         }
     },

@@ -33,7 +33,7 @@ const Locations: React.FC = () => {
                 <div className="container">
                     <div className="section-header text-center">
                         <h2>Why Partner with AdsOnWifi?</h2>
-                        <p className="section-desc">Join 200+ venues that have transformed their space with our WiFi solution.</p>
+                        <p className="section-desc">Join 20+ venues that have transformed their space with our WiFi solution.</p>
                     </div>
 
                     <div className="grid-cols-3">

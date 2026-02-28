@@ -103,7 +103,7 @@ const Contact: React.FC = () => {
                                     <MapPin className="text-primary" />
                                     <div>
                                         <h4>Visit Us</h4>
-                                        <p><a href="https://maps.google.com/?q=B1-104+UK+Square+Federal+B+Area+Karachi" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'underline', textDecorationStyle: 'dotted' }}>B1-104, UK Square, Federal B. Area, Karachi</a></p>
+                                        <p>1405, Ibex Tower,Next to FTC Building, Karachi, Karachi, Pakistan</p>
                                     </div>
                                 </div>
                             </div>

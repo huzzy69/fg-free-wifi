@@ -113,7 +113,7 @@ const Advertisers: React.FC = () => {
                         </div>
                         <div className="stat-item">
                             <MapPin size={32} className="stat-icon" />
-                            <h3><StatCounter end="200+" /></h3>
+                            <h3><StatCounter end="20+" /></h3>
                             <p>Active Locations</p>
                         </div>
                         <div className="stat-item">
@@ -367,7 +367,7 @@ const Advertisers: React.FC = () => {
                                     <Building size={24} className="text-primary" />
                                     <div>
                                         <h4>Visit Us</h4>
-                                        <p><a href="https://maps.google.com/?q=B1-104+UK+Square+Federal+B+Area+Karachi" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'underline', textDecorationStyle: 'dotted' }}>B1-104, UK Square, Federal B. Area, Karachi</a></p>
+                                        <p>1405, Ibex Tower,Next to FTC Building, Karachi, Karachi, Pakistan</p>
                                     </div>
                                 </div>
                             </div>

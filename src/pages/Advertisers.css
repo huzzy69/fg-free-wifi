@@ -364,6 +364,11 @@
     color: var(--color-text-light);
 }
 
+.contact-method svg {
+    margin-top: 4px;
+    flex-shrink: 0;
+}
+
 .download-section {
     margin-top: 2rem;
 }

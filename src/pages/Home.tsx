@@ -200,7 +200,7 @@ const Home: React.FC = () => {
                         </div>
                         <div className="cta-box">
                             <h3>Ready to get started?</h3>
-                            <p>Join the network of over 200+ locations and reach thousands of daily users.</p>
+                            <p>Join the network of over 20+ locations and reach thousands of daily users.</p>
                             <div className="cta-buttons-vertical">
                                 <Link to="/contact" className="btn btn-light btn-full">Contact Sales</Link>
                                 <Link to="/contact?tab=location" className="btn btn-outline-light btn-full">Get Free WiFi Device</Link>
