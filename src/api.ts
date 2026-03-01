@@ -126,11 +126,6 @@ const initialTeamMembers: TeamMember[] = [
         photo: '/team/Hamdan Bin Muhammad Al Balushi.jpeg', order: 3
     },
     {
-        id: 'tm_nb', name: 'Nabeel Bin Asghar Al Balushi', designation: 'Global Director Supply Chain',
-        bio: 'Optimizes the global supply chain and logistics network, ensuring efficient deployment of the fakhir group\'s infrastructure.',
-        photo: '', order: 4
-    },
-    {
         id: 'tm_b1', name: 'Ms. Azam Sadeghzadeh', designation: 'Global Head of Accounts & Finances',
         bio: 'Persian and English speaker. Directed global expansion strategy in Turkey and international markets, while aligning domestic stakeholders to strengthen financial connectivity and capital flow.',
         photo: '/team/azam_sadeghzadeh.jpeg', order: 6
@@ -350,9 +345,9 @@ export const api = {
     team: {
         async getAll(): Promise<TeamMember[]> {
             await sleep(SLEEP_TIME);
-            const data = localStorage.getItem('team_members_v33');
+            const data = localStorage.getItem('team_members_v34');
             if (data === null) {
-                localStorage.setItem('team_members_v33', JSON.stringify(initialTeamMembers));
+                localStorage.setItem('team_members_v34', JSON.stringify(initialTeamMembers));
                 return initialTeamMembers;
             }
             const parsed: TeamMember[] = JSON.parse(data);
@@ -366,7 +361,7 @@ export const api = {
                 id: 'tm_' + Math.random().toString(36).substr(2, 9)
             };
             const updated = [...current, newMember];
-            localStorage.setItem('team_members_v33', JSON.stringify(updated));
+            localStorage.setItem('team_members_v34', JSON.stringify(updated));
             return { success: true, id: newMember.id };
         },
         async update(id: string, member: Partial<TeamMember>) {
@@ -375,14 +370,14 @@ export const api = {
             const updated = current.map(item =>
                 item.id === id ? { ...item, ...member } : item
             );
-            localStorage.setItem('team_members_v33', JSON.stringify(updated));
+            localStorage.setItem('team_members_v34', JSON.stringify(updated));
             return { success: true };
         },
         async delete(id: string) {
             await sleep(SLEEP_TIME);
             const current = await this.getAll();
             const updated = current.filter(item => item.id !== id);
-            localStorage.setItem('team_members_v33', JSON.stringify(updated));
+            localStorage.setItem('team_members_v34', JSON.stringify(updated));
             return { success: true };
         }
     },
