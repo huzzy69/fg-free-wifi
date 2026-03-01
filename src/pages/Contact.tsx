@@ -150,8 +150,8 @@ const Contact: React.FC = () => {
                                         </div>
                                     </div>
                                     <div className="form-group">
-                                        <label>Message (Optional)</label>
-                                        <textarea name="message" value={formData.message} onChange={handleChange} rows={4} placeholder="Tell us more about your needs..."></textarea>
+                                        <label>Message *</label>
+                                        <textarea name="message" value={formData.message} onChange={handleChange} rows={4} required placeholder="Tell us more about your needs..."></textarea>
                                     </div>
                                     <button type="submit" className="btn btn-primary btn-full" disabled={isSubmitting}>
                                         {isSubmitting ? 'Submitting...' : (activeTab === 'advertiser' ? 'Become an Advertiser' : 'Request Free Internet')}

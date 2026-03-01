@@ -432,12 +432,13 @@ const Advertisers: React.FC = () => {
                                 </div>
 
                                 <div className="form-group">
-                                    <label htmlFor="budget">Monthly Budget</label>
+                                    <label htmlFor="budget">Monthly Budget *</label>
                                     <select
                                         id="budget"
                                         name="budget"
                                         value={formData.budget}
                                         onChange={handleChange}
+                                        required
                                     >
                                         <option value="">Select budget range</option>
                                         <option value="25k-50k">PKR 25,000 - 50,000</option>
@@ -448,13 +449,14 @@ const Advertisers: React.FC = () => {
                                 </div>
 
                                 <div className="form-group">
-                                    <label htmlFor="message">Message</label>
+                                    <label htmlFor="message">Message *</label>
                                     <textarea
                                         id="message"
                                         name="message"
                                         value={formData.message}
                                         onChange={handleChange}
                                         rows={4}
+                                        required
                                         placeholder="Tell us about your advertising goals..."
                                     ></textarea>
                                 </div>
