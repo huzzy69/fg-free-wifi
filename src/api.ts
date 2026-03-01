@@ -213,7 +213,7 @@ const initialConfig = {
     logoUrl: '/team/logo.jpeg',
     contactEmail: 'info@fakhirgroup.com',
     contactPhone: '0334-5588889',
-    contactAddress: '1405, Ibex Tower,Next to FTC Building, Karachi, Karachi, Pakistan',
+    contactAddress: '1405, Ibex Tower,Next to FTC Building,Karachi, Pakistan',
     heroTitlePart1: 'FREE WiFi for Users.',
     heroTitleHighlight1: 'Revenue',
     heroTitlePart2: 'for Businesses.',

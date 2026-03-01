@@ -367,7 +367,7 @@ const Advertisers: React.FC = () => {
                                     <Building size={24} className="text-primary" />
                                     <div>
                                         <h4>Visit Us</h4>
-                                        <p>1405, Ibex Tower,Next to FTC Building, Karachi, Karachi, Pakistan</p>
+                                        <p>1405, Ibex Tower,Next to FTC Building,Karachi, Pakistan</p>
                                     </div>
                                 </div>
                             </div>

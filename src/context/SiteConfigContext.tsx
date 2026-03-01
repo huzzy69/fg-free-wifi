@@ -53,7 +53,7 @@ const defaultConfig: SiteConfig = {
     heroStat2Label: 'Active Locations',
     heroStat3Value: '100%',
     heroStat3Label: 'View Rate',
-    contactAddress: '1405, Ibex Tower,Next to FTC Building, Karachi, Karachi, Pakistan',
+    contactAddress: '1405, Ibex Tower,Next to FTC Building,Karachi, Pakistan',
     services: [
         { id: '1', icon: 'MapPin', title: 'Pin-Point Advertising', description: 'Your ads on exact location' },
         { id: '2', icon: 'Wifi', title: 'Free Wifi', description: 'Free Internet services for all' },
