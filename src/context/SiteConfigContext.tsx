@@ -53,7 +53,7 @@ const defaultConfig: SiteConfig = {
     heroStat2Label: 'Active Locations',
     heroStat3Value: '100%',
     heroStat3Label: 'View Rate',
-    contactAddress: '1405 Ibex Tower,Next to FTC Building,Karachi, Pakistan',
+    contactAddress: '1405 Ibex Tower, Next to FTC Building, Karachi, Pakistan',
     services: [
         { id: '1', icon: 'MapPin', title: 'Pin-Point Advertising', description: 'Your ads on exact location' },
         { id: '2', icon: 'Wifi', title: 'Free Wifi', description: 'Free Internet services for all' },
@@ -72,7 +72,7 @@ const SiteConfigContext = createContext<SiteConfigContextType | undefined>(undef
 export const SiteConfigProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
     const [isLoading, setIsLoading] = useState(true);
     const [config, setConfig] = useState<SiteConfig>(() => {
-        const savedConfig = localStorage.getItem('siteConfig_v6');
+        const savedConfig = localStorage.getItem('siteConfig_v7');
         return savedConfig ? JSON.parse(savedConfig) : defaultConfig;
     });
 

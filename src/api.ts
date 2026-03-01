@@ -213,7 +213,7 @@ const initialConfig = {
     logoUrl: '/team/logo.jpeg',
     contactEmail: 'info@fakhirgroup.com',
     contactPhone: '0334-5588889',
-    contactAddress: '1405 Ibex Tower,Next to FTC Building,Karachi, Pakistan',
+    contactAddress: '1405 Ibex Tower, Next to FTC Building, Karachi, Pakistan',
     heroTitlePart1: 'FREE WiFi for Users.',
     heroTitleHighlight1: 'Revenue',
     heroTitlePart2: 'for Businesses.',
@@ -242,16 +242,16 @@ export const api = {
     siteConfig: {
         async get() {
             await sleep(SLEEP_TIME);
-            const data = localStorage.getItem('siteConfig_v6');
+            const data = localStorage.getItem('siteConfig_v7');
             if (data === null) {
-                localStorage.setItem('siteConfig_v6', JSON.stringify(initialConfig));
+                localStorage.setItem('siteConfig_v7', JSON.stringify(initialConfig));
                 return initialConfig;
             }
 
             const parsed = JSON.parse(data);
             // Validation: if critical fields are missing (due to code updates), reset to initial
             if (!parsed.services || !parsed.heroStat1Value) {
-                localStorage.setItem('siteConfig_v6', JSON.stringify(initialConfig));
+                localStorage.setItem('siteConfig_v7', JSON.stringify(initialConfig));
                 return initialConfig;
             }
 
@@ -259,7 +259,7 @@ export const api = {
         },
         async update(config: any) {
             await sleep(SLEEP_TIME);
-            localStorage.setItem('siteConfig_v6', JSON.stringify(config));
+            localStorage.setItem('siteConfig_v7', JSON.stringify(config));
             return { success: true };
         }
     },
