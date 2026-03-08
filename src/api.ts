@@ -118,82 +118,77 @@ const initialTeamMembers: TeamMember[] = [
     {
         id: 'tm_pg', name: 'Ms. Patricia Garcia', designation: 'Global Head of Audits & Compliance',
         bio: 'CPA from Spain, speaking English and Spanish. Currently a Joint Partner at Baker Tilly, Houston, ensuring the highest standards of transparency for Fakhir Group.',
-        photo: '/team/patricia_garcia.jpeg', order: 2
+        photo: '/dist/team/patricia_garcia.jpeg', order: 2
     },
     {
         id: 'tm_hbb', name: 'Hamdan Bin Muhammad Al Balushi', designation: 'Global Director Government Affairs',
         bio: 'Facilitates strategic relationships and collaboration with government entities worldwide to drive the fakhir group\'s digital transformation.',
-        photo: '/team/Hamdan Bin Muhammad Al Balushi.jpeg', order: 3
+        photo: '/dist/team/Hamdan Bin Muhammad Al Balushi.jpeg', order: 3
     },
     {
         id: 'tm_b1', name: 'Ms. Azam Sadeghzadeh', designation: 'Global Head of Accounts & Finances',
         bio: 'Persian and English speaker. Directed global expansion strategy in Turkey and international markets, while aligning domestic stakeholders to strengthen financial connectivity and capital flow.',
-        photo: '/team/azam_sadeghzadeh.jpeg', order: 6
+        photo: '/dist/team/azam_sadeghzadeh.jpeg', order: 6
     },
     {
         id: 'tm_z1', name: 'Zubair Paracha', designation: 'Head of Commercials (Pakistan)',
         bio: 'Leading strategic operations and nationwide expansion in Pakistan, focusing on high-level partnerships and digital inclusion.',
-        photo: '/team/zubair_paracha.png', order: 7
+        photo: '/dist/team/zubair_paracha.png', order: 7
     },
     {
         id: 'tm_mbs', name: 'Muhammad Bin Saeed', designation: 'Head of Operations',
         bio: 'Leading strategic operations and nationwide expansion in Pakistan, focusing on high-level partnerships and digital inclusion.',
-        photo: '/team/muhammad_bin_saeed.png', order: 8
+        photo: '/dist/team/muhammad_bin_saeed.png', order: 8
     },
     {
         id: 'tm_4', name: 'Ms. Rahima Ejaz', designation: 'Human Resources Manager (Pakistan)',
         bio: 'Champions a culture of innovation and excellence, managing talent acquisition and development across our growing regional teams.',
-        photo: '/team/rahima_ejaz_v2.png', order: 9
+        photo: '/dist/team/rahima_ejaz_v2.png', order: 9
     },
     {
         id: 'tm_5', name: 'Aquib Ali', designation: 'Business Development Manager (SME & Govt. Sector)',
         bio: 'Leading strategic partnerships with small-to-medium enterprises and government bodies to expand the AdsOnWifi footprint.',
-        photo: '/team/aquib_ali.png', order: 10
+        photo: '/dist/team/aquib_ali.png', order: 10
     },
     {
         id: 'tm_wm1', name: 'Waseem Mallah', designation: 'Manager Sindh Government Affairs',
         bio: 'Manages strategic government relations and affairs in Sindh, facilitating key partnerships to advance Fakhir Group\'s digital inclusion mission.',
-        photo: '/team/waseem_mallah.jpg', order: 11
+        photo: '/dist/team/waseem_mallah.jpg', order: 11
     },
     {
         id: 'tm_as1', name: 'Ms. Albina Shakirova', designation: 'Business Development Executive (UAE)',
         bio: 'Russian speaker driving business growth and strategic partnerships across the UAE, expanding Fakhir Group\'s global reach.',
-        photo: '/team/albina_shakirova.jpeg', order: 12
+        photo: '/dist/team/albina_shakirova.jpeg', order: 12
     },
     {
         id: 'tm_ms1', name: 'Ms. Misbah Siddiqui', designation: 'Business Development Executive (Karachi)',
         bio: 'Focuses on expanding our reach in Karachi, building relationships with venue partners and driving business growth.',
-        photo: '/team/misbah_siddiqui.png', order: 13
+        photo: '/dist/team/misbah_siddiqui.png', order: 13
     },
     {
         id: 'tm_at1', name: 'Ms Amna Tahir', designation: 'Business Development Manager (UAE Real Estate)',
         bio: 'Driving business development and strategic growth in the UAE real estate sector for Fakhir Group.',
-        photo: '/team/amna_tahir.jpeg', order: 14
+        photo: '/dist/team/amna_tahir.jpeg', order: 14
     },
     {
         id: 'tm_8', name: 'Huzaifa Shiraz', designation: 'Business Development Executive (Karachi)',
         bio: 'Drives growth within the Karachi region, identifying new venues and opportunities for the AdsOnWifi network.',
-        photo: '/team/huzaifa_shiraz.png', order: 15
+        photo: '/dist/team/huzaifa_shiraz.png', order: 15
     },
     {
         id: 'tm_hk1', name: 'Hamza Khan', designation: 'Business Development Executive (Karachi)',
         bio: 'Dedicated to identifying and securing high-footfall locations in Karachi to expand the AdsOnWifi network.',
-        photo: '/team/hamza_khan.jpg', order: 16
+        photo: '/dist/team/hamza_khan.jpg', order: 16
     },
     {
         id: 'tm_7', name: 'Arhub Hussain', designation: 'Visual Designer',
         bio: 'Crafts the visual identity and user experience of our platforms, ensuring every touchpoint is engaging and visually stunning.',
-        photo: '/team/arhub.jpeg', order: 17
-    },
-    {
-        id: 'tm_ma1', name: 'Muskan Arif', designation: 'Management Trainee',
-        bio: 'Supporting strategic operations and learning the ropes of our global network management as a Management Trainee.',
-        photo: '', order: 18
+        photo: '/dist/team/arhub.jpeg', order: 17
     },
     {
         id: 'tm_10', name: 'Syed Hasaan', designation: 'Sites Acquisition Officer (Karachi)',
         bio: 'Expert in securing high-footfall locations for hotspot installations, ensuring optimal network coverage across the city.',
-        photo: '/team/syed_hasaan.jfif', order: 19
+        photo: '/dist/team/syed_hasaan.jpg', order: 19
     },
     {
         id: 'tm_11', name: 'Mohsin Sabri', designation: 'Sites Acquisition Officer (Karachi)',
@@ -252,7 +247,7 @@ export const api = {
 
             return parsed;
         },
-        async update(config: any) {
+        async update(config: Record<string, unknown>) {
             await sleep(SLEEP_TIME);
             localStorage.setItem('siteConfig_v7', JSON.stringify(config));
             return { success: true };
@@ -345,9 +340,9 @@ export const api = {
     team: {
         async getAll(): Promise<TeamMember[]> {
             await sleep(SLEEP_TIME);
-            const data = localStorage.getItem('team_members_v42');
+            const data = localStorage.getItem('team_members_v43');
             if (data === null) {
-                localStorage.setItem('team_members_v42', JSON.stringify(initialTeamMembers));
+                localStorage.setItem('team_members_v43', JSON.stringify(initialTeamMembers));
                 return initialTeamMembers;
             }
             const parsed: TeamMember[] = JSON.parse(data);
@@ -361,7 +356,7 @@ export const api = {
                 id: 'tm_' + Math.random().toString(36).substr(2, 9)
             };
             const updated = [...current, newMember];
-            localStorage.setItem('team_members_v42', JSON.stringify(updated));
+            localStorage.setItem('team_members_v43', JSON.stringify(updated));
             return { success: true, id: newMember.id };
         },
         async update(id: string, member: Partial<TeamMember>) {
@@ -370,14 +365,14 @@ export const api = {
             const updated = current.map(item =>
                 item.id === id ? { ...item, ...member } : item
             );
-            localStorage.setItem('team_members_v42', JSON.stringify(updated));
+            localStorage.setItem('team_members_v43', JSON.stringify(updated));
             return { success: true };
         },
         async delete(id: string) {
             await sleep(SLEEP_TIME);
             const current = await this.getAll();
             const updated = current.filter(item => item.id !== id);
-            localStorage.setItem('team_members_v42', JSON.stringify(updated));
+            localStorage.setItem('team_members_v43', JSON.stringify(updated));
             return { success: true };
         }
     },

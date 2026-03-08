@@ -38,24 +38,24 @@ const TestimonialSlider: React.FC = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isAnimating, setIsAnimating] = useState(false);
 
-    const nextSlide = () => {
+    const nextSlide = React.useCallback(() => {
         if (isAnimating) return;
         setIsAnimating(true);
         setCurrentIndex((prev) => (prev + 1) % testimonials.length);
         setTimeout(() => setIsAnimating(false), 500);
-    };
+    }, [isAnimating]);
 
-    const prevSlide = () => {
+    const prevSlide = React.useCallback(() => {
         if (isAnimating) return;
         setIsAnimating(true);
         setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
         setTimeout(() => setIsAnimating(false), 500);
-    };
+    }, [isAnimating]);
 
     useEffect(() => {
         const timer = setInterval(nextSlide, 5000);
         return () => clearInterval(timer);
-    }, [currentIndex, isAnimating]);
+    }, [nextSlide]);
 
     return (
         <div className="testimonial-slider-container">

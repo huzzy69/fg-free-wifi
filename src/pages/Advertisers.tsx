@@ -65,7 +65,8 @@ const Advertisers: React.FC = () => {
                 budget: '',
                 message: ''
             });
-        } catch (error) {
+        } catch (err) {
+            console.error('Submission error:', err);
             alert('Something went wrong. Please try again.');
         } finally {
             setIsSubmitting(false);

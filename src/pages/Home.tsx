@@ -7,7 +7,7 @@ import StatCounter from '../components/StatCounter';
 import TestimonialSlider from '../components/TestimonialSlider';
 import './Home.css';
 
-const iconMap: any = {
+const iconMap: Record<string, React.ElementType> = {
     Wifi, BarChart3, MapPin, TrendingUp, CheckCircle
 };
 

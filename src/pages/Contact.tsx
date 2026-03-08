@@ -61,7 +61,7 @@ const Contact: React.FC = () => {
                 email: '',
                 message: ''
             });
-        } catch (error) {
+        } catch {
             alert('Something went wrong. Please try again.');
         } finally {
             setIsSubmitting(false);
