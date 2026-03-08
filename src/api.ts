@@ -138,7 +138,7 @@ const initialTeamMembers: TeamMember[] = [
     {
         id: 'tm_mbs', name: 'Muhammad Bin Saeed', designation: 'Head of Operations',
         bio: 'Leading strategic operations and nationwide expansion in Pakistan, focusing on high-level partnerships and digital inclusion.',
-        photo: '/team/muhammad_bin_saeed.jpg', order: 8
+        photo: '/team/muhammad_bin_saeed.png', order: 8
     },
     {
         id: 'tm_4', name: 'Ms. Rahima Ejaz', designation: 'Human Resources Manager (Pakistan)',
