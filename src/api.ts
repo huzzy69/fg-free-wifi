@@ -340,9 +340,9 @@ export const api = {
     team: {
         async getAll(): Promise<TeamMember[]> {
             await sleep(SLEEP_TIME);
-            const data = localStorage.getItem('team_members_v46');
+            const data = localStorage.getItem('team_members_v47');
             if (data === null) {
-                localStorage.setItem('team_members_v46', JSON.stringify(initialTeamMembers));
+                localStorage.setItem('team_members_v47', JSON.stringify(initialTeamMembers));
                 return initialTeamMembers;
             }
             const parsed: TeamMember[] = JSON.parse(data);
@@ -356,7 +356,7 @@ export const api = {
                 id: 'tm_' + Math.random().toString(36).substr(2, 9)
             };
             const updated = [...current, newMember];
-            localStorage.setItem('team_members_v46', JSON.stringify(updated));
+            localStorage.setItem('team_members_v47', JSON.stringify(updated));
             return { success: true, id: newMember.id };
         },
         async update(id: string, member: Partial<TeamMember>) {
@@ -365,14 +365,14 @@ export const api = {
             const updated = current.map(item =>
                 item.id === id ? { ...item, ...member } : item
             );
-            localStorage.setItem('team_members_v46', JSON.stringify(updated));
+            localStorage.setItem('team_members_v47', JSON.stringify(updated));
             return { success: true };
         },
         async delete(id: string) {
             await sleep(SLEEP_TIME);
             const current = await this.getAll();
             const updated = current.filter(item => item.id !== id);
-            localStorage.setItem('team_members_v46', JSON.stringify(updated));
+            localStorage.setItem('team_members_v47', JSON.stringify(updated));
             return { success: true };
         }
     },
